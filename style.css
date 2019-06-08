@@ -1,0 +1,26 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "Links Search-bar Search-bar . . . . . . Weather-and-location Weather-and-location" ". . . . Clock Clock Clock Clock . . ." ". . . . Welcome-message Welcome-message Welcome-message Welcome-message . . ." ". . . . Focus-for-the-day Focus-for-the-day Focus-for-the-day Focus-for-the-day . . ." "Settings Photo-location-and-author . . Daily-Quote Daily-Quote Daily-Quote Daily-Quote . . To-do-list";
+}
+
+.Links { grid-area: Links; }
+
+.Search-bar { grid-area: Search-bar; }
+
+.Clock { grid-area: Clock; }
+
+.Welcome-message { grid-area: Welcome-message; }
+
+.Focus-for-the-day { grid-area: Focus-for-the-day; }
+
+.Daily-Quote { grid-area: Daily-Quote; }
+
+.Weather-and-location { grid-area: Weather-and-location; }
+
+.To-do-list { grid-area: To-do-list; }
+
+.Settings { grid-area: Settings; }
+
+.Photo-location-and-author { grid-area: Photo-location-and-author; }
