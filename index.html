@@ -1,42 +1,115 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <title>New Tab</title>
+    <title>Momentum-Clone-V9ToucansT05</title>
 
     <!-- Element below makes the page responsible to mobile devices  -->
-    <meta name="viewport" contents="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" contents="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="./js/ChooseEngine.js"></script>
   </head>
 
   <body>
     <div class="grid-container">
-
-        <!-- Links bar -->
-        <div class="Links">Links</div>
-        <!-- Search bar goes here -->
-        <div class="Search-bar"> Search bar goes here</div>
-        <!-- Clock -->
-        <div class="Clock"> Clock goes here</div>
-        <!-- Welcome message -->
-        <div class="Welcome-message">Welcome message here</div>
-        <!-- Focus for the day; user enters single to do -->
-        <div class="Focus-for-the-day"> User enters todo</div>
-        <!-- Daily quote/mantra -->
-        <div class="Daily-Quote">Daily quote</div>
-        <!--  Weather and location-->
-        <div class="Weather-and-location">Local weather/location</div>
-        <!-- To do list -->
-        <div class="To-do-list"> To-do List</div>
-        <!-- Settings -->
-        <div class="Settings">Settings for page</div>
-        <!-- Photo credits/location -->
-        <div class="Photo-location-and-author">Photo Location and author</div>
+      <!-- Links bar -->
+      <div class="Links">Links</div>
+      <!-- Search bar goes here -->
+      <div class="Search-bar">
+        <form id="cse-search-box" class="d-flex" action="http://google.com/cse">
+          <button
+            type="submit"
+            name="sa"
+            value="Search"
+            class="search-i border border-0"
+          >
+            <i class="fa fa-search"></i>
+          </button>
+          <input
+            type="hidden"
+            name="cx"
+            value="013692888217153185597:p03wtssr4lq"
+          />
+          <input
+            type="hidden"
+            name="ie"
+            value="UTF-8"
+            class="border border-0"
+          />
+          <input type="text" name="q" class=" border border-0" />
+          <div class="Search-engine-box">
+            <img
+              id="ChooseSearch"
+              class="p-2 search-logo text-right"
+              src="./img/logo/bing_icon-icons.com_62711.svg"
+            />
+            <i class="search-angle-i fa fa-angle-down"></i>
+            <div id="Search-engine-modal">
+              <p class="SE-title">SEARCH WITH</p>
+              <ul class="searchtypes">
+                <li id="bing" class="searchtype">
+                  <img
+                    class="searchtype-i"
+                    src="./img/logo/bing_icon-icons.com_62711.svg"
+                  />Bing
+                </li>
+                <li id="google" class="searchtype">
+                  <img
+                    class="searchtype-i"
+                    src="./img/logo/1492616990-1-google-search-logo-engine-service-suits_83412.svg"
+                  />Google
+                </li>
+                <li id="DuckDuckGo" class="searchtype">
+                  <img
+                    class="searchtype-i"
+                    src="./img/logo/DuckDuckGo_icon-icons.com_67089.svg"
+                  />DuckDuckGo
+                </li>
+              </ul>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- Clock -->
+      <div class="Clock">Clock goes here</div>
+      <!-- Welcome message -->
+      <div class="Welcome-message">Welcome message here</div>
+      <!-- Focus for the day; user enters single to do -->
+      <div class="Focus-for-the-day">User enters todo</div>
+      <!-- Daily quote/mantra -->
+      <div class="Daily-Quote">Daily quote</div>
+      <!--  Weather and location-->
+      <div class="Weather-and-location">Local weather/location</div>
+      <!-- To do list -->
+      <div class="To-do-list">To-do List</div>
+      <!-- Settings -->
+      <div class="Settings">Settings for page</div>
+      <!-- Photo credits/location -->
+      <div class="Photo-location-and-author">Photo Location and author</div>
     </div>
   </body>
-
-  </html>
+</html>

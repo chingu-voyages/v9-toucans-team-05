@@ -1,27 +1,150 @@
+/*-----General----*/
+ul {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "Links Search-bar Search-bar . . . . . . Weather-and-location Weather-and-location" ". . . . Clock Clock Clock Clock . . ." ". . . . Welcome-message Welcome-message Welcome-message Welcome-message . . ." ". . . . Focus-for-the-day Focus-for-the-day Focus-for-the-day Focus-for-the-day . . ." "Settings Photo-location-and-author . . Daily-Quote Daily-Quote Daily-Quote Daily-Quote . . To-do-list";
-  justify-items: stretch; 
+  justify-items: stretch;
 }
 
-.Links { grid-area: Links; }
+html {
+  font-size: 62.5%;
+}
+/*-----LinksSection----*/
+.Links {
+  grid-area: Links;
+}
 
-.Search-bar { grid-area: Search-bar; }
+/*-----SearchSection----*/
 
-.Clock { grid-area: Clock; }
+.Search-bar {
+  grid-area: Search-bar;
+}
 
-.Welcome-message { grid-area: Welcome-message; }
+#cse-search-box {
+  border-bottom: 0.1rem solid #dee2e6 !important;
+  padding-bottom: 0.5rem;
+  width: 14rem;
+}
 
-.Focus-for-the-day { grid-area: Focus-for-the-day; }
+.search-i {
+  background: none;
+}
 
-.Daily-Quote { grid-area: Daily-Quote; }
+.Search-engine-box {
+  position: relative;
+  cursor: pointer;
+}
 
-.Weather-and-location { grid-area: Weather-and-location; }
+.search-angle-i {
+  position: absolute;
+  font-size: 0.7rem !important;
+  right: 0;
+  top: 0.5rem;
+  bottom: 0;
+}
 
-.To-do-list { grid-area: To-do-list; }
+.search-angle-i:hover {
+  color: rgba(20, 20, 20, 0.4);
+  transition: 0.3s;
+}
 
-.Settings { grid-area: Settings; }
+.search-logo {
+  position: absolute;
+  width: 2rem;
+  right: 0;
+}
 
-.Photo-location-and-author { grid-area: Photo-location-and-author; }
+#Search-engine-modal {
+  display: none;
+  width: 13rem;
+  position: absolute;
+  top: 3rem;
+  right: -2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border-top: none;
+  background: rgba(20, 20, 20, 0.9);
+  color: #fff;
+  font-weight: bold;
+}
+#Search-engine-modal:before {
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 0.7rem;
+  top: -1.9rem;
+  margin-right: 1rem;
+  border: solid transparent;
+  border-bottom-color: rgba(20, 20, 20, 0.9);
+  border-width: 1rem;
+  pointer-events: none;
+  content: " ";
+}
+
+.search-logo:hover + #Search-engine-modal {
+  display: block;
+}
+
+.SE-title {
+  font-size: 0.5rem;
+  margin-bottom: 0;
+}
+
+.searchtypes {
+  padding: 0.2rem;
+}
+
+.searchtype {
+  padding: 0.2rem;
+  font-size: 1rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+.searchtype:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.searchtype-i {
+  width: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+/*-----ClockSection----*/
+.Clock {
+  grid-area: Clock;
+}
+
+/*-----WelcomeSection----*/
+.Welcome-message {
+  grid-area: Welcome-message;
+}
+
+.Focus-for-the-day {
+  grid-area: Focus-for-the-day;
+}
+
+.Daily-Quote {
+  grid-area: Daily-Quote;
+}
+
+.Weather-and-location {
+  grid-area: Weather-and-location;
+}
+
+.To-do-list {
+  grid-area: To-do-list;
+}
+
+.Settings {
+  grid-area: Settings;
+}
+
+.Photo-location-and-author {
+  grid-area: Photo-location-and-author;
+}
