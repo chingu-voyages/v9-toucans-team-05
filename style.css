@@ -46,6 +46,7 @@ html {
 }
 
 .Search-engine-box {
+  position: relative;
   cursor: pointer;
 }
 
@@ -80,7 +81,7 @@ html {
   width: 13rem;
   position: absolute;
   top: 3rem;
-  left: 11rem;
+  right: -1rem;
   padding: 1rem;
   border-radius: 0.5rem;
   border-top: none;
