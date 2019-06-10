@@ -103,10 +103,6 @@ html {
   content: " ";
 }
 
-.search-logo:hover + #Search-engine-modal {
-  display: block;
-}
-
 .SE-title {
   font-size: 0.5rem;
   margin-bottom: 0;
