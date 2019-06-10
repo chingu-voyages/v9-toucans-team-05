@@ -40,57 +40,68 @@
       <div class="Links">Links</div>
       <!-- Search bar goes here -->
       <div class="Search-bar">
-        <form id="cse-search-box" class="d-flex" action="http://google.com/cse">
-          <button
-            type="submit"
-            name="sa"
-            value="Search"
-            class="search-i border border-0"
-          >
-            <i class="fa fa-search"></i>
-          </button>
-          <input
-            type="hidden"
-            name="cx"
-            value="013692888217153185597:p03wtssr4lq"
-          />
-          <input
-            type="hidden"
-            name="ie"
-            value="UTF-8"
-            class="border border-0"
-          />
-          <input type="text" name="q" class=" border border-0" />
-          <div class="Search-engine-box">
-            <img
-              id="ChooseSearch"
-              class="p-2 search-logo text-right"
-              src="./img/logo/bing_icon-icons.com_62711.svg"
+        <form id="cse-search-box" action="https://www.bing.com/">
+          <div class="d-flex search-hover">
+            <button
+              type="submit"
+              name="sa"
+              value="Search"
+              class="search-i border border-0"
+            >
+              <i class="fa fa-search"></i>
+            </button>
+            <input
+              type="hidden"
+              name="cx"
+              value="013692888217153185597:p03wtssr4lq"
             />
-            <i class="search-angle-i fa fa-angle-down"></i>
-            <div id="Search-engine-modal">
-              <p class="SE-title">SEARCH WITH</p>
-              <ul class="searchtypes">
-                <li id="bing" class="searchtype">
-                  <img
-                    class="searchtype-i"
-                    src="./img/logo/bing_icon-icons.com_62711.svg"
-                  />Bing
-                </li>
-                <li id="google" class="searchtype">
-                  <img
-                    class="searchtype-i"
-                    src="./img/logo/1492616990-1-google-search-logo-engine-service-suits_83412.svg"
-                  />Google
-                </li>
-                <li id="DuckDuckGo" class="searchtype">
-                  <img
-                    class="searchtype-i"
-                    src="./img/logo/DuckDuckGo_icon-icons.com_67089.svg"
-                  />DuckDuckGo
-                </li>
-              </ul>
+            <input
+              type="hidden"
+              name="ie"
+              value="UTF-8"
+              class="border border-0"
+            />
+            <input
+              type="text"
+              style="outline:0"
+              id="search-input"
+              name="q"
+              class="border border-0"
+            />
+            <div class="Search-engine-box d-flex">
+              <img
+                id="ChooseSearch"
+                class="p-2 search-logo text-right"
+                src="./img/logo/bing_icon-icons.com_62711.svg"
+              />
+              <i
+                id="SearchAngle"
+                class="search-angle-i fa fa-angle-down align-self-center"
+              ></i>
             </div>
+          </div>
+          <div id="Search-engine-modal">
+            <p class="SE-title">SEARCH WITH</p>
+            <ul class="searchtypes">
+              <li id="bing" class="searchtype">
+                <img
+                  class="searchtype-i"
+                  src="./img/logo/bing_icon-icons.com_62711.svg"
+                />Bing
+              </li>
+              <li id="google" class="searchtype">
+                <img
+                  class="searchtype-i"
+                  src="./img/logo/1492616990-1-google-search-logo-engine-service-suits_83412.svg"
+                />Google
+              </li>
+              <li id="DuckDuckGo" class="searchtype">
+                <img
+                  class="searchtype-i"
+                  src="./img/logo/DuckDuckGo_icon-icons.com_67089.svg"
+                />DuckDuckGo
+              </li>
+            </ul>
           </div>
         </form>
       </div>

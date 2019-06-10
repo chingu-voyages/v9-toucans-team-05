@@ -4,6 +4,10 @@ ul {
   margin-bottom: 0;
 }
 
+.active {
+  display: block;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -27,9 +31,14 @@ html {
 }
 
 #cse-search-box {
-  border-bottom: 0.1rem solid #dee2e6 !important;
+  height: 2rem;
+  width: 16rem;
+  cursor: pointer;
+}
+
+.search-hover {
   padding-bottom: 0.5rem;
-  width: 14rem;
+  height: 3rem;
 }
 
 .search-i {
@@ -37,16 +46,23 @@ html {
 }
 
 .Search-engine-box {
-  position: relative;
   cursor: pointer;
 }
 
+#ChooseSearch,
+#SearchAngle {
+  display: block;
+}
+
+.search-input {
+  width: 6rem;
+}
+.search-input:focus {
+  background-color: none;
+}
+
 .search-angle-i {
-  position: absolute;
   font-size: 0.7rem !important;
-  right: 0;
-  top: 0.5rem;
-  bottom: 0;
 }
 
 .search-angle-i:hover {
@@ -55,7 +71,6 @@ html {
 }
 
 .search-logo {
-  position: absolute;
   width: 2rem;
   right: 0;
 }
@@ -65,7 +80,7 @@ html {
   width: 13rem;
   position: absolute;
   top: 3rem;
-  right: -2rem;
+  left: 11rem;
   padding: 1rem;
   border-radius: 0.5rem;
   border-top: none;
