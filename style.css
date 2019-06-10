@@ -51,7 +51,7 @@ html {
 
 #ChooseSearch,
 #SearchAngle {
-  display: block;
+  display: none;
 }
 
 .search-input {
