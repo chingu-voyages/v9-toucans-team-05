@@ -1,7 +1,20 @@
 /*-----General----*/
+#bg-img {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.8;
+}
+
 ul {
   list-style-type: none;
   margin-bottom: 0;
+}
+
+imput {
+  background-color: none;
 }
 
 .active {
@@ -57,9 +70,7 @@ html {
 
 .search-input {
   width: 6rem;
-}
-.search-input:focus {
-  background-color: none;
+  background-color: transparent;
 }
 
 .search-angle-i {
