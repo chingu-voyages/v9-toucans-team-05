@@ -12,3 +12,33 @@ if (hour >= 4 && hour < 12) {
 } else {
   document.getElementById('message').innerHTML = "Good evening.";
 }
+
+// Weather
+if (navigator.geolocation) {
+ navigator.geolocation.getCurrentPosition(showPosition);
+} else {
+ alert('Geolocation is not supported in your browser');
+}
+
+function showPosition(position) {
+  var api = "https://fcc-weather-api.glitch.me/api/current?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
+
+  $.getJSON(api, function(data){
+    $("#location").html(data.name);
+    $("#temperature").html(data.main.temp + "°");
+
+    switch (data.weather[0].main) {
+      case "Clouds": $("#weather-icon").html("<i class='wi wi-day-cloudy'></i>");
+      break;
+      case "Clear Sky": $("#weather-icon").html("<i class='wi wi-day-sunny'></i>");
+      break;
+      case "Rain": $("#weather-icon").html("<i class='wi wi-rain-wind'></i>");
+      break;
+      case "Thunderstorm": $("#weather-icon").html("<i class='wi wi-thunderstorm'></i>");
+      break;
+      case "Snow": $("#weather-icon").html("<i class='wi wi-snow'></i>");
+      break;
+      case "Mist": $("#weather-icon").html("<i class='wi wi-fog'></i>");
+    }
+  });
+}
