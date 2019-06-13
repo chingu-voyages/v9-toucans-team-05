@@ -1,9 +1,11 @@
 
 // Time
-var time = moment().format('HH:mm');
+var update = function() {
+    document.getElementById('current-time').innerHTML = moment().format('HH:mm');
+};
+setInterval(update, 1000);
 
-document.getElementById('current-time').innerHTML = time;
-
+// Welcome Message
 var hour = moment().format('HH');
 if (hour >= 4 && hour < 12) {
  document.getElementById('message').innerHTML = "Good morning.";
@@ -25,7 +27,7 @@ function showPosition(position) {
 
   $.getJSON(api, function(data){
     $("#location").html(data.name);
-    $("#temperature").html(data.main.temp + "°");
+    $("#temperature").html(data.main.temp.toFixed(0) + "°");
 
     switch (data.weather[0].main) {
       case "Clouds": $("#weather-icon").html("<i class='wi wi-day-cloudy'></i>");
