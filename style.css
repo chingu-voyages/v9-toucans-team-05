@@ -184,6 +184,11 @@ ul {
   cursor: pointer;
 }
 
+.description {
+  color: var(--lightGrey);
+  font-size: 1rem;
+}
+
 .forecast-container {
   width: 430px;
   background-color: var(--darkOverlay);
