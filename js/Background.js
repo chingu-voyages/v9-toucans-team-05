@@ -130,12 +130,22 @@ window.onload = async function Background() {
     }
   }
   var bgTime = localStorage.getItem(timeframe);
+  var count = 0;
   while (!localStorage.getItem("BG_Rand10Img")) {
     await sleep(200);
+    if (count > 24) {
+      break;
+    }
+    count++;
   }
   var bgImages = JSON.parse(bgTime);
+  var count = 0;
   while (!bgImages) {
     await sleep(200);
+    if (count > 24) {
+      break;
+    }
+    count++;
   }
   document.getElementById("bg-img").style.backgroundImage =
     bgImages[Math.floor(Math.random() * bgImages.length)];
