@@ -112,6 +112,10 @@ async function fetchAll() {
   FetchItems();
   while (!localStorage.getItem("BG_Rand10Img")) {
     await sleep(200);
+    if (count > 24) {
+      break;
+    }
+    count++;
   }
   createTimeFrame();
 }
