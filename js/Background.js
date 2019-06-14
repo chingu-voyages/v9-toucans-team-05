@@ -1,4 +1,4 @@
-function FetchItems(){
+function FetchItems() {
   ("use strict");
   var value = "World Heritage";
   function createURL(value) {
@@ -37,81 +37,106 @@ function FetchItems(){
         k = parseInt(randNum[j]);
         urlObject[j] = data.hits[k].largeImageURL;
       }
-      localStorage.setItem("bgRand10Img", JSON.stringify(urlObject));
+      localStorage.setItem("BG_Rand10Img", JSON.stringify(urlObject));
     })
     .catch(function(err) {
       console.log(err);
     });
+  return localStorage.getItem("BG_Rand10Img");
 }
 
-function createTimeFrame(){
+function createTimeFrame() {
   var timeframeNum = [];
   for (var i = 0; i < 10; i++) {
     timeframeNum[i] = Math.floor(Math.random() * 10);
   }
-  
-  var Morning = [];
-  var Daytime = [];
-  var Night = [];
 
-  var imgJson = localStorage.getItem("bgRand10Img");
+  var BG_Morning = [];
+  var BG_Daytime = [];
+  var BG_Night = [];
+
+  var imgJson = localStorage.getItem("BG_Rand10Img");
   var obj = JSON.parse(imgJson);
 
-  for (var i =0; i<3; i++){
-    var j=i+3;
-    var k=i+6;
-    Morning[i] = "url(" + obj[timeframeNum[i]] + ")";
-    Daytime[i] = "url(" + obj[timeframeNum[j]] + ")";
-    Night[i] ="url(" + obj[timeframeNum[k]] + ")";
+  for (var i = 0; i < 3; i++) {
+    var j = i + 3;
+    var k = i + 6;
+    BG_Morning[i] = "url(" + obj[timeframeNum[i]] + ")";
+    BG_Daytime[i] = "url(" + obj[timeframeNum[j]] + ")";
+    BG_Night[i] = "url(" + obj[timeframeNum[k]] + ")";
   }
-    //Add 1 variable to set Total = 10
-    Night.push(obj[timeframeNum[9]]);
-  
+  //Add 1 variable to set Total = 10
+  BG_Night.push(obj[timeframeNum[9]]);
 
-  localStorage.setItem('Morning', JSON.stringify(Morning));
-  localStorage.setItem('Daytime', JSON.stringify(Daytime));
-  localStorage.setItem('Night',JSON.stringify(Night));
+  localStorage.setItem("BG_Morning", JSON.stringify(BG_Morning));
+  localStorage.setItem("BG_Daytime", JSON.stringify(BG_Daytime));
+  localStorage.setItem("BG_Night", JSON.stringify(BG_Night));
 }
 
-function setTimeFrame(){
+function setTimeFrame() {
   date = new Date();
-  today = (date.getMonth()+1+'/'+date.getDate());
-  yesterday = (date.getMonth()+'/'+date.getDate());
-  hour = (date.getHours());
+  today = "BG_" + (date.getMonth() + 1) + "/" + date.getDate();
+  yesterday = date.getMonth() + "/" + date.getDate();
+  hour = date.getHours();
   if (hour >= 4 && hour < 12) {
-    var timeframe = "Morning";
+    timeframe = "BG_Morning";
   } else if (hour >= 12 && hour < 20) {
-    var timeframe = "Daytime";
+    timeframe = "BG_Daytime";
   } else {
-    var timeframe = "Night";
+    timeframe = "BG_Night";
   }
 }
-window.onload = function Background() {
-  setTimeFrame();
-  if(hour==4){
-    localStorage.clear()
-    FetchItems();
-    createTimeFrame();
-  }else if(!localStorage.getItem("Morning")){
-    FetchItems();
-    createTimeFrame();
-  }else if (localStorage.getItem(timeframe)) {
-    document.getElementById("bg-img").style.backgroundImage = localStorage.getItem(timeframe);
-    console.log("you have already saved " + timeframe + " image!");
-      } else {
-        document.getElementById("bg-img").style.backgroundImage = timeframe;
-        localStorage.setItem(timeframe, img);
-      }
+
+function rmBG_Old() {
+  var RM_key = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    BG_key = localStorage.key(i);
+    if (BG_key.startsWith("BG_")) {
+      RM_key[i] = BG_key;
     }
-      
-    
-  
-
-  var hour = 20;
-
-  
-    
-    
   }
- 
+  for (var i = 0; i < RM_key.length; i++) {
+    localStorage.removeItem(RM_key[i]);
+  }
+}
+
+function sleep(msec) {
+  return new Promise(function(resolve) {
+    setTimeout(function() {
+      resolve();
+    }, msec);
+  });
+}
+
+async function fetchAll() {
+  FetchItems();
+  while (!localStorage.getItem("BG_Rand10Img")) {
+    await sleep(200);
+  }
+  createTimeFrame();
+}
+
+window.onload = async function Background() {
+  setTimeFrame();
+  if (!localStorage.getItem(timeframe)) {
+    rmBG_Old();
+    localStorage.setItem(today, date);
+    fetchAll();
+  } else {
+    if (!localStorage.getItem(today)) {
+      rmBG_Old();
+      localStorage.setItem(today, date);
+      fetchAll();
+    }
+  }
+  var bgTime = localStorage.getItem(timeframe);
+  while (!localStorage.getItem("BG_Rand10Img")) {
+    await sleep(200);
+  }
+  var bgImages = JSON.parse(bgTime);
+  while (!bgImages) {
+    await sleep(200);
+  }
+  document.getElementById("bg-img").style.backgroundImage =
+    bgImages[Math.floor(Math.random() * bgImages.length)];
 };
