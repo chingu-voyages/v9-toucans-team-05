@@ -166,8 +166,9 @@ ul {
   width: auto;
   text-align: right;
   font-size: 1.5rem;
-  padding-right: 20px;
-  padding-top: 20px;
+  padding-right: 10px;
+  padding-top: 10px;
+  margin: 10px;
 }
 
 .location {
@@ -184,12 +185,15 @@ ul {
 }
 
 .forecast-container {
-  width: auto;
+  width: 430px;
   background-color: var(--darkOverlay);
   color: white;
-  border-radius: 3px;
+  border-radius: 4px;
   text-align: left;
   padding: 15px;
+  margin: 10px;
+  display: none;
+  margin-left: auto;
 }
 
 .current-weather > .location {
@@ -206,22 +210,57 @@ hr {
   border: 0.5px solid var(--grey);
 }
 
+.forecast {
+  width: auto;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: -5px;
+}
+
 .day {
   display: inline-block;
+  height: 40px;
+  width: auto;
+}
+
+.day:hover {
+  background-color: rgba(79, 79, 81, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.day > .current-temp-icon {
+  position: relative;
+  top: -50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 80px;
 }
 
 .day > .current-temp-icon > .weather-icon {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .max-temperature, .min-temperature {
-  font-size: 1rem;
+  font-size: 0.8rem;
+  position: relative;
+  left: -10px;
 }
 
 .min-temperature {
   color: var(--lightGrey);
+  position: relative;
+  left: -22px;
 }
 
+.weekday {
+  font-size: 0.8rem;
+  color: var(--lightGrey);
+  height: auto;
+  text-align: center;
+}
 
 .To-do-list {
   grid-area: To-do-list;
