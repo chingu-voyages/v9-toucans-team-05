@@ -54,6 +54,7 @@ function showPosition(position) {
       weatherDescriptionFour = json.consolidated_weather[3].weather_state_name;
       weatherDescriptionFive = json.consolidated_weather[4].weather_state_name;
       weatherDescription = json.consolidated_weather[0].weather_state_name;
+      temp = json.consolidated_weather[0].the_temp.toFixed(0) + "°";
       tempTwo = json.consolidated_weather[1].max_temp.toFixed(0) + "°";
       tempMinTwo = json.consolidated_weather[1].min_temp.toFixed(0) + "°";
       tempThree = json.consolidated_weather[2].max_temp.toFixed(0) + "°";
@@ -218,27 +219,38 @@ function showPosition(position) {
   $('#day-two').click(function(){
     $(".weather-description").html(weatherDescriptionTwo);
     $('#current-temperature').remove();
-    var x = '<span class="max-temperature">' + tempTwo + '</span><span class="min-temperature-two">' + tempMinTwo + '</span>';
+    $('.max-temperature-det').remove();
+    $('.min-temperature-det').remove();
+    var x = '<span class="max-temperature-det">' + tempTwo + '</span><span class="min-temperature-det">' + tempMinTwo + '</span>';
     $('#current-temp-icon').append(x);
   });
   $('#day-three').click(function(){
     $(".weather-description").html(weatherDescriptionThree);
     $('#current-temperature').remove();
-    var x = '<span class="max-temperature">' + tempThree + '</span><span class="min-temperature">' + tempMinThree + '</span>';
+    $('.max-temperature-det').remove();
+    $('.min-temperature-det').remove();
+    var x = '<span class="max-temperature-det">' + tempThree + '</span><span class="min-temperature-det">' + tempMinThree + '</span>';
     $('#current-temp-icon').append(x);
   });
   $('#day-four').click(function(){
     $(".weather-description").html(weatherDescriptionFour);
-    $('#current-temperature', '#min-temperature', '#max-temperature').remove();
-    var x = '<span class="max-temperature">' + tempFour + '</span><span class="min-temperature">' + tempMinFour + '</span>';
+    $('#current-temperature').remove();
+    $('.max-temperature-det').remove();
+    $('.min-temperature-det').remove();
+    var x = '<span class="max-temperature-det">' + tempFour + '</span><span class="min-temperature-det">' + tempMinFour + '</span>';
     $('#current-temp-icon').append(x);
   });
   $('#day-five').click(function(){
     $(".weather-description").html(weatherDescriptionFive);
     $('#current-temperature').remove();
-    var x = '<span class="max-temperature">' + tempFive + '</span><span class="min-temperature">' + tempMinFive + '</span>';
+    $('.max-temperature-det').remove();
+    $('.min-temperature-det').remove();
+    var x = '<span class="max-temperature-det">' + tempFive + '</span><span class="min-temperature-det">' + tempMinFive + '</span>';
     $('#current-temp-icon').append(x);
   });
   $('#day-one').click(function(){
     $(".weather-description").html(weatherDescription);
+    $('.max-temperature-det').remove();
+    $('.min-temperature-det').remove();
+    $('#current-temp-icon').append('<span class="temperature" id="current-temperature">' + temp + '</span>')
   });

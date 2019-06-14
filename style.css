@@ -267,6 +267,11 @@ hr {
   text-align: center;
 }
 
+.min-temperature-det {
+  color: var(--lightGrey);
+  font-size: 2.5rem;
+}
+
 .To-do-list {
   grid-area: To-do-list;
 }
