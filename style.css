@@ -8,6 +8,12 @@ ul {
   display: block;
 }
 
+input {
+  border: none;
+  background: none;
+  -webkit-appearance: none;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -59,7 +65,7 @@ html {
   width: 6rem;
 }
 .search-input:focus {
-  background-color: none;
+  background-color: transparent;
 }
 
 .search-angle-i {

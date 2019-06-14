@@ -11,7 +11,7 @@ $(function() {
       $(".search-angle-i").hide();
     });
 
-  $("#ChooseSearch").on("click", function() {
+  $("#ChooseSearch,#SearchAngle").on("click", function() {
     if ($(this).hasClass("active")) {
       $(".active").removeClass("active");
       $("#Search-engine-modal").hide();
