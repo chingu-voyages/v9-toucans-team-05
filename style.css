@@ -9,6 +9,12 @@ body, html {
   width: 100%;
 }
 
+:root {
+  --darkOverlay: rgba(15,15,15,.925);
+  --grey: #4f4f51;
+  --lightGrey: #828893;
+}
+
 ul {
   list-style-type: none;
   margin-bottom: 0;
@@ -162,18 +168,60 @@ ul {
   font-size: 1.5rem;
   padding-right: 20px;
   padding-top: 20px;
-  line-height: 1.1;
 }
 
 .location {
   font-size: 1rem;
   width: 50%;
+}
+
+.right {
   margin-left: auto;
 }
 
 .Weather-and-location:hover {
   cursor: pointer;
 }
+
+.forecast-container {
+  width: auto;
+  background-color: var(--darkOverlay);
+  color: white;
+  border-radius: 3px;
+  text-align: left;
+  padding: 15px;
+}
+
+.current-weather > .location {
+  font-size: 1.5rem;
+}
+
+.current-temp-icon {
+  font-size: 4rem;
+  white-space: nowrap;
+}
+
+hr {
+  color: var(--grey);
+  border: 0.5px solid var(--grey);
+}
+
+.day {
+  display: inline-block;
+}
+
+.day > .current-temp-icon > .weather-icon {
+  font-size: 1.5rem;
+}
+
+.max-temperature, .min-temperature {
+  font-size: 1rem;
+}
+
+.min-temperature {
+  color: var(--lightGrey);
+}
+
 
 .To-do-list {
   grid-area: To-do-list;
