@@ -1,4 +1,14 @@
 /*-----General----*/
+body, html {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+}
+
 ul {
   list-style-type: none;
   margin-bottom: 0;
@@ -16,9 +26,6 @@ ul {
   justify-items: stretch;
 }
 
-html {
-  font-size: 62.5%;
-}
 /*-----LinksSection----*/
 .Links {
   grid-area: Links;
@@ -130,11 +137,14 @@ html {
 /*-----ClockSection----*/
 .Clock {
   grid-area: Clock;
+  font-size: 9rem;
+  font-weight: 500;
 }
 
 /*-----WelcomeSection----*/
 .Welcome-message {
   grid-area: Welcome-message;
+  font-size: 3rem;
 }
 
 .Focus-for-the-day {
@@ -147,6 +157,22 @@ html {
 
 .Weather-and-location {
   grid-area: Weather-and-location;
+  width: auto;
+  text-align: right;
+  font-size: 1.5rem;
+  padding-right: 20px;
+  padding-top: 20px;
+  line-height: 1.1;
+}
+
+.location {
+  font-size: 1rem;
+  width: 50%;
+  margin-left: auto;
+}
+
+.Weather-and-location:hover {
+  cursor: pointer;
 }
 
 .To-do-list {
