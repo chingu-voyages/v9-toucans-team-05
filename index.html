@@ -12,10 +12,9 @@
       crossorigin="anonymous"
     />
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -31,6 +30,7 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.5/css/weather-icons.min.css">
     <script type="text/javascript" src="./js/ChooseEngine.js"></script>
   </head>
 
@@ -106,15 +106,78 @@
         </form>
       </div>
       <!-- Clock -->
-      <div class="Clock">Clock goes here</div>
+      <div class="Clock">
+          <div class="current-time" id="current-time"><!-- JS Content --></div>
+      </div>
       <!-- Welcome message -->
-      <div class="Welcome-message">Welcome message here</div>
+      <div class="Welcome-message">
+        <div class="message" id="message"><!-- JS Content --></div>
+      </div>
       <!-- Focus for the day; user enters single to do -->
       <div class="Focus-for-the-day">User enters todo</div>
       <!-- Daily quote/mantra -->
       <div class="Daily-Quote">Daily quote</div>
       <!--  Weather and location-->
-      <div class="Weather-and-location">Local weather/location</div>
+      <div class="Weather-and-location">
+        <div class="temp-icon">
+          <span class ="weather-icon-one weather-icon" id="weather-icon"><!--JS content--></span>
+          <span class="temperature" id="temperature"><!--JS content--></span>
+        </div>
+        <div class="location right" id="location"><!--JS content--></div>
+        <div class="forecast-container">
+          <div class="current-weather">
+            <div class="location" id="forecast-location"></div>
+            <div class="weather-description description" id="weather-description"></div>
+            <div class="current-temp-icon" id="current-temp-icon">
+              <span class ="weather-icon-one" id="current-weather-icon"><!--JS content--></span>
+              <span class="temperature" id="current-temperature"><!--JS content--></span>
+            </div>
+          </div>
+          <hr>
+          <div class="forecast">
+            <div class="day" id="day-one">
+              <div class="weekday-one weekday"></div>
+              <div class="current-temp-icon">
+                <span class ="weather-icon-one weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                <span class="max-temperature" id="max-temperature"><!--JS content--></span>
+                <span class="min-temperature" id="min-temperature"><!--JS content--></span>
+              </div>
+            </div>
+            <div class="day" id="day-two">
+              <div class="weekday-two weekday"></div>
+              <div class="current-temp-icon">
+                <span class ="weather-icon-two weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                <span class="max-temperature-two max-temperature" id="max-temperature"><!--JS content--></span>
+                <span class="min-temperature-two min-temperature" id="min-temperature"><!--JS content--></span>
+              </div>
+            </div>
+            <div class="day" id="day-three">
+              <div class="weekday-three weekday"></div>
+              <div class="current-temp-icon">
+                <span class ="weather-icon-three weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                <span class="max-temperature-three max-temperature" id="max-temperature"><!--JS content--></span>
+                <span class="min-temperature-three min-temperature" id="min-temperature"><!--JS content--></span>
+              </div>
+            </div>
+            <div class="day" id="day-four">
+              <div class="weekday-four weekday"></div>
+              <div class="current-temp-icon">
+                <span class ="weather-icon-four weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                <span class="max-temperature-four max-temperature" id="max-temperature"><!--JS content--></span>
+                <span class="min-temperature-four min-temperature" id="min-temperature"><!--JS content--></span>
+              </div>
+            </div>
+            <div class="day" id="day-five">
+              <div class="weekday-five weekday"></div>
+              <div class="current-temp-icon">
+                <span class ="weather-icon-five weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                <span class="max-temperature-five max-temperature" id="max-temperature"><!--JS content--></span>
+                <span class="min-temperature-five min-temperature" id="min-temperature"><!--JS content--></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- To do list -->
       <div class="To-do-list">To-do List</div>
       <!-- Settings -->
@@ -122,5 +185,7 @@
       <!-- Photo credits/location -->
       <div class="Photo-location-and-author">Photo Location and author</div>
     </div>
+    <script src="js\moments.js" charset="utf-8"></script>
+    <script src="js\weather.js" charset="utf-8"></script>
   </body>
 </html>
