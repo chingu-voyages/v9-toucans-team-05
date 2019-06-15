@@ -30,6 +30,7 @@ ul {
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "Links Search-bar Search-bar . . . . . . Weather-and-location Weather-and-location" ". . . . Clock Clock Clock Clock . . ." ". . . . Welcome-message Welcome-message Welcome-message Welcome-message . . ." ". . . . Focus-for-the-day Focus-for-the-day Focus-for-the-day Focus-for-the-day . . ." "Settings Photo-location-and-author . . Daily-Quote Daily-Quote Daily-Quote Daily-Quote . . To-do-list";
   justify-items: stretch;
+  height: 100vh;
 }
 
 /*-----LinksSection----*/
