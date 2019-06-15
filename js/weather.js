@@ -278,5 +278,6 @@ function showPosition(position) {
     $('.forecast-day').remove();
     $('#current-weather-icon').remove();
     $('#forecast-icon').remove();
-    $('.weather-icon-one').clone().prependTo('#current-temp-icon').attr('id', 'forecast-icon');
+    $('.weather-icon-one:first').clone().prependTo('#current-temp-icon').attr('id', 'forecast-icon');
+
   });

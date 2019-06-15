@@ -190,15 +190,22 @@ ul {
 }
 
 .forecast-container {
+  position: absolute;
+  right: 15px;
   width: 430px;
   background-color: var(--darkOverlay);
   color: white;
   border-radius: 4px;
   text-align: left;
-  padding: 15px;
+  padding: 0px 15px;
   margin: 10px;
   display: none;
   margin-left: auto;
+}
+
+.current-weather {
+  position: relative;
+  top: -15px;
 }
 
 .current-weather > .location {
@@ -215,6 +222,8 @@ ul {
 hr {
   color: var(--grey);
   border: 0.5px solid var(--grey);
+  position: relative;
+  top: -15px;
 }
 
 .forecast {
@@ -223,7 +232,7 @@ hr {
   display: flex;
   flex-direction: row;
   position: relative;
-  top: -5px;
+  top: -15px;
 }
 
 .day {
@@ -254,6 +263,7 @@ hr {
   display: inline-block;
   color: var(--lightGrey);
   padding-left: 10px;
+  font-size: 1rem;
 }
 
 .max-temperature, .min-temperature {
@@ -278,6 +288,16 @@ hr {
 .min-temperature-det {
   color: var(--lightGrey);
   font-size: 2.5rem;
+}
+
+.forecast-container:before {
+  position: relative;
+  left: 370px;
+  top: -35px;
+  border: 10px solid transparent;
+  border-bottom-color: var(--darkOverlay);
+  pointer-events: none;
+  content: " ";
 }
 
 .To-do-list {
