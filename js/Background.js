@@ -1,3 +1,7 @@
+function intRandom(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function FetchItems() {
   ("use strict");
   var value = "World Heritage";
@@ -17,6 +21,7 @@ function FetchItems() {
   for (var i = 0; i < 10; i++) {
     randNum[i] = Math.floor(Math.random() * 200);
   }
+  console.log(randNum);
 
   randNum.sort(function(a, b) {
     return a < b ? -1 : 1;
@@ -47,9 +52,18 @@ function FetchItems() {
 
 function createTimeFrame() {
   var timeframeNum = [];
-  for (var i = 0; i < 10; i++) {
-    timeframeNum[i] = Math.floor(Math.random() * 10);
+  var min = 0,
+    max = 9;
+  for (i = min; i <= max; i++) {
+    while (true) {
+      var tmp = intRandom(min, max);
+      if (!timeframeNum.includes(tmp)) {
+        timeframeNum.push(tmp);
+        break;
+      }
+    }
   }
+  console.log(timeframeNum);
 
   var BG_Morning = [];
   var BG_Daytime = [];
@@ -66,7 +80,7 @@ function createTimeFrame() {
     BG_Night[i] = "url(" + obj[timeframeNum[k]] + ")";
   }
   //Add 1 variable to set Total = 10
-  BG_Night.push(obj[timeframeNum[9]]);
+  BG_Night.push("url(" + obj[timeframeNum[9]] + ")");
 
   localStorage.setItem("BG_Morning", JSON.stringify(BG_Morning));
   localStorage.setItem("BG_Daytime", JSON.stringify(BG_Daytime));
@@ -109,6 +123,7 @@ function sleep(msec) {
 }
 
 async function fetchAll() {
+  var count = 0;
   FetchItems();
   while (!localStorage.getItem("BG_Rand10Img")) {
     await sleep(200);
@@ -133,15 +148,15 @@ window.onload = async function Background() {
       fetchAll();
     }
   }
-  var bgTime = localStorage.getItem(timeframe);
   var count = 0;
-  while (!localStorage.getItem("BG_Rand10Img")) {
+  while (!localStorage.getItem(timeframe)) {
     await sleep(200);
     if (count > 24) {
       break;
     }
     count++;
   }
+  var bgTime = localStorage.getItem(timeframe);
   var bgImages = JSON.parse(bgTime);
   var count = 0;
   while (!bgImages) {
