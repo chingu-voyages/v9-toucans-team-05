@@ -24,7 +24,7 @@ var weatherDescription;
 var temp;
 var tempMin;
 
-$.getJSON('https://geoip-db.com/json/', function(position){
+$.getJSON('https://api.codetabs.com/v1/proxy?quest=https://geoip-db.com/json/', function(position){
     var geoApi = "https://api.codetabs.com/v1/proxy?quest=https://www.metaweather.com/api/location/search/?lattlong=" + position.latitude + "," + position.longitude;
     $.getJSON(geoApi, function(data){
       var weatherApi = "https://api.codetabs.com/v1/proxy?quest=https://www.metaweather.com/api/location/" + data[0].woeid;
