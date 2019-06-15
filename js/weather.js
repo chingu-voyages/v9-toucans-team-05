@@ -67,25 +67,25 @@ function showPosition(position) {
 
 
       switch (json.consolidated_weather[0].weather_state_abbr) {
-        case "lc": $(".weather-icon").html("<i class='wi wi-day-cloudy'></i>");
+        case "lc": $(".weather-icon-one").html("<i class='wi wi-day-cloudy'></i>");
         break;
-        case "hc": $(".weather-icon").html("<i class='wi wi-cloudy'></i>");
+        case "hc": $(".weather-icon-one").html("<i class='wi wi-cloudy'></i>");
         break;
-        case "c": $(".weather-icon").html("<i class='wi wi-day-sunny'></i>");
+        case "c": $(".weather-icon-one").html("<i class='wi wi-day-sunny'></i>");
         break;
-        case "hr": $(".weather-icon").html("<i class='wi wi-rain-wind'></i>");
+        case "hr": $(".weather-icon-one").html("<i class='wi wi-rain-wind'></i>");
         break;
-        case "lr": $(".weather-icon").html("<i class='wi wi-rain-wind'></i>");
+        case "lr": $(".weather-icon-one").html("<i class='wi wi-rain-wind'></i>");
         break;
-        case "t": $(".weather-icon").html("<i class='wi wi-thunderstorm'></i>");
+        case "t": $(".weather-icon-one").html("<i class='wi wi-thunderstorm'></i>");
         break;
-        case "sn": $(".weather-icon").html("<i class='wi wi-snow'></i>");
+        case "sn": $(".weather-icon-one").html("<i class='wi wi-snow'></i>");
         break;
-        case "sl": $(".weather-icon").html("<i class='wi wi-sleet'></i>");
+        case "sl": $(".weather-icon-one").html("<i class='wi wi-sleet'></i>");
         break;
-        case "h": $(".weather-icon").html("<i class='wi wi-hail'></i>");
+        case "h": $(".weather-icon-one").html("<i class='wi wi-hail'></i>");
         break;
-        case "s": $(".weather-icon").html("<i class='wi wi-day-rain'></i>");
+        case "s": $(".weather-icon-one").html("<i class='wi wi-day-rain'></i>");
         break;
     }
       switch (json.consolidated_weather[1].weather_state_abbr) {
@@ -193,23 +193,23 @@ function showPosition(position) {
 
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    var weekDay = getWeekDay(tomorrow);
-    $(".weekday-two").html(weekDay.slice(0, 3).toUpperCase());
+    var weekDayTwo = getWeekDay(tomorrow);
+    $(".weekday-two").html(weekDayTwo.slice(0, 3).toUpperCase());
 
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 2);
-    var weekDay = getWeekDay(tomorrow);
-    $(".weekday-three").html(weekDay.slice(0, 3).toUpperCase());
+    var weekDayThree = getWeekDay(tomorrow);
+    $(".weekday-three").html(weekDayThree.slice(0, 3).toUpperCase());
 
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 3);
-    var weekDay = getWeekDay(tomorrow);
-    $(".weekday-four").html(weekDay.slice(0, 3).toUpperCase());
+    var weekDayFour = getWeekDay(tomorrow);
+    $(".weekday-four").html(weekDayFour.slice(0, 3).toUpperCase());
 
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 4);
-    var weekDay = getWeekDay(tomorrow);
-    $(".weekday-five").html(weekDay.slice(0, 3).toUpperCase());
+    var weekDayFive = getWeekDay(tomorrow);
+    $(".weekday-five").html(weekDayFive.slice(0, 3).toUpperCase());
 
  // Show forecast on click
   $('.Weather-and-location').click(function(){
@@ -223,6 +223,11 @@ function showPosition(position) {
     $('.min-temperature-det').remove();
     var x = '<span class="max-temperature-det">' + tempTwo + '</span><span class="min-temperature-det">' + tempMinTwo + '</span>';
     $('#current-temp-icon').append(x);
+    $('.forecast-day').remove();
+    $('#forecast-location').after('<div class="forecast-day">' + weekDayTwo + '</div>');
+    $('#current-weather-icon').remove();
+    $('#forecast-icon').remove();
+    $('.weather-icon-two').clone().prependTo('#current-temp-icon').attr('id', 'forecast-icon');
   });
   $('#day-three').click(function(){
     $(".weather-description").html(weatherDescriptionThree);
@@ -231,6 +236,11 @@ function showPosition(position) {
     $('.min-temperature-det').remove();
     var x = '<span class="max-temperature-det">' + tempThree + '</span><span class="min-temperature-det">' + tempMinThree + '</span>';
     $('#current-temp-icon').append(x);
+    $('.forecast-day').remove();
+    $('#forecast-location').after('<div class="forecast-day">' + weekDayThree + '</div>');
+    $('#current-weather-icon').remove();
+    $('#forecast-icon').remove();
+    $('.weather-icon-three').clone().prependTo('#current-temp-icon').attr('id', 'forecast-icon');
   });
   $('#day-four').click(function(){
     $(".weather-description").html(weatherDescriptionFour);
@@ -239,6 +249,11 @@ function showPosition(position) {
     $('.min-temperature-det').remove();
     var x = '<span class="max-temperature-det">' + tempFour + '</span><span class="min-temperature-det">' + tempMinFour + '</span>';
     $('#current-temp-icon').append(x);
+    $('.forecast-day').remove();
+    $('#forecast-location').after('<div class="forecast-day">' + weekDayFour + '</div>');
+    $('#current-weather-icon').remove();
+    $('#forecast-icon').remove();
+    $('.weather-icon-four').clone().prependTo('#current-temp-icon').attr('id', 'forecast-icon');
   });
   $('#day-five').click(function(){
     $(".weather-description").html(weatherDescriptionFive);
@@ -247,10 +262,21 @@ function showPosition(position) {
     $('.min-temperature-det').remove();
     var x = '<span class="max-temperature-det">' + tempFive + '</span><span class="min-temperature-det">' + tempMinFive + '</span>';
     $('#current-temp-icon').append(x);
+    $('.forecast-day').remove();
+    $('#forecast-location').after('<div class="forecast-day">' + weekDayFive + '</div>');
+    $('#current-weather-icon').remove();
+    $('#forecast-icon').remove();
+    $('.weather-icon-five').clone().prependTo('#current-temp-icon').attr('id', 'forecast-icon');
+
   });
   $('#day-one').click(function(){
     $(".weather-description").html(weatherDescription);
     $('.max-temperature-det').remove();
     $('.min-temperature-det').remove();
-    $('#current-temp-icon').append('<span class="temperature" id="current-temperature">' + temp + '</span>')
+    $('#current-temperature').remove();
+    $('#current-temp-icon').append('<span class="temperature" id="current-temperature">' + temp + '</span>');
+    $('.forecast-day').remove();
+    $('#current-weather-icon').remove();
+    $('#forecast-icon').remove();
+    $('.weather-icon-one').clone().prependTo('#current-temp-icon').attr('id', 'forecast-icon');
   });

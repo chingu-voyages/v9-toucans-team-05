@@ -203,6 +203,8 @@ ul {
 
 .current-weather > .location {
   font-size: 1.5rem;
+  display: inline-block;
+  width: auto;
 }
 
 .current-temp-icon {
@@ -238,7 +240,7 @@ hr {
 
 .day > .current-temp-icon {
   position: relative;
-  top: -50px;
+  top: -45px;
   padding-left: 10px;
   padding-right: 10px;
   width: 80px;
@@ -246,6 +248,12 @@ hr {
 
 .day > .current-temp-icon > .weather-icon {
   font-size: 1.2rem;
+}
+
+.forecast-day {
+  display: inline-block;
+  color: var(--lightGrey);
+  padding-left: 10px;
 }
 
 .max-temperature, .min-temperature {
