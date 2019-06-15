@@ -1,4 +1,20 @@
 /*-----General----*/
+body, html {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+:root {
+  --darkOverlay: rgba(15,15,15,.925);
+  --grey: #4f4f51;
+  --lightGrey: #828893;
+}
+
 ul {
   list-style-type: none;
   margin-bottom: 0;
@@ -14,11 +30,9 @@ ul {
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "Links Search-bar Search-bar . . . . . . Weather-and-location Weather-and-location" ". . . . Clock Clock Clock Clock . . ." ". . . . Welcome-message Welcome-message Welcome-message Welcome-message . . ." ". . . . Focus-for-the-day Focus-for-the-day Focus-for-the-day Focus-for-the-day . . ." "Settings Photo-location-and-author . . Daily-Quote Daily-Quote Daily-Quote Daily-Quote . . To-do-list";
   justify-items: stretch;
+  height: 100vh;
 }
 
-html {
-  font-size: 62.5%;
-}
 /*-----LinksSection----*/
 .Links {
   grid-area: Links;
@@ -130,11 +144,14 @@ html {
 /*-----ClockSection----*/
 .Clock {
   grid-area: Clock;
+  font-size: 9rem;
+  font-weight: 500;
 }
 
 /*-----WelcomeSection----*/
 .Welcome-message {
   grid-area: Welcome-message;
+  font-size: 3rem;
 }
 
 .Focus-for-the-day {
@@ -147,6 +164,140 @@ html {
 
 .Weather-and-location {
   grid-area: Weather-and-location;
+  width: auto;
+  text-align: right;
+  font-size: 1.5rem;
+  padding-right: 10px;
+  padding-top: 10px;
+  margin: 10px;
+}
+
+.location {
+  font-size: 1rem;
+  width: 50%;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.Weather-and-location:hover {
+  cursor: pointer;
+}
+
+.description {
+  color: var(--lightGrey);
+  font-size: 1rem;
+}
+
+.forecast-container {
+  position: absolute;
+  right: 10px;
+  width: 430px;
+  background-color: var(--darkOverlay);
+  color: white;
+  border-radius: 4px;
+  text-align: left;
+  padding: 0px 15px;
+  margin: 10px 0px 10px auto;
+  display: none;
+}
+
+.current-weather {
+  position: relative;
+  top: -15px;
+}
+
+.current-weather > .location {
+  font-size: 1.5rem;
+  display: inline-block;
+  width: auto;
+}
+
+.current-temp-icon {
+  font-size: 4rem;
+  white-space: nowrap;
+}
+
+hr {
+  color: var(--grey);
+  border: 0.5px solid var(--grey);
+  position: relative;
+  top: -15px;
+}
+
+.forecast {
+  width: auto;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: -15px;
+}
+
+.day {
+  display: inline-block;
+  height: 40px;
+  width: auto;
+}
+
+.day:hover {
+  background-color: rgba(79, 79, 81, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.day > .current-temp-icon {
+  position: relative;
+  top: -45px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 80px;
+}
+
+.day > .current-temp-icon > .weather-icon {
+  font-size: 1.2rem;
+}
+
+.forecast-day {
+  display: inline-block;
+  color: var(--lightGrey);
+  padding-left: 10px;
+  font-size: 1rem;
+}
+
+.max-temperature, .min-temperature {
+  font-size: 0.8rem;
+  position: relative;
+  left: -10px;
+}
+
+.min-temperature {
+  color: var(--lightGrey);
+  position: relative;
+  left: -22px;
+}
+
+.weekday {
+  font-size: 0.8rem;
+  color: var(--lightGrey);
+  height: auto;
+  text-align: center;
+}
+
+.min-temperature-det {
+  color: var(--lightGrey);
+  font-size: 2.5rem;
+}
+
+.forecast-container:before {
+  position: relative;
+  left: 370px;
+  top: -35px;
+  border: 10px solid transparent;
+  border-bottom-color: var(--darkOverlay);
+  pointer-events: none;
+  content: " ";
 }
 
 .To-do-list {
