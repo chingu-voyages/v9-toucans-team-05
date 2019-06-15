@@ -214,6 +214,9 @@ function showPosition(position) {
  // Show forecast on click
   $('.Weather-and-location').click(function(){
     $('.forecast-container').toggle();
+    $('.forecast-container').click(function(e) {
+        e.stopPropagation();
+    });
   });
 
   $('#day-two').click(function(){
@@ -267,7 +270,6 @@ function showPosition(position) {
     $('#current-weather-icon').remove();
     $('#forecast-icon').remove();
     $('.weather-icon-five').clone().prependTo('#current-temp-icon').attr('id', 'forecast-icon');
-
   });
   $('#day-one').click(function(){
     $(".weather-description").html(weatherDescription);
@@ -279,5 +281,4 @@ function showPosition(position) {
     $('#current-weather-icon').remove();
     $('#forecast-icon').remove();
     $('.weather-icon-one:first').clone().prependTo('#current-temp-icon').attr('id', 'forecast-icon');
-
   });

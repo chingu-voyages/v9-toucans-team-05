@@ -192,16 +192,15 @@ ul {
 
 .forecast-container {
   position: absolute;
-  right: 15px;
+  right: 10px;
   width: 430px;
   background-color: var(--darkOverlay);
   color: white;
   border-radius: 4px;
   text-align: left;
   padding: 0px 15px;
-  margin: 10px;
+  margin: 10px 0px 10px auto;
   display: none;
-  margin-left: auto;
 }
 
 .current-weather {
