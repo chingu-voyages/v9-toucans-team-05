@@ -30,14 +30,9 @@ var weatherDescription;
 var temp;
 var tempMin;
 
-<<<<<<< Updated upstream
-$.getJSON('https://api.codetabs.com/v1/proxy?quest=https://geoip-db.com/json/', function(position){
-    var geoApi = "https://api.codetabs.com/v1/proxy?quest=https://www.metaweather.com/api/location/search/?lattlong=" + position.latitude + "," + position.longitude;
-=======
 
 function showPosition(position) {
   var geoApi = "https://api.codetabs.com/v1/proxy?quest=https://www.metaweather.com/api/location/search/?lattlong=" + position.coords.latitude + "," + position.coords.longitude;
->>>>>>> Stashed changes
     $.getJSON(geoApi, function(data){
       var weatherApi = "https://api.codetabs.com/v1/proxy?quest=https://www.metaweather.com/api/location/" + data[0].woeid;
       $(".location").html(data[0].title);
@@ -68,7 +63,6 @@ function showPosition(position) {
         tempMinFour = json.consolidated_weather[3].min_temp.toFixed(0) + "°";
         tempFive = json.consolidated_weather[4].max_temp.toFixed(0) + "°";
         tempMinFive = json.consolidated_weather[4].min_temp.toFixed(0) + "°";
-
 
 
         switch (json.consolidated_weather[0].weather_state_abbr) {
