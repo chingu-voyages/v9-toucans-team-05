@@ -16,6 +16,12 @@ if (hour >= 4 && hour < 12) {
 }
 
 // Weather
+if (navigator.geolocation) {
+ navigator.geolocation.getCurrentPosition(showPosition);
+} else {
+ alert('Geolocation is not supported in your browser');
+}
+
 var weatherDescriptionTwo;
 var weatherDescriptionThree;
 var weatherDescriptionFour;
@@ -24,8 +30,14 @@ var weatherDescription;
 var temp;
 var tempMin;
 
+<<<<<<< Updated upstream
 $.getJSON('https://api.codetabs.com/v1/proxy?quest=https://geoip-db.com/json/', function(position){
     var geoApi = "https://api.codetabs.com/v1/proxy?quest=https://www.metaweather.com/api/location/search/?lattlong=" + position.latitude + "," + position.longitude;
+=======
+
+function showPosition(position) {
+  var geoApi = "https://api.codetabs.com/v1/proxy?quest=https://www.metaweather.com/api/location/search/?lattlong=" + position.coords.latitude + "," + position.coords.longitude;
+>>>>>>> Stashed changes
     $.getJSON(geoApi, function(data){
       var weatherApi = "https://api.codetabs.com/v1/proxy?quest=https://www.metaweather.com/api/location/" + data[0].woeid;
       $(".location").html(data[0].title);
@@ -172,7 +184,6 @@ $.getJSON('https://api.codetabs.com/v1/proxy?quest=https://geoip-db.com/json/', 
     });
     });
     }
-);
 
 
 // Days of the week
