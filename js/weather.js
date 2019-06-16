@@ -65,7 +65,6 @@ function showPosition(position) {
         tempMinFive = json.consolidated_weather[4].min_temp.toFixed(0) + "°";
 
 
-
         switch (json.consolidated_weather[0].weather_state_abbr) {
           case "lc": $(".weather-icon-one").html("<i class='wi wi-day-cloudy'></i>");
           break;
