@@ -45,7 +45,7 @@ input {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "Links Search-bar Search-bar . . . . . . Weather-and-location Weather-and-location" ". . . . Clock Clock Clock Clock . . ." ". . . . Welcome-message Welcome-message Welcome-message Welcome-message . . ." ". . . . Focus-for-the-day Focus-for-the-day Focus-for-the-day Focus-for-the-day . . ." "Settings Photo-location-and-author . . Daily-Quote Daily-Quote Daily-Quote Daily-Quote . . To-do-list";
+  grid-template-areas: "Links Search-bar Search-bar . . . . . . Weather-and-location Weather-and-location" ". . . Clock Clock Clock Clock . . . ." ". . . Welcome-message Welcome-message Welcome-message Welcome-message . . . ." ". . . . Focus-for-the-day Focus-for-the-day Focus-for-the-day Focus-for-the-day . . ." "Settings Photo-location-and-author . . Daily-Quote Daily-Quote Daily-Quote Daily-Quote . . To-do-list";
   justify-items: stretch;
   height: 100vh;
 }
@@ -72,7 +72,8 @@ input {
   margin: 10px 10px;
   color: var(--lightGrey);
   width: 200px;
-
+  display: non;
+  z-index: 1;
 }
 
 .link-list {
@@ -99,12 +100,39 @@ li > a:hover {
   color: var(--lightGrey);
 }
 
-li > input {
+li > form > input {
   color: var(--lightGrey);
 }
 
-li > input:hover {
-  color: var(--lightGrey)
+*:focus {
+  outline: none;
+}
+
+:focus::-webkit-input-placeholder {
+  color: var(--lightGrey);
+}
+
+:focus:-moz-placeholder {
+  color: var(--lightGrey);
+}​
+
+.remove {
+background-color: transparent;
+display: inline;
+width: 20px;
+height: 20px;
+text-align: center;
+border: none;
+border-radius: 50%;
+color: var(--lightGrey);
+-webkit-appearance: none;
+-moz-appearance:    none;
+appearance:         none;
+}
+
+.remove:hover {
+  background-color: rgba(79, 79, 81, 0.5);
+  color: white;
 }
 
 
@@ -217,19 +245,20 @@ li > input:hover {
   grid-area: Clock;
   font-size: 9rem;
   font-weight: 500;
-  text-align: left;
+  text-align: center;
 }
 
 /*-----WelcomeSection----*/
 .Welcome-message {
   grid-area: Welcome-message;
   font-size: 3rem;
-  text-align: left;
+  text-align: center;
 }
 
 .temp-Name {
   color: lightGrey;
 }
+
 .Focus-for-the-day {
   grid-area: Focus-for-the-day;
   text-align: center;
