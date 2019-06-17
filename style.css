@@ -15,7 +15,7 @@ html {
 :root {
   --darkOverlay: rgba(15, 15, 15, 0.925);
   --grey: #4f4f51;
-  --lightGrey: #828893;
+  --lightGrey: #bfc4cc;
 }
 
 #bg-img {
@@ -51,9 +51,62 @@ input {
 }
 
 /*-----LinksSection----*/
-.Links {
+.links-section {
   grid-area: Links;
 }
+
+.links {
+  font-size: 1.2rem
+}
+
+.links:hover {
+  cursor: pointer;
+}
+
+.custom-links-container {
+  background-color: var(--darkOverlay);
+  position: absolute;
+  border-radius: 4px;
+  text-align: left;
+  padding: 10px 15px;
+  margin: 10px 10px;
+  color: var(--lightGrey);
+  width: 200px;
+
+}
+
+.link-list {
+  padding: 0;
+  line-height: 1.7;
+}
+
+li > a {
+  color:inherit;
+  font-size: 1rem;
+}
+
+li > a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.add-new-link {
+  color: #828893;
+}
+
+.add-new-link:hover {
+  cursor: pointer;
+  color: var(--lightGrey);
+}
+
+li > input {
+  color: var(--lightGrey);
+}
+
+li > input:hover {
+  color: var(--lightGrey)
+}
+
 
 /*-----SearchSection----*/
 
@@ -74,6 +127,7 @@ input {
 
 .search-i {
   background: none;
+  color: white;
 }
 
 .Search-engine-box {
@@ -163,14 +217,14 @@ input {
   grid-area: Clock;
   font-size: 9rem;
   font-weight: 500;
-  text-align: center;
+  text-align: left;
 }
 
 /*-----WelcomeSection----*/
 .Welcome-message {
   grid-area: Welcome-message;
   font-size: 3rem;
-  text-align: center;
+  text-align: left;
 }
 
 .temp-Name {
@@ -223,7 +277,7 @@ input {
   border-radius: 4px;
   text-align: left;
   padding: 0px 15px;
-  margin: 10px 0px 10px auto;
+  margin: 10px 0px;
   display: none;
 }
 
@@ -298,7 +352,7 @@ hr {
 }
 
 .min-temperature {
-  color: var(--lightGrey);
+  color: #828893;
   position: relative;
   left: -22px;
 }
