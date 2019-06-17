@@ -180,7 +180,7 @@ function showPosition(position) {
     }
 
 
-// Days of the week
+  // Days of the week
     $(".weekday-one").html(moment().format('ddd').toUpperCase());
 
     function getWeekDay(date){
@@ -219,6 +219,14 @@ function showPosition(position) {
     });
   });
 
+/*  // Close on click outside the container
+  $(document).mouseup(function (e) {
+     if (!$('.forecast-container').is(e.target) && $('.forecast-container').has(e.target).length === 0) {
+       $('.forecast-container').hide();
+    }
+  });*/
+
+   // Forecast
   $('#day-two').click(function(){
     $(".weather-description").html(weatherDescriptionTwo);
     $('#current-temperature').remove();

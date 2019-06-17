@@ -72,7 +72,7 @@ input {
   margin: 10px 10px;
   color: var(--lightGrey);
   width: 200px;
-  display: non;
+  display: none;
   z-index: 1;
 }
 
@@ -93,6 +93,7 @@ li > a:hover {
 
 .add-new-link {
   color: #828893;
+  display: inline-block;
 }
 
 .add-new-link:hover {
@@ -116,23 +117,35 @@ li > form > input {
   color: var(--lightGrey);
 }​
 
-.remove {
-background-color: transparent;
-display: inline;
-width: 20px;
-height: 20px;
-text-align: center;
-border: none;
-border-radius: 50%;
-color: var(--lightGrey);
--webkit-appearance: none;
--moz-appearance:    none;
-appearance:         none;
+.input-name {
+  display: inline-block;
 }
 
-.remove:hover {
+.ion-md-close {
+  width: 100%;
+  height: 100%;
+}
+
+.ion-md-close::before {
+  font-size: 0.8rem;
+  position: relative;
+  top: -5px;
+}
+
+.remove, .remove-link {
+background-color: transparent;
+color: var(--lightGrey);
+display: inline-block;
+width: 15px;
+height: 15px;
+border-radius: 50%;
+vertical-align: middle;
+}
+
+.remove:hover, .remove-link:hover {
   background-color: rgba(79, 79, 81, 0.5);
   color: white;
+  cursor: pointer;
 }
 
 
