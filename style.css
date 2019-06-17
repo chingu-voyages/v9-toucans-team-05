@@ -1,7 +1,8 @@
 /*-----General----*/
 
-body, html {
-  font-family: 'Helvetica', 'Arial', sans-serif;
+body,
+html {
+  font-family: "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   height: 100%;
   margin: 0;
@@ -11,7 +12,7 @@ body, html {
 }
 
 :root {
-  --darkOverlay: rgba(15,15,15,.925);
+  --darkOverlay: rgba(15, 15, 15, 0.925);
   --grey: #4f4f51;
   --lightGrey: #828893;
 }
@@ -90,11 +91,8 @@ input {
 
 .search-input {
   width: 6rem;
-<<<<<<< HEAD
 }
 .search-input:focus {
-=======
->>>>>>> bg-API
   background-color: transparent;
 }
 
@@ -178,7 +176,7 @@ input {
   text-align: center;
 }
 
-.temp-Name{
+.temp-Name {
   color: lightGrey;
 }
 .Focus-for-the-day {
@@ -295,7 +293,8 @@ hr {
   font-size: 1rem;
 }
 
-.max-temperature, .min-temperature {
+.max-temperature,
+.min-temperature {
   font-size: 0.8rem;
   position: relative;
   left: -10px;
