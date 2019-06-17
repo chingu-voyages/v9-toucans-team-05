@@ -18,7 +18,7 @@ html {
 }
 
 .bg-color {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
   width: 100%;
   height: 100vh;
   z-index: 10;
@@ -78,6 +78,7 @@ input {
 
 .search-i {
   background: none;
+  color: #fff;
 }
 
 .Search-engine-box {
