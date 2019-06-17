@@ -8,11 +8,11 @@ setInterval(update, 1000);
 // Welcome Message
 var hour = moment().format('HH');
 if (hour >= 4 && hour < 12) {
- $('#message').html("Good morning.");
+ $('#message').html("Good morning,");
 } else if (hour>12 && hour < 17) {
-  $('#message').html("Good afternoon.");
+  $('#message').html("Good afternoon,");
 } else {
-  $('#message').html("Good evening.");
+  $('#message').html("Good evening,");
 }
 
 // Weather
