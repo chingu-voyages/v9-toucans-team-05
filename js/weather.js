@@ -8,14 +8,20 @@ setInterval(update, 1000);
 // Welcome Message
 var hour = moment().format('HH');
 if (hour >= 4 && hour < 12) {
- $('#message').html("Good morning.");
+ $('#message').html("Good morning,");
 } else if (hour>12 && hour < 17) {
-  $('#message').html("Good afternoon.");
+  $('#message').html("Good afternoon,");
 } else {
-  $('#message').html("Good evening.");
+  $('#message').html("Good evening,");
 }
 
 // Weather
+if (navigator.geolocation) {
+ navigator.geolocation.getCurrentPosition(showPosition);
+} else {
+ alert('Geolocation is not supported in your browser');
+}
+
 var weatherDescriptionTwo;
 var weatherDescriptionThree;
 var weatherDescriptionFour;
@@ -24,8 +30,9 @@ var weatherDescription;
 var temp;
 var tempMin;
 
-$.getJSON('https://geoip-db.com/json/', function(position){
-    var geoApi = "https://api.codetabs.com/v1/proxy?quest=https://www.metaweather.com/api/location/search/?lattlong=" + position.latitude + "," + position.longitude;
+
+function showPosition(position) {
+  var geoApi = "https://api.codetabs.com/v1/proxy?quest=https://www.metaweather.com/api/location/search/?lattlong=" + position.coords.latitude + "," + position.coords.longitude;
     $.getJSON(geoApi, function(data){
       var weatherApi = "https://api.codetabs.com/v1/proxy?quest=https://www.metaweather.com/api/location/" + data[0].woeid;
       $(".location").html(data[0].title);
@@ -56,7 +63,6 @@ $.getJSON('https://geoip-db.com/json/', function(position){
         tempMinFour = json.consolidated_weather[3].min_temp.toFixed(0) + "°";
         tempFive = json.consolidated_weather[4].max_temp.toFixed(0) + "°";
         tempMinFive = json.consolidated_weather[4].min_temp.toFixed(0) + "°";
-
 
 
         switch (json.consolidated_weather[0].weather_state_abbr) {
@@ -172,7 +178,6 @@ $.getJSON('https://geoip-db.com/json/', function(position){
     });
     });
     }
-);
 
 
 // Days of the week
