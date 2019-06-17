@@ -14,7 +14,8 @@
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -30,173 +31,250 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.5/css/weather-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.5/css/weather-icons.min.css"
+    />
     <script type="text/javascript" src="./js/ChooseEngine.js"></script>
     <script type="text/javascript" src="./js/Background.js"></script>
   </head>
 
   <body>
-    <div id="bg-img" class="grid-container">
-      <!-- Links bar -->
-      <div class="Links" id="link">Links</div>
-      <!-- Search bar goes here -->
-      <div class="Search-bar">
-        <form id="cse-search-box" action="https://www.bing.com/">
-          <div class="d-flex search-hover">
-            <button
-              type="submit"
-              name="sa"
-              value="Search"
-              class="search-i border border-0"
-            >
-              <i class="fa fa-search"></i>
-            </button>
-            <input
-              type="hidden"
-              name="cx"
-              value="013692888217153185597:p03wtssr4lq"
-            />
-            <input
-              type="hidden"
-              name="ie"
-              value="UTF-8"
-              class="border border-0"
-            />
-            <input
-              type="text"
-              id="search-input"
-              name="q"
-              class="border border-0"
-            />
-            <div class="Search-engine-box d-flex">
-              <img
-                id="ChooseSearch"
-                class="p-2 search-logo text-right"
-                src="./img/logo/bing_icon-icons.com_62711.svg"
+    <div id="bg-img">
+      <div class="bg-color" class="grid-container">
+        <!-- Links bar -->
+        <div class="Links" id="link">Links</div>
+        <!-- Search bar goes here -->
+        <div class="Search-bar">
+          <form id="cse-search-box" action="https://www.bing.com/">
+            <div class="d-flex search-hover">
+              <button
+                type="submit"
+                name="sa"
+                value="Search"
+                class="search-i border border-0"
+              >
+                <i class="fa fa-search"></i>
+              </button>
+              <input
+                type="hidden"
+                name="cx"
+                value="013692888217153185597:p03wtssr4lq"
               />
-              <i
-                id="SearchAngle"
-                class="search-angle-i fa fa-angle-down align-self-center"
-              ></i>
-              <div id="Search-engine-modal">
-                <p class="SE-title">SEARCH WITH</p>
-                <ul class="searchtypes">
-                  <li id="bing" class="searchtype">
-                    <img
-                      class="searchtype-i"
-                      src="./img/logo/bing_icon-icons.com_62711.svg"
-                    />Bing
-                  </li>
-                  <li id="google" class="searchtype">
-                    <img
-                      class="searchtype-i"
-                      src="./img/logo/1492616990-1-google-search-logo-engine-service-suits_83412.svg"
-                    />Google
-                  </li>
-                  <li id="DuckDuckGo" class="searchtype">
-                    <img
-                      class="searchtype-i"
-                      src="./img/logo/DuckDuckGo_icon-icons.com_67089.svg"
-                    />DuckDuckGo
-                  </li>
-                </ul>
+              <input
+                type="hidden"
+                name="ie"
+                value="UTF-8"
+                class="border border-0"
+              />
+              <input
+                type="text"
+                id="search-input"
+                name="q"
+                class="border border-0"
+              />
+              <div class="Search-engine-box d-flex">
+                <img
+                  id="ChooseSearch"
+                  class="p-2 search-logo text-right"
+                  src="./img/logo/bing_icon-icons.com_62711.svg"
+                />
+                <i
+                  id="SearchAngle"
+                  class="search-angle-i fa fa-angle-down align-self-center"
+                ></i>
+                <div id="Search-engine-modal">
+                  <p class="SE-title">SEARCH WITH</p>
+                  <ul class="searchtypes">
+                    <li id="bing" class="searchtype">
+                      <img
+                        class="searchtype-i"
+                        src="./img/logo/bing_icon-icons.com_62711.svg"
+                      />Bing
+                    </li>
+                    <li id="google" class="searchtype">
+                      <img
+                        class="searchtype-i"
+                        src="./img/logo/1492616990-1-google-search-logo-engine-service-suits_83412.svg"
+                      />Google
+                    </li>
+                    <li id="DuckDuckGo" class="searchtype">
+                      <img
+                        class="searchtype-i"
+                        src="./img/logo/DuckDuckGo_icon-icons.com_67089.svg"
+                      />DuckDuckGo
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </form>
-      </div>
-      <!-- Clock -->
-      <div class="Clock">
+          </form>
+        </div>
+        <!-- Clock -->
+        <div class="Clock">
           <div class="current-time" id="current-time"><!-- JS Content --></div>
-      </div>
-      <!-- Welcome message -->
-      <div class="Welcome-message">
-        <div class="message" id="message"><!-- JS Content --></div><span class="temp-Name" contenteditable="true">[type your name here]</span>
-      </div>
-      <!-- Focus for the day; user enters single to do -->
-      <div class="Focus-for-the-day">User enters todo</div>
-      <!-- Daily quote/mantra -->
-      <div class="Daily-Quote"><script type="text/javascript"><!--
-            var random=new Array();
+        </div>
+        <!-- Welcome message -->
+        <div class="Welcome-message">
+          <div class="message" id="message"><!-- JS Content --></div>
+          <span class="temp-Name" contenteditable="true"
+            >[type your name here]</span
+          >
+        </div>
+        <!-- Focus for the day; user enters single to do -->
+        <div class="Focus-for-the-day">User enters todo</div>
+        <!-- Daily quote/mantra -->
+        <div class="Daily-Quote">
+          <script type="text/javascript">
+            <!--
+                          var random=new Array();
 
-            random[0]='\"Those who work their land will have abundant food, but those who chase fantasies have no sense.\"';
-            random[1]='\"You don\'t have to paint the tears, but you can use the tears to paint something pretty.\"';
-            random[2]='\"How lucky I am to have something that makes saying goodbye so hard.\" Winnie the Pooh.';
-            random[3]='\"Give a man a fire, and he\'s warm for a night. Set him on fire, and he\'s warm for the rest on his life.\"';
-            random[4]='\“There are no shortcuts to any place worth going.\” ― Beverly Sills';
-            random[5]='\“A year from now you may wish you had started today.\” ― Karen Lamb';
-            random[6]='\“Indecision with the passing of time becomes decision.\” ― Bill Wilson';
-            random[7]='\"“Perseverance is the act of true role models and heroes.\” ― Liza Wiemer';
-            random[8]='\"He who gathers in summer is a son who acts wisely, But he who sleeps in harvest is a son who acts shamefully.\"';
-            random[9]='\"A slack hand causes poverty, but the hand of the diligent makes rich.\" ';
-            var id=Math.round(Math.random()*(random.length-1)); document.write(random[id]); </script></div>
-      <!--  Weather and location-->
-      <div class="Weather-and-location">
-        <div class="temp-icon">
-          <span class ="weather-icon-one weather-icon" id="weather-icon"><!--JS content--></span>
-          <span class="temperature" id="temperature"><!--JS content--></span>
+                          random[0]='\"Those who work their land will have abundant food, but those who chase fantasies have no sense.\"';
+                          random[1]='\"You don\'t have to paint the tears, but you can use the tears to paint something pretty.\"';
+                          random[2]='\"How lucky I am to have something that makes saying goodbye so hard.\" Winnie the Pooh.';
+                          random[3]='\"Give a man a fire, and he\'s warm for a night. Set him on fire, and he\'s warm for the rest on his life.\"';
+                          random[4]='\“There are no shortcuts to any place worth going.\” ― Beverly Sills';
+                          random[5]='\“A year from now you may wish you had started today.\” ― Karen Lamb';
+                          random[6]='\“Indecision with the passing of time becomes decision.\” ― Bill Wilson';
+                          random[7]='\"“Perseverance is the act of true role models and heroes.\” ― Liza Wiemer';
+                          random[8]='\"He who gathers in summer is a son who acts wisely, But he who sleeps in harvest is a son who acts shamefully.\"';
+                          random[9]='\"A slack hand causes poverty, but the hand of the diligent makes rich.\" ';
+                          var id=Math.round(Math.random()*(random.length-1)); document.write(random[id]);
+          </script>
         </div>
-        <div class="location right" id="location"><!--JS content--></div>
-        <div class="forecast-container">
-          <div class="current-weather">
-            <div class="location" id="forecast-location"></div>
-            <div class="weather-description description" id="weather-description"></div>
-            <div class="current-temp-icon" id="current-temp-icon">
-              <span class ="weather-icon-one" id="current-weather-icon"><!--JS content--></span>
-              <span class="temperature" id="current-temperature"><!--JS content--></span>
+        <!--  Weather and location-->
+        <div class="Weather-and-location">
+          <div class="temp-icon">
+            <span class="weather-icon-one weather-icon" id="weather-icon"
+              ><!--JS content--></span
+            >
+            <span class="temperature" id="temperature"><!--JS content--></span>
+          </div>
+          <div class="location right" id="location"><!--JS content--></div>
+          <div class="forecast-container">
+            <div class="current-weather">
+              <div class="location" id="forecast-location"></div>
+              <div
+                class="weather-description description"
+                id="weather-description"
+              ></div>
+              <div class="current-temp-icon" id="current-temp-icon">
+                <span class="weather-icon-one" id="current-weather-icon"
+                  ><!--JS content--></span
+                >
+                <span class="temperature" id="current-temperature"
+                  ><!--JS content--></span
+                >
+              </div>
+            </div>
+            <hr />
+            <div class="forecast">
+              <div class="day" id="day-one">
+                <div class="weekday-one weekday"></div>
+                <div class="current-temp-icon">
+                  <span
+                    class="weather-icon-one weather-icon"
+                    id="forecast-weather-icon"
+                    ><!--JS content--></span
+                  >
+                  <span class="max-temperature" id="max-temperature"
+                    ><!--JS content--></span
+                  >
+                  <span class="min-temperature" id="min-temperature"
+                    ><!--JS content--></span
+                  >
+                </div>
+              </div>
+              <div class="day" id="day-two">
+                <div class="weekday-two weekday"></div>
+                <div class="current-temp-icon">
+                  <span
+                    class="weather-icon-two weather-icon"
+                    id="forecast-weather-icon"
+                    ><!--JS content--></span
+                  >
+                  <span
+                    class="max-temperature-two max-temperature"
+                    id="max-temperature"
+                    ><!--JS content--></span
+                  >
+                  <span
+                    class="min-temperature-two min-temperature"
+                    id="min-temperature"
+                    ><!--JS content--></span
+                  >
+                </div>
+              </div>
+              <div class="day" id="day-three">
+                <div class="weekday-three weekday"></div>
+                <div class="current-temp-icon">
+                  <span
+                    class="weather-icon-three weather-icon"
+                    id="forecast-weather-icon"
+                    ><!--JS content--></span
+                  >
+                  <span
+                    class="max-temperature-three max-temperature"
+                    id="max-temperature"
+                    ><!--JS content--></span
+                  >
+                  <span
+                    class="min-temperature-three min-temperature"
+                    id="min-temperature"
+                    ><!--JS content--></span
+                  >
+                </div>
+              </div>
+              <div class="day" id="day-four">
+                <div class="weekday-four weekday"></div>
+                <div class="current-temp-icon">
+                  <span
+                    class="weather-icon-four weather-icon"
+                    id="forecast-weather-icon"
+                    ><!--JS content--></span
+                  >
+                  <span
+                    class="max-temperature-four max-temperature"
+                    id="max-temperature"
+                    ><!--JS content--></span
+                  >
+                  <span
+                    class="min-temperature-four min-temperature"
+                    id="min-temperature"
+                    ><!--JS content--></span
+                  >
+                </div>
+              </div>
+              <div class="day" id="day-five">
+                <div class="weekday-five weekday"></div>
+                <div class="current-temp-icon">
+                  <span
+                    class="weather-icon-five weather-icon"
+                    id="forecast-weather-icon"
+                    ><!--JS content--></span
+                  >
+                  <span
+                    class="max-temperature-five max-temperature"
+                    id="max-temperature"
+                    ><!--JS content--></span
+                  >
+                  <span
+                    class="min-temperature-five min-temperature"
+                    id="min-temperature"
+                    ><!--JS content--></span
+                  >
+                </div>
+              </div>
             </div>
           </div>
-          <hr>
-          <div class="forecast">
-            <div class="day" id="day-one">
-              <div class="weekday-one weekday"></div>
-              <div class="current-temp-icon">
-                <span class ="weather-icon-one weather-icon" id="forecast-weather-icon"><!--JS content--></span>
-                <span class="max-temperature" id="max-temperature"><!--JS content--></span>
-                <span class="min-temperature" id="min-temperature"><!--JS content--></span>
-              </div>
-            </div>
-            <div class="day" id="day-two">
-              <div class="weekday-two weekday"></div>
-              <div class="current-temp-icon">
-                <span class ="weather-icon-two weather-icon" id="forecast-weather-icon"><!--JS content--></span>
-                <span class="max-temperature-two max-temperature" id="max-temperature"><!--JS content--></span>
-                <span class="min-temperature-two min-temperature" id="min-temperature"><!--JS content--></span>
-              </div>
-            </div>
-            <div class="day" id="day-three">
-              <div class="weekday-three weekday"></div>
-              <div class="current-temp-icon">
-                <span class ="weather-icon-three weather-icon" id="forecast-weather-icon"><!--JS content--></span>
-                <span class="max-temperature-three max-temperature" id="max-temperature"><!--JS content--></span>
-                <span class="min-temperature-three min-temperature" id="min-temperature"><!--JS content--></span>
-              </div>
-            </div>
-            <div class="day" id="day-four">
-              <div class="weekday-four weekday"></div>
-              <div class="current-temp-icon">
-                <span class ="weather-icon-four weather-icon" id="forecast-weather-icon"><!--JS content--></span>
-                <span class="max-temperature-four max-temperature" id="max-temperature"><!--JS content--></span>
-                <span class="min-temperature-four min-temperature" id="min-temperature"><!--JS content--></span>
-              </div>
-            </div>
-            <div class="day" id="day-five">
-              <div class="weekday-five weekday"></div>
-              <div class="current-temp-icon">
-                <span class ="weather-icon-five weather-icon" id="forecast-weather-icon"><!--JS content--></span>
-                <span class="max-temperature-five max-temperature" id="max-temperature"><!--JS content--></span>
-                <span class="min-temperature-five min-temperature" id="min-temperature"><!--JS content--></span>
-              </div>
-            </div>
-          </div>
         </div>
+        <!-- To do list -->
+        <div class="To-do-list">To-do List</div>
+        <!-- Settings -->
+        <div class="Settings">Settings for page</div>
+        <!-- Photo credits/location -->
+        <div class="Photo-location-and-author">Photo Location and author</div>
       </div>
-      <!-- To do list -->
-      <div class="To-do-list">To-do List</div>
-      <!-- Settings -->
-      <div class="Settings">Settings for page</div>
-      <!-- Photo credits/location -->
-      <div class="Photo-location-and-author">Photo Location and author</div>
     </div>
     <script src="js\moments.js" charset="utf-8"></script>
     <script src="js\weather.js" charset="utf-8"></script>
