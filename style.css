@@ -75,8 +75,7 @@ input {
   width: 200px;
   display: none;
   z-index: 1;
-  height: 120px;
-}
+  }
 
 .custom-links-container:before {
   position: relative;
@@ -173,6 +172,7 @@ text-align: center;
   height: 2rem;
   width: 16rem;
   cursor: pointer;
+  padding-top: 15px;
 }
 
 .search-hover {
