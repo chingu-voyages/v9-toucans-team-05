@@ -24,17 +24,35 @@ $(document).on('click', '.remove', function() {
 });
 
 // Save changes with ENTER
+var inputURL;
+var inputName;
+
 $('.link-list').on("keypress", function(e){
     if(e.which == 13){
-      var inputName = $('.input-name').val();
-      var inputURL = $('.input-link').val();
+      inputName = $('.input-name').val();
+      inputURL = $('.input-link').val();
       $('.link-form').remove();
-      $('.link-list').append($('<li><a href="https://' + inputURL + '">' + inputName + ' </a><span class="remove-link"><i class="icon ion-md-close"></i></span></li>'));
+      $('.link-list').append($('<li class="user-input"><a href="https://' + inputURL + '">' + inputName + ' </a><span class="remove-link"><i class="icon ion-md-close"></i></span></li>'));
       $('.link-list').append($('<li class="add-new-link">New Link</li>'));
+      window.localStorage.setItem('link-name', inputName);
+      window.localStorage.setItem('URL', inputURL);
     }
 });
 
-// Remove link
+// Save and retrieve user input when browser refreshes
+var savedName = window.localStorage.getItem('link-name');
+var savedURL = window.localStorage.getItem('URL');
+
+$(document).ready(function() {
+  if ("URL" in localStorage) {
+    $('.add-new-link').remove();
+    $('.link-list').append($('<li class="user-input"><a href="https://' + savedURL + '">' + savedName + ' </a><span class="remove-link"><i class="icon ion-md-close"></i></span></li>'));
+    $('.link-list').append($('<li class="add-new-link">New Link</li>'));
+}
+});
+
+// Delete link
 $(document).on('click', '.remove-link', function() {
-  $(this).closest('li').remove();
+  this.parentElement.remove();
+  localStorage.removeItem("name");
 });

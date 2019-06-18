@@ -56,7 +56,8 @@ input {
 }
 
 .links {
-  font-size: 1.2rem
+  font-size: 1.2rem;
+  padding: 20px 20px 0px 20px;
 }
 
 .links:hover {
@@ -74,11 +75,23 @@ input {
   width: 200px;
   display: none;
   z-index: 1;
+  height: 120px;
+}
+
+.custom-links-container:before {
+  position: relative;
+  top: -35px;
+  border: 10px solid transparent;
+  border-bottom-color: var(--darkOverlay);
+  pointer-events: none;
+  content: " ";
 }
 
 .link-list {
   padding: 0;
   line-height: 1.7;
+  position: relative;
+  top: -15px;
 }
 
 li > a {
@@ -140,6 +153,7 @@ width: 15px;
 height: 15px;
 border-radius: 50%;
 vertical-align: middle;
+text-align: center;
 }
 
 .remove:hover, .remove-link:hover {
