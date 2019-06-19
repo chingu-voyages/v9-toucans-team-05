@@ -53,3 +53,12 @@ $(document).on('click', '.remove-link', function() {
   localStorage.removeItem('links');
   window.localStorage.links = $('.link-list').html();
 });
+
+// Hover over list item
+$(document).on('mouseover', '.user-input',function() {
+    $(this).find('.remove-link').css('display', 'inline-block');
+});
+
+$(document).on('mouseout', '.user-input',function() {
+    $(this).find('.remove-link').css('display', 'none');
+});

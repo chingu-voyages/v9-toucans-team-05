@@ -153,6 +153,13 @@ height: 15px;
 border-radius: 50%;
 vertical-align: middle;
 text-align: center;
+position: absolute;
+left: 150px;
+margin-top: 5px;
+}
+
+.remove-link {
+  display: none;
 }
 
 .remove:hover, .remove-link:hover {
