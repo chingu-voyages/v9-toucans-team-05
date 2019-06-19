@@ -34,25 +34,22 @@ $('.link-list').on("keypress", function(e){
       $('.link-form').remove();
       $('.link-list').append($('<li class="user-input"><a href="https://' + inputURL + '">' + inputName + ' </a><span class="remove-link"><i class="icon ion-md-close"></i></span></li>'));
       $('.link-list').append($('<li class="add-new-link">New Link</li>'));
-      window.localStorage.setItem('link-name', inputName);
-      window.localStorage.setItem('URL', inputURL);
+      window.localStorage.links = $('.link-list').html();
     }
 });
 
 // Save and retrieve user input when browser refreshes
-var savedName = window.localStorage.getItem('link-name');
-var savedURL = window.localStorage.getItem('URL');
+var savedLinks = window.localStorage.getItem('links');
 
 $(document).ready(function() {
-  if ("URL" in localStorage) {
-    $('.add-new-link').remove();
-    $('.link-list').append($('<li class="user-input"><a href="https://' + savedURL + '">' + savedName + ' </a><span class="remove-link"><i class="icon ion-md-close"></i></span></li>'));
-    $('.link-list').append($('<li class="add-new-link">New Link</li>'));
-}
+  if ("links" in localStorage) {
+  $('.link-list').html(savedLinks);
+  }
 });
 
 // Delete link
 $(document).on('click', '.remove-link', function() {
   this.parentElement.remove();
-  localStorage.removeItem("name");
+  localStorage.removeItem('links');
+  window.localStorage.links = $('.link-list').html();
 });
