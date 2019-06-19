@@ -200,6 +200,16 @@ input {
   color: white;
 }
 
+.today {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 2.2;
+}
+
+.user-focus {
+  font-size: 2.2rem;
+}
+
 .Daily-Quote {
   grid-area: Daily-Quote;
   text-align: center;

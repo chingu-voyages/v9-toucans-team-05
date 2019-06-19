@@ -5,7 +5,7 @@ $('.focus').on("keypress", function(e){
       var inputFocus = $('.focus').val();
       $('.focus').remove();
       $('.what').remove();
-      $('.Focus-for-the-day').append('<div class="todays-focus"><div>TODAY</div><div>' + inputFocus + '</div></div>');
+      $('.Focus-for-the-day').append('<div class="todays-focus"><div class="today">TODAY</div><div class="user-focus">' + inputFocus + '</div></div>');
       window.localStorage.focus = $('.todays-focus').html();
     }
 });
