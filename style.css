@@ -343,7 +343,6 @@ hr {
 }
 
 #ToDo-box {
-  display: none;
   position: absolute;
   bottom: 2.5rem;
   left: -8rem;
@@ -369,10 +368,6 @@ hr {
   border-top: 0.8rem solid rgba(20, 20, 20, 0.9);
 }
 
-.TDlink {
-  position: relative;
-}
-
 #TDitem {
   margin: 0.5rem;
 }
@@ -381,33 +376,19 @@ hr {
   color: #899098;
   padding: 0.5rem 0;
 }
-.TDitems::before {
-  content: "\25A1";
-  padding: 10px 10px;
-  font-size: 20px;
-}
-.TDitems::hover {
-  text-decoration: line-through;
+
+.TDValue {
   cursor: pointer;
 }
-.TDitems::last-child {
-  border-bottom: none;
+
+#TDlist-box {
+  overflow-y: auto;
+  max-height: 65vh;
 }
-.TDchecked {
-  color: green;
-}
-.TDchecked::before {
-  content: "\2713";
-  padding: 10px 10px;
-  font-size: 20px;
-}
-.TDchecked:hover {
-  text-decoration: none;
-}
-.TDchecked::after {
-  content: "(remove)";
-  color: tomato;
-  text-align: right;
+
+#TDlist-box::-webkit-scrollbar {
+  display: none;
+  -webkit-appearance: none;
 }
 
 .conf-i {
