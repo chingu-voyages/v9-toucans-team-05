@@ -116,12 +116,13 @@
         <!-- Welcome message -->
         <div class="Welcome-message">
           <div class="message" id="message"><!-- JS Content --></div>
-          <span class="temp-Name" contenteditable="true"
-            >[type your name here]</span
-          >
+          <input type="text" onsubmit="return false" class="user-name">
         </div>
         <!-- Focus for the day; user enters single to do -->
-        <div class="Focus-for-the-day">User enters todo</div>
+        <div class="Focus-for-the-day">
+          <div class="what">What is your main focus for today?</div>
+          <input type="text" onsubmit="return false" class="focus">
+        </div>
         <!-- Daily quote/mantra -->
         <div class="Daily-Quote">
           <script type="text/javascript">
@@ -144,26 +145,17 @@
         <!--  Weather and location-->
         <div class="Weather-and-location">
           <div class="temp-icon">
-            <span class="weather-icon-one weather-icon" id="weather-icon"
-              ><!--JS content--></span
-            >
+            <span class="weather-icon-one weather-icon" id="weather-icon"><!--JS content--></span>
             <span class="temperature" id="temperature"><!--JS content--></span>
           </div>
           <div class="location right" id="location"><!--JS content--></div>
           <div class="forecast-container">
             <div class="current-weather">
               <div class="location" id="forecast-location"></div>
-              <div
-                class="weather-description description"
-                id="weather-description"
-              ></div>
+              <div class="weather-description description" id="weather-description"></div>
               <div class="current-temp-icon" id="current-temp-icon">
-                <span class="weather-icon-one" id="current-weather-icon"
-                  ><!--JS content--></span
-                >
-                <span class="temperature" id="current-temperature"
-                  ><!--JS content--></span
-                >
+                <span class="weather-icon-one" id="current-weather-icon"><!--JS content--></span>
+                <span class="temperature" id="current-temperature"><!--JS content--></span>
               </div>
             </div>
             <hr />
@@ -171,97 +163,41 @@
               <div class="day" id="day-one">
                 <div class="weekday-one weekday"></div>
                 <div class="current-temp-icon">
-                  <span
-                    class="weather-icon-one weather-icon"
-                    id="forecast-weather-icon"
-                    ><!--JS content--></span
-                  >
-                  <span class="max-temperature" id="max-temperature"
-                    ><!--JS content--></span
-                  >
-                  <span class="min-temperature" id="min-temperature"
-                    ><!--JS content--></span
-                  >
+                  <span class="weather-icon-one weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                  <span class="max-temperature" id="max-temperature"><!--JS content--></span>
+                  <span class="min-temperature" id="min-temperature"><!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-two">
                 <div class="weekday-two weekday"></div>
                 <div class="current-temp-icon">
-                  <span
-                    class="weather-icon-two weather-icon"
-                    id="forecast-weather-icon"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="max-temperature-two max-temperature"
-                    id="max-temperature"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="min-temperature-two min-temperature"
-                    id="min-temperature"
-                    ><!--JS content--></span
-                  >
+                  <span class="weather-icon-two weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                  <span class="max-temperature-two max-temperature" id="max-temperature"><!--JS content--></span>
+                  <span class="min-temperature-two min-temperature" id="min-temperature"><!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-three">
                 <div class="weekday-three weekday"></div>
                 <div class="current-temp-icon">
-                  <span
-                    class="weather-icon-three weather-icon"
-                    id="forecast-weather-icon"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="max-temperature-three max-temperature"
-                    id="max-temperature"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="min-temperature-three min-temperature"
-                    id="min-temperature"
-                    ><!--JS content--></span
-                  >
+                  <span class="weather-icon-three weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                  <span class="max-temperature-three max-temperature" id="max-temperature"><!--JS content--></span>
+                  <span class="min-temperature-three min-temperature" id="min-temperature"><!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-four">
                 <div class="weekday-four weekday"></div>
                 <div class="current-temp-icon">
-                  <span
-                    class="weather-icon-four weather-icon"
-                    id="forecast-weather-icon"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="max-temperature-four max-temperature"
-                    id="max-temperature"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="min-temperature-four min-temperature"
-                    id="min-temperature"
-                    ><!--JS content--></span
-                  >
+                  <span class="weather-icon-four weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                  <span class="max-temperature-four max-temperature" id="max-temperature"><!--JS content--></span>
+                  <span class="min-temperature-four min-temperature" id="min-temperature"><!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-five">
                 <div class="weekday-five weekday"></div>
                 <div class="current-temp-icon">
-                  <span
-                    class="weather-icon-five weather-icon"
-                    id="forecast-weather-icon"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="max-temperature-five max-temperature"
-                    id="max-temperature"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="min-temperature-five min-temperature"
-                    id="min-temperature"
-                    ><!--JS content--></span
-                  >
+                  <span class="weather-icon-five weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                  <span class="max-temperature-five max-temperature" id="max-temperature"><!--JS content--></span>
+                  <span class="min-temperature-five min-temperature" id="min-temperature"><!--JS content--></span>
                 </div>
               </div>
             </div>
@@ -285,15 +221,8 @@
       src="./js/Background.js"
       charset="utf-8"
     ></script>
-    <script
-      type="text/javascript"
-      src="./js/moments.js"
-      charset="utf-8"
-    ></script>
-    <script
-      type="text/javascript"
-      src="./js/weather.js"
-      charset="utf-8"
-    ></script>
+    <script src="js\moments.js" charset="utf-8"></script>
+    <script src="js\weather.js" charset="utf-8"></script>
+    <script src="js\focus.js" charset="utf-8"></script>
   </body>
 </html>
