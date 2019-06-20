@@ -59,7 +59,7 @@ $(document).on('keypress', '.user-name', function(e){
     if(e.which == 13){
       var username = $('.user-name').val();
       $('.user-name').remove();
-      $('.message').append('<span> ' + username + '.</span>');
+      $('.message').append('<span class="name"> ' + username + '.</span><span class="more"><i class="fas fa-ellipsis-h"></i></span>');
       window.localStorage.setItem('username', username);
     }
 });
@@ -70,7 +70,7 @@ var savedName = window.localStorage.getItem('username');
 $(document).ready(function() {
   if ("username" in localStorage) {
     $('.user-name').remove();
-    $('.message').append('<span> ' + savedName + '.</span><span class="more"><i class="fas fa-ellipsis-h"></i></span>');
+    $('.message').append('<span class="name"> ' + savedName + '.</span><span class="more"><i class="fas fa-ellipsis-h"></i></span>');
   }
 });
 
@@ -80,7 +80,23 @@ $(document).on('mouseover', '.message', function() {
   });
 
 $(document).on('mouseout', '.message', function() {
+  if( $('.settings').css('display') == 'block') {
+    $('.more').css('visibility', 'visible');
+    $('.more').css('background-color', 'rgba(79, 79, 81, 0.5)');
+  } else {
     $('.more').css('visibility', 'hidden');
+  }
   });
 
 // Click on more
+$(document).on('click', '.more', function() {
+  $('.settings').toggle();
+});
+
+// Click on edit
+$(document).on('click', '.edit-name', function() {
+  $('.settings').toggle();
+  $('.more').remove();
+  $('.name').remove();
+  $('.Welcome-message').append('<input type="text" onsubmit="return false" class="user-name" placeholder="[your name]">');
+});

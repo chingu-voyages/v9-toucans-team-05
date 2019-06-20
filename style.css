@@ -231,6 +231,37 @@ input {
   top: 5px;
 }
 
+.settings {
+  display: none;
+  background-color: var(--darkOverlay);
+  position: absolute;
+  font-size: 1rem;
+  border-radius: 4px;
+  text-align: left;
+  margin: -5px 0px 10px auto;
+  right: 285px;
+  width: 120px;
+  }
+
+.settings:before {
+  position: relative;
+  top: -25px;
+  border: 10px solid transparent;
+  border-bottom-color: var(--darkOverlay);
+  content: " ";
+}
+
+.edit-name {
+  position: relative;
+  top: -10px;
+  text-align: center;
+}
+
+.edit-name:hover {
+  cursor: pointer;
+  background-color: rgba(79, 79, 81, 0.5);
+}
+
 .Focus-for-the-day {
   grid-area: Focus-for-the-day;
   text-align: center;
@@ -459,7 +490,6 @@ hr {
   top: -35px;
   border: 10px solid transparent;
   border-bottom-color: var(--darkOverlay);
-  pointer-events: none;
   content: " ";
 }
 
