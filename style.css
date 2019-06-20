@@ -18,6 +18,10 @@ html {
   --lightGrey: #828893;
 }
 
+*:focus {
+  outline: none;
+}
+
 .bg-color {
   background-color: rgba(0, 0, 0, 0.3);
   width: 100%;
@@ -185,7 +189,7 @@ input {
 .Focus-for-the-day {
   grid-area: Focus-for-the-day;
   text-align: center;
-  line-height: 0.9;
+  line-height: 1.2;
 }
 
 .what {
@@ -216,7 +220,7 @@ input {
   white-space: nowrap;
 }
 
-.unchecked {
+.unchecked, .fa-check-square {
   color: white;
   font-size: 1.5rem;
   width: 100%;
@@ -226,7 +230,7 @@ input {
   width: 20px;
 }
 
-.unchecked:hover {
+.unchecked:hover, .fa-check-square {
   cursor: pointer;
 }
 
@@ -241,8 +245,16 @@ input {
   top: 5px;
 }
 
+.fa-plus {
+  position: relative;
+  top: 5px;
+}
+
 .remove-focus {
   visibility: hidden;
+}
+
+.remove-focus, .add-focus {
   background-color: transparent;
   color: white;
   width: 25px;
@@ -255,7 +267,7 @@ input {
   top: -5px;
 }
 
-.remove-focus:hover {
+.remove-focus:hover, .add-focus:hover {
   cursor: pointer;
   background-color: rgba(79, 79, 81, 0.5);
 }
