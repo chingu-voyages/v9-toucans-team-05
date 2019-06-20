@@ -5,7 +5,7 @@ $(function() {
       $("#ChooseSearch").show();
       $(".search-angle-i").show();
     })
-    .on("focusout", function() {
+    .on("mouseout", function() {
       $(".search-hover").css("border-bottom", "none");
       $("#ChooseSearch").hide();
       $(".search-angle-i").hide();
