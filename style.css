@@ -55,6 +55,8 @@ input {
   height: 100vh;
 }
 
+
+
 /*-----LinksSection----*/
 .Links {
   grid-area: Links;
@@ -333,6 +335,7 @@ hr {
 
 .To-do-list {
   grid-area: To-do-list;
+  text-align: right;
 }
 
 .Settings {
