@@ -53,3 +53,34 @@ $(document).on('click', '.fa-plus', function() {
   $('.todays-focus').remove();
   localStorage.removeItem('focus');
 });
+
+// Save username with ENTER
+$(document).on('keypress', '.user-name', function(e){
+    if(e.which == 13){
+      var username = $('.user-name').val();
+      $('.user-name').remove();
+      $('.message').append('<span> ' + username + '.</span>');
+      window.localStorage.setItem('username', username);
+    }
+});
+
+// Restore username
+var savedName = window.localStorage.getItem('username');
+
+$(document).ready(function() {
+  if ("username" in localStorage) {
+    $('.user-name').remove();
+    $('.message').append('<span> ' + savedName + '.</span><span class="more"><i class="fas fa-ellipsis-h"></i></span>');
+  }
+});
+
+// Hover over username
+$(document).on('mouseover', '.message', function() {
+    $('.more').css('visibility', 'visible');
+  });
+
+$(document).on('mouseout', '.message', function() {
+    $('.more').css('visibility', 'hidden');
+  });
+
+// Click on more

@@ -181,11 +181,56 @@ input {
   grid-area: Welcome-message;
   font-size: 3rem;
   text-align: center;
+  white-space: nowrap;
 }
 
-.temp-Name {
-  color: lightGrey;
+.message {
+  display: inline;
 }
+
+.user-name {
+  display: inline;
+  color: white;
+}
+
+.user-name::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.user-name:-ms-input-placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.user-name::-ms-input-placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.more {
+  visibility: hidden;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-left: 15px;
+}
+
+.more:hover {
+  cursor: pointer;
+  background-color: rgba(79, 79, 81, 0.5);
+}
+
+.fa-ellipsis-h {
+  font-size: 1.1rem;
+  width: 20px;
+  vertical-align: top;
+  position:relative;
+  top: 5px;
+}
+
 .Focus-for-the-day {
   grid-area: Focus-for-the-day;
   text-align: center;
@@ -202,6 +247,7 @@ input {
   border-bottom: 1px solid white;
   margin-bottom: 40px;
   color: white;
+  text-align: center;
 }
 
 .today {
