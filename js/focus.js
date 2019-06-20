@@ -63,7 +63,6 @@ $(document).on('click', '.fa-check-square', function() {
   window.localStorage.setItem('focus', focusUndone);
 });
 
-
 // Add new focus
 $(document).on('click', '.fa-plus', function() {
   $('.Focus-for-the-day').append('<div class="what">What is your main focus for today?</div><input type="text" onsubmit="return false" class="focus">');
@@ -74,12 +73,11 @@ $(document).on('click', '.fa-plus', function() {
 // Delete focus after 12am
 var savedDay = window.localStorage.getItem('focus-day');
 var heute = date.getDate() + "/" + (date.getMonth() + 1 );
-alert(savedDay);
-function deleteFocus() {
+$(document).ready(function() {
   if (savedDay != heute) {
     localStorage.removeItem('focus');
   }
-}
+});
 
 // Save username with ENTER
 $(document).on('keypress', '.user-name', function(e){
