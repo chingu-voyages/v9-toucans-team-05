@@ -283,8 +283,20 @@
             <div id="ToDo-box" style="display:none">
               <div id="TDtype-Box" class="d-flex align-items-center m-2">
                 <h4 id="TDtype" class=" mb-0 mx-2">Inbox</h4>
-                <i class="fa fa-angle-down conf-i"></i>
+                <i class="fa fa-angle-down" id="conf-i"></i>
+                <form
+                  id="TDtype-choice-Box"
+                  style="display:none"
+                  name="TDtypeChoice"
+                >
+                  <ul id="TDtypeChoices">
+                    <li class="TDtypeChoice">Inbox</li>
+                    <li class="TDtypeChoice">Today</li>
+                    <li class="TDtypeChoice">Done</li>
+                  </ul>
+                </form>
               </div>
+
               <form
                 name="TDInbox"
                 id="TDlist-box"

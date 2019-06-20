@@ -381,6 +381,38 @@ hr {
   cursor: pointer;
 }
 
+#TDtype-Box {
+  position: relative;
+}
+
+#TDtype-choice-Box {
+  position: absolute;
+  z-index: 10;
+  border-radius: 0.4rem;
+  background-color: #828893;
+  top: 3.3rem;
+  left: 3.5rem;
+}
+
+#TDtype-choice-Box:after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(96, 129, 150, 0);
+  border-bottom-color: #828893;
+  border-width: 0.7rem;
+  margin-left: -0.7rem;
+}
+
+.TDtypeChoice {
+  padding: 0.3rem 0.8rem;
+}
+
 #TDlist-box {
   overflow-y: auto;
   max-height: 65vh;
@@ -391,7 +423,7 @@ hr {
   -webkit-appearance: none;
 }
 
-.conf-i {
+#conf-i {
   border-radius: 50%;
   padding: 0.6rem;
   background-color: rgba(255, 255, 255, 0.1);
