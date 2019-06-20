@@ -38,3 +38,9 @@ $(document).on('click', '.remove-focus', function() {
   localStorage.removeItem('focus');
   $('.Focus-for-the-day').append('<div class="what">What is your main focus for today?</div> <input type="text" onsubmit="return false" class="focus">');
 });
+
+// Mark as done <i class="far fa-check-square"></i>
+$(document).on('click', '.unchecked', function() {
+  localStorage.removeItem('focus');
+  $('.unchecked').removeClass('fa-square').addClass('fa-check-square');
+});

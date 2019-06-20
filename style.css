@@ -209,20 +209,31 @@ input {
 .user-focus {
   font-size: 2.2rem;
   display: inline;
+  padding-bottom: 20px;
+}
+
+.focus-line {
+  white-space: nowrap;
 }
 
 .unchecked {
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   width: 100%;
   visibility: hidden;
+  margin-right: 15px;
+  display: inline;
+  width: 20px;
+}
+
+.unchecked:hover {
+  cursor: pointer;
 }
 
 .ion-md-close {
   width: 100%;
   height: 100%;
 }
-
 
 .ion-md-close::before {
   font-size: 1.2rem;
