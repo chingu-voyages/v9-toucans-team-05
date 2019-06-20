@@ -2,11 +2,11 @@
 // Save focus with ENTER
 $('.focus').on("keypress", function(e){
     if(e.which == 13){
-      var inputFocus = $('.focus').val();
+      var inputFocus = $('.user-focus').val();
       $('.focus').remove();
       $('.what').remove();
-      $('.Focus-for-the-day').append('<div class="todays-focus"><div class="today">TODAY</div><div class="user-focus">' + inputFocus + '</div></div>');
-      window.localStorage.focus = $('.todays-focus').html();
+      $('.Focus-for-the-day').append('<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-square unchecked"></i><div class="user-focus">' + inputFocus + '</div><span class="remove-focus"><i class="icon ion-md-close"></i></span></li></ul>');
+      window.localStorage.setItem('focus', inputFocus);
     }
 });
 
@@ -15,18 +15,26 @@ var savedFocus = window.localStorage.getItem('focus');
 
 $(document).ready(function() {
   if ("focus" in localStorage) {
-  $('.Focus-for-the-day').html(savedFocus);
-  $('.focus').remove();
-  $('.what').remove();
+    $('.focus').remove();
+    $('.what').remove();
+    $('.Focus-for-the-day').append('<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-square unchecked"></i><div class="user-focus">' + savedFocus + '</div><span class="remove-focus"><i class="icon ion-md-close"></i></span></li></ul>');
   }
 });
 
 // Hover over focus
 $(document).on('mouseover', '.todays-focus',function() {
-    $('.todays-focus').prepend('');
-    $(this).append('<span class="remove-focus"><i class="icon ion-md-close"></i></span>');
+    $('.unchecked').css('visibility', 'visible');
+    $('.remove-focus').css('visibility', 'visible');
 });
 
 $(document).on('mouseout', '.todays-focus',function() {
-    $('.checkbox').remove();
+    $('.unchecked').css('visibility', 'hidden');
+    $('.remove-focus').css('visibility', 'hidden');
+});
+
+// Delete focus
+$(document).on('click', '.remove-focus', function() {
+  this.parentElement.remove();
+  localStorage.removeItem('focus');
+  $('.Focus-for-the-day').append('<div class="what">What is your main focus for today?</div> <input type="text" onsubmit="return false" class="focus">');
 });
