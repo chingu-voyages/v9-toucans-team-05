@@ -47,8 +47,19 @@ $(document).on('click', '.unchecked', function() {
   $('.remove-focus').remove();
   $('.focus-line').append('<span class="add-focus"><i class="fas fa-plus"></i></span>');
   var focusDone = '<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-check-square" style="visibility: visible;"></i><div class="user-focus" style="text-decoration: line-through;">' + $('.user-focus').html() + '</div><span class="add-focus"><i class="fas fa-plus"></i></span></li></ul></div>';
-  window.localStorage.setItem('focus', focusDone)
+  window.localStorage.setItem('focus', focusDone);
 });
+
+// Remove done mark
+$(document).on('click', '.fa-check-square', function() {
+  $('.fa-check-square').removeClass('fa-check-square').addClass('fa-square unchecked');
+  $('.user-focus').css('text-decoration', 'none');
+  $('.focus-line').append('<span class="remove-focus"><i class="icon ion-md-close"></i></span>');
+  $('.add-focus').remove();
+  var focusUndone = '<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-square unchecked"></i><div class="user-focus">' + $('.user-focus').html() + '</div><span class="remove-focus"><i class="icon ion-md-close"></i></span></li></ul></div>';
+  window.localStorage.setItem('focus', focusUndone);
+});
+
 
 // Add new focus
 $(document).on('click', '.fa-plus', function() {
