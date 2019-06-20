@@ -73,11 +73,13 @@ $(document).on('click', '.fa-plus', function() {
 // Delete focus after 12am
 var savedDay = window.localStorage.getItem('focus-day');
 var heute = day.getDate() + "/" + (day.getMonth() + 1 );
-$(document).ready(function() {
+
+function deleteFocus() {
   if (savedDay != heute) {
     localStorage.removeItem('focus');
   }
-});
+}
+deleteFocus();
 
 // Save username with ENTER
 $(document).on('keypress', '.user-name', function(e){
