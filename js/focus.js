@@ -1,13 +1,16 @@
-var inputFocus;
+var day = new Date();
+var focusDay = day.getDate() + "/" + (day.getMonth() + 1 );
+
 // Save focus with ENTER
 $(document).on('keypress', '.focus', function(e){
     if(e.which == 13){
-      inputFocus = '<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-square unchecked"></i><div class="user-focus">' + $('.focus').val() + '</div><span class="remove-focus"><i class="icon ion-md-close"></i></span></li></ul>';
+      var inputFocus = '<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-square unchecked"></i><div class="user-focus">' + $('.focus').val() + '</div><span class="remove-focus"><i class="icon ion-md-close"></i></span></li></ul>';
 
       $('.focus').remove();
       $('.what').remove();
       $('.Focus-for-the-day').append(inputFocus);
       window.localStorage.setItem('focus', inputFocus);
+      window.localStorage.setItem('focus-day', focusDay);
     }
 });
 
@@ -67,6 +70,16 @@ $(document).on('click', '.fa-plus', function() {
   $('.todays-focus').remove();
   localStorage.removeItem('focus');
 });
+
+// Delete focus after 12am
+var savedDay = window.localStorage.getItem('focus-day');
+var heute = date.getDate() + "/" + (date.getMonth() + 1 );
+alert(savedDay);
+function deleteFocus() {
+  if (savedDay != heute) {
+    localStorage.removeItem('focus');
+  }
+}
 
 // Save username with ENTER
 $(document).on('keypress', '.user-name', function(e){
