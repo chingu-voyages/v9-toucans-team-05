@@ -72,7 +72,7 @@ $(document).on('click', '.fa-plus', function() {
 
 // Delete focus after 12am
 var savedDay = window.localStorage.getItem('focus-day');
-var heute = date.getDate() + "/" + (date.getMonth() + 1 );
+var heute = day.getDate() + "/" + (day.getMonth() + 1 );
 $(document).ready(function() {
   if (savedDay != heute) {
     localStorage.removeItem('focus');
