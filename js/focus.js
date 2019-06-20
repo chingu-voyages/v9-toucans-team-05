@@ -1,6 +1,6 @@
 
 // Save focus with ENTER
-$('.focus').on("keypress", function(e){
+$(document).on('keypress', '.focus', function(e){
     if(e.which == 13){
       var inputFocus = $('.focus').val();
       $('.focus').remove();
@@ -17,17 +17,17 @@ $(document).ready(function() {
   if ("focus" in localStorage) {
     $('.focus').remove();
     $('.what').remove();
-    $('.Focus-for-the-day').append('<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-square unchecked"></i><div class="user-focus">' + savedFocus + '</div><span class="remove-focus"><i class="icon ion-md-close"></i></span></li></ul>');
+    $('.Focus-for-the-day').append('<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-square unchecked"></i><div class="user-focus">' + savedFocus + '</div><span class="remove-focus"><i class="icon ion-md-close"></i></span></li></ul></div>');
   }
 });
 
 // Hover over focus
-$(document).on('mouseover', '.todays-focus',function() {
+$(document).on('mouseover', '.todays-focus', function() {
     $('.unchecked').css('visibility', 'visible');
     $('.remove-focus').css('visibility', 'visible');
 });
 
-$(document).on('mouseout', '.todays-focus',function() {
+$(document).on('mouseout', '.todays-focus', function() {
     $('.unchecked').css('visibility', 'hidden');
     $('.remove-focus').css('visibility', 'hidden');
 });
@@ -39,7 +39,7 @@ $(document).on('click', '.remove-focus', function() {
   $('.Focus-for-the-day').append('<div class="what">What is your main focus for today?</div> <input type="text" onsubmit="return false" class="focus">');
 });
 
-// Mark as done <i class="far fa-check-square"></i>
+// Mark as done
 $(document).on('click', '.unchecked', function() {
   $('.unchecked').removeClass('fa-square').addClass('fa-check-square').removeClass('unchecked').css('visibility', 'visible');
   $('.user-focus').css('text-decoration', 'line-through');
