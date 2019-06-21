@@ -117,12 +117,12 @@ $(document).on('mouseout', '.message', function() {
 
 // Click on more
 $(document).on('click', '.more', function() {
-  $('.settings').toggle();
+  $('.settings').fadeToggle();
 });
 
 // Click on edit
 $(document).on('click', '.edit-name', function() {
-  $('.settings').toggle();
+  $('.settings').fadeToggle();
   $('.more').remove();
   $('.name').remove();
   $('.Welcome-message').append('<input type="text" onsubmit="return false" class="user-name" placeholder="[your name]">');
