@@ -1,7 +1,7 @@
 
 // Show/hide custom links
 $('.links').click(function(){
-  $('.custom-links-container').toggle();
+  $('.custom-links-container').fadeToggle();
 });
 
 // Close on click outside the container
@@ -9,7 +9,7 @@ $(document).on('click', function(event) {
     var trigger = $('.links')[0];
     var dropdown = $('.custom-links-container');
     if (dropdown !== event.target && !dropdown.has(event.target).length && trigger !== event.target) {
-      $('.custom-links-container').hide();
+      $('.custom-links-container').fadeOut();
     }});
 
 // Add input fields

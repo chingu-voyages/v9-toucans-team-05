@@ -212,7 +212,7 @@ function showPosition(position) {
 
    // Show forecast on click
    $('.Weather-and-location').click(function(){
-     $('.forecast-container').toggle();
+     $('.forecast-container').fadeToggle();
      $('.forecast-container').click(function(e) {
        e.stopPropagation();
      });
