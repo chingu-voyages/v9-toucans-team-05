@@ -18,6 +18,10 @@ html {
   --lightGrey: #bfc4cc;
 }
 
+*:focus {
+  outline: none;
+}
+
 .bg-color {
   background-color: rgba(0, 0, 0, 0.3);
   width: 100%;
@@ -292,16 +296,174 @@ margin-top: 5px;
   grid-area: Welcome-message;
   font-size: 3rem;
   text-align: center;
+  white-space: nowrap;
 }
 
-.temp-Name {
-  color: lightGrey;
+.message {
+  display: inline;
+}
+
+.user-name {
+  display: inline;
+  color: white;
+}
+
+.user-name::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.user-name:-ms-input-placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.user-name::-ms-input-placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.more {
+  visibility: hidden;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-left: 15px;
+}
+
+.more:hover {
+  cursor: pointer;
+  background-color: rgba(79, 79, 81, 0.5);
+}
+
+.fa-ellipsis-h {
+  font-size: 1.1rem;
+  width: 20px;
+  vertical-align: top;
+  position:relative;
+  top: 5px;
+}
+
+.settings {
+  display: none;
+  background-color: var(--darkOverlay);
+  position: absolute;
+  font-size: 1rem;
+  border-radius: 4px;
+  text-align: left;
+  margin: -5px 0px 10px auto;
+  right: 285px;
+  width: 120px;
+  }
+
+.settings:before {
+  position: relative;
+  top: -25px;
+  border: 10px solid transparent;
+  border-bottom-color: var(--darkOverlay);
+  content: " ";
+}
+
+.edit-name {
+  position: relative;
+  top: -10px;
+  text-align: center;
+}
+
+.edit-name:hover {
+  cursor: pointer;
+  background-color: rgba(79, 79, 81, 0.5);
 }
 
 .Focus-for-the-day {
   grid-area: Focus-for-the-day;
   text-align: center;
+  line-height: 1.2;
 }
+
+.what {
+  font-size: 2.2rem;
+  white-space: nowrap;
+}
+
+.focus {
+  font-size: 2.2rem;
+  border-bottom: 1px solid white;
+  margin-bottom: 40px;
+  color: white;
+  text-align: center;
+}
+
+.today {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 2.2;
+}
+
+.user-focus {
+  font-size: 2.2rem;
+  display: inline;
+  padding-bottom: 20px;
+}
+
+.focus-line {
+  white-space: nowrap;
+}
+
+.unchecked, .fa-check-square {
+  color: white;
+  font-size: 1.5rem;
+  width: 100%;
+  visibility: hidden;
+  margin-right: 15px;
+  display: inline;
+  width: 20px;
+}
+
+.unchecked:hover, .fa-check-square {
+  cursor: pointer;
+}
+
+.ion-md-close {
+  width: 100%;
+  height: 100%;
+}
+
+.ion-md-close::before {
+  font-size: 1.2rem;
+  position: relative;
+  top: 5px;
+}
+
+.fa-plus {
+  position: relative;
+  top: 5px;
+}
+
+.remove-focus {
+  visibility: hidden;
+}
+
+.remove-focus, .add-focus {
+  background-color: transparent;
+  color: white;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-left: 15px;
+  display: inline-block;
+  position: relative;
+  top: -5px;
+}
+
+.remove-focus:hover, .add-focus:hover {
+  cursor: pointer;
+  background-color: rgba(79, 79, 81, 0.5);
+}
+
 
 .Daily-Quote {
   grid-area: Daily-Quote;
@@ -443,7 +605,6 @@ hr {
   top: -35px;
   border: 10px solid transparent;
   border-bottom-color: var(--darkOverlay);
-  pointer-events: none;
   content: " ";
 }
 
