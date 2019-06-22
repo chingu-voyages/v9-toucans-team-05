@@ -426,12 +426,12 @@ margin-top: 5px;
   cursor: pointer;
 }
 
-.ion-md-close {
+.icon-close {
   width: 100%;
   height: 100%;
 }
 
-.ion-md-close::before {
+.ion-close::before {
   font-size: 1.2rem;
   position: relative;
   top: 5px;

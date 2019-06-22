@@ -4,7 +4,7 @@ var focusDay = day.getDate() + "/" + (day.getMonth() + 1 );
 // Save focus with ENTER
 $(document).on('keypress', '.focus', function(e){
     if(e.which == 13){
-      var inputFocus = '<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-square unchecked"></i><div class="user-focus">' + $('.focus').val() + '</div><span class="remove-focus"><i class="icon ion-md-close"></i></span></li></ul>';
+      var inputFocus = '<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-square unchecked"></i><div class="user-focus">' + $('.focus').val() + '</div><span class="remove-focus"><i class="icon ion-md-close icon-close"></i></span></li></ul>';
 
       $('.focus').remove();
       $('.what').remove();
@@ -57,9 +57,9 @@ $(document).on('click', '.unchecked', function() {
 $(document).on('click', '.fa-check-square', function() {
   $('.fa-check-square').removeClass('fa-check-square').addClass('fa-square unchecked');
   $('.user-focus').css('text-decoration', 'none');
-  $('.focus-line').append('<span class="remove-focus"><i class="icon ion-md-close"></i></span>');
+  $('.focus-line').append('<span class="remove-focus"><i class="icon ion-md-close icon-close"></i></span>');
   $('.add-focus').remove();
-  var focusUndone = '<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-square unchecked"></i><div class="user-focus">' + $('.user-focus').html() + '</div><span class="remove-focus"><i class="icon ion-md-close"></i></span></li></ul></div>';
+  var focusUndone = '<div class="todays-focus"><ul><li class="today">TODAY</li><li class="focus-line"><i class="far fa-square unchecked"></i><div class="user-focus">' + $('.user-focus').html() + '</div><span class="remove-focus"><i class="icon ion-md-close icon-close"></i></span></li></ul></div>';
   window.localStorage.setItem('focus', focusUndone);
 });
 
