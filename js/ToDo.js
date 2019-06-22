@@ -150,47 +150,40 @@ function store() {
 
 function rmTD() {
   var del = [];
-  if (document.TDListbox.length !== 1) {
-    // Set up variable to load TDlist names dynamically
-    var TDLists = eval(`document.TDListbox.${TDtype}`);
-    //Get Keys&Number of the item to delete
-    for (var i = 0; i < eval(TDLists.length); i++) {
-      if (TDLists[i].checked) {
-        console.log(i);
-        del.push(Object.keys(TDitems)[i]);
-      }
+  // Set up variable to load TDlist names dynamically
+  var TDLists = document.getElementsByName(TDtype);
+  //Get Keys&Number of the item to delete
+  for (var i = 0; i < TDLists.length; i++) {
+    if (TDLists[i].checked) {
+      console.log(i);
+      del.push(Object.keys(TDitems)[i]);
     }
-    //Make Associative Array named "Done"
-    done = {};
-    del.map(function(i) {
-      return (done[i] = TDitems[i]);
-    });
+  }
+  //Make Associative Array named "Done"
+  done = {};
+  del.map(function(i) {
+    return (done[i] = TDitems[i]);
+  });
 
-    //If AllLists checked, delete all
-    if (del.length == document.TDListbox.length) {
-      localStorage.removeItem(TDtype);
-      list.innerHTML = "";
-      TDitems = {};
-    } else {
-      // Delete from HTML
-      del.map(function(i) {
-        var v = document.getElementById(i);
-        v.parentNode.remove();
-      });
-      //Delete from TDitems
-      del.map(function(i) {
-        return delete TDitems[i];
-      });
-      store();
+  //If AllLists checked, delete all
+  if (del.length == document.TDListbox.length) {
+    localStorage.removeItem(TDtype);
+    list.innerHTML = "";
+    TDitems = {};
+    if (TDtype == "TD_Inbox") {
+      FirstTodo();
     }
   } else {
-    if (document.TDInbox.TD_Inbox.checked) {
-      var v = document.getElementsByClassName("TDValue");
-      v[0].remove();
-      localStorage.removeItem(TDtype);
-      FirstTodo();
-      TDitems = {};
-    }
+    // Delete from HTML
+    del.map(function(i) {
+      var v = document.getElementById(i);
+      v.parentNode.remove();
+    });
+    //Delete from TDitems
+    del.map(function(i) {
+      return delete TDitems[i];
+    });
+    store();
   }
 }
 
