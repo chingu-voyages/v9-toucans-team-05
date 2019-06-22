@@ -354,12 +354,13 @@ margin-top: 5px;
   border-radius: 4px;
   text-align: left;
   margin: -5px 0px 10px auto;
-  right: 285px;
+  right: 395px;
   width: 120px;
   }
 
 .settings:before {
   position: relative;
+  left: 5px;
   top: -25px;
   border: 10px solid transparent;
   border-bottom-color: var(--darkOverlay);
@@ -431,7 +432,7 @@ margin-top: 5px;
   height: 100%;
 }
 
-.ion-close::before {
+.icon-close::before {
   font-size: 1.2rem;
   position: relative;
   top: 5px;
