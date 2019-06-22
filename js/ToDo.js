@@ -26,7 +26,7 @@ form.addEventListener(
     e.stopPropagation();
     e.preventDefault();
     //Setting up Storage name(Skip if exists)
-    if (i == 0) {
+    if (i == 0 || document.querySelector("#TD_New_Box")) {
       list.innerHTML = "";
     }
     i++;
@@ -89,10 +89,15 @@ function LoadTDtype(type) {
   TDtype = `TD_${document.querySelector("#TDtype").innerText}`;
   if (!localStorage.getItem(TDtype)) {
     TDitems = {};
+    if (TDtype == "TD_Inbox") {
+      FirstTodo();
+    } else {
+      list.innerHTML = "";
+    }
   } else {
     TDitems = JSON.parse(localStorage.getItem(TDtype));
+    setTimeout(setValues, 100);
   }
-  setTimeout(setValues, 100);
 }
 
 click.addEventListener(
@@ -205,5 +210,6 @@ function setValues(TDkey) {
         "</label></div>";
     }
   }
+
   list.innerHTML = TDitemHTML;
 }
