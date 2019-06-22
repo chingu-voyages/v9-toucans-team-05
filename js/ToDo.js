@@ -4,6 +4,7 @@ var list = document.querySelector("#TDlist-box"),
   click = document.querySelector("#TDClick"),
   typeSelect = document.querySelector("#conf-i"),
   TDtypeChoices = document.querySelector("#TDtype-choice-Box"),
+  TDtypeChoice = document.querySelectorAll(".TDtypeChoice"),
   TDBox = document.querySelector("#ToDo-box"),
   TDtype = `TD_${document.querySelector("#TDtype").innerText}`,
   i = 0,
@@ -91,7 +92,7 @@ function LoadTDtype(type) {
   } else {
     TDitems = JSON.parse(localStorage.getItem(TDtype));
   }
-  setValues();
+  setTimeout(setValues, 100);
 }
 
 click.addEventListener(
@@ -127,6 +128,18 @@ typeSelect.addEventListener(
       TDtypeChoices.style.display = "none";
       typeSelect.classList.remove("active");
     }
+    for (var i = 0; i < TDtypeChoice.length; i++) {
+      TDtypeChoice[i].addEventListener(
+        "click",
+        function() {
+          document.querySelector("#TDtype").innerText = this.innerText;
+          LoadTDtype(this.innerText);
+          TDtypeChoices.style.display = "none";
+          typeSelect.classList.remove("active");
+        },
+        false
+      );
+    }
   },
   false
 );
@@ -147,21 +160,29 @@ function rmTD() {
         del.push(Object.keys(TDitems)[i]);
       }
     }
-    // Delete from HTML
-    del.map(function(i) {
-      var v = document.getElementById(i);
-      v.parentNode.remove();
-    });
     //Make Associative Array named "Done"
     done = {};
     del.map(function(i) {
       return (done[i] = TDitems[i]);
     });
-    //Delete from TDitems
-    del.map(function(i) {
-      return delete TDitems[i];
-    });
-    store();
+
+    //If AllLists checked, delete all
+    if (del.length == document.TDListbox.length) {
+      localStorage.removeItem(TDtype);
+      list.innerHTML = "";
+      TDitems = {};
+    } else {
+      // Delete from HTML
+      del.map(function(i) {
+        var v = document.getElementById(i);
+        v.parentNode.remove();
+      });
+      //Delete from TDitems
+      del.map(function(i) {
+        return delete TDitems[i];
+      });
+      store();
+    }
   } else {
     if (document.TDInbox.TD_Inbox.checked) {
       var v = document.getElementsByClassName("TDValue");
