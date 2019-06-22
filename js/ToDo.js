@@ -18,12 +18,16 @@ if (!localStorage.getItem(TDtype)) {
   TDitems = JSON.parse(localStorage.getItem(TDtype));
 }
 
+//Add new Task to the list
 form.addEventListener(
   "submit",
   function(e) {
     e.stopPropagation();
     e.preventDefault();
     //Setting up Storage name(Skip if exists)
+    if (i == 0) {
+      list.innerHTML = "";
+    }
     i++;
     while (TDitems[TDkey]) {
       TDkey = TDBase + i;
@@ -52,13 +56,56 @@ form.addEventListener(
   false
 );
 
+function FirstTodo() {
+  list.innerHTML =
+    '<div id="TD_New_Box">' +
+    '<h5 class="TD_New_title">Add a todo to get started</h5>' +
+    '<p class="TD_Today_link">Switch to Today <i class="fa fa-angle-right"></i></p>' +
+    '<button id="TD_New_btn">New Todo</button>' +
+    "</div>";
+  var TD_New_Box = document.querySelector("#TD_New_Box"),
+    TD_GoTo_Today = document.querySelector(".TD_Today_link");
+  TD_New_Box.addEventListener(
+    "click",
+    function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      list.innerHTML = "";
+    },
+    false
+  );
+  TD_GoTo_Today.addEventListener(
+    "click",
+    function(e) {
+      LoadTDtype("Today");
+    },
+    false
+  );
+}
+
+function LoadTDtype(type) {
+  document.querySelector("#TDtype").innerText = type;
+  TDtype = `TD_${document.querySelector("#TDtype").innerText}`;
+  if (!localStorage.getItem(TDtype)) {
+    TDitems = {};
+  } else {
+    TDitems = JSON.parse(localStorage.getItem(TDtype));
+  }
+  setValues();
+}
+
 click.addEventListener(
   "click",
   function() {
     if (!click.classList.contains("active")) {
-      getValues();
+      setValues();
       TDBox.style.display = "table";
       click.classList.add("active");
+      if (!localStorage.getItem(TDtype)) {
+        FirstTodo();
+      } else {
+        TDitems = JSON.parse(localStorage.getItem(TDtype));
+      }
     } else {
       TDBox.style.display = "none";
       click.classList.remove("active");
@@ -70,7 +117,9 @@ click.addEventListener(
 typeSelect.addEventListener(
   "click",
   function() {
-    rmTD();
+    if (localStorage.getItem(TDtype)) {
+      rmTD();
+    }
     if (!typeSelect.classList.contains("active")) {
       TDtypeChoices.style.display = "table";
       typeSelect.classList.add("active");
@@ -88,10 +137,12 @@ function store() {
 
 function rmTD() {
   var del = [];
-  if (document.TDInbox.length !== 1) {
+  if (document.TDListbox.length !== 1) {
+    // Set up variable to load TDlist names dynamically
+    var TDLists = eval(`document.TDListbox.${TDtype}`);
     //Get Keys&Number of the item to delete
-    for (var i = 0; i < document.TDInbox.TD_Inbox.length; i++) {
-      if (document.TDInbox.TD_Inbox[i].checked) {
+    for (var i = 0; i < eval(TDLists.length); i++) {
+      if (TDLists[i].checked) {
         console.log(i);
         del.push(Object.keys(TDitems)[i]);
       }
@@ -116,12 +167,13 @@ function rmTD() {
       var v = document.getElementsByClassName("TDValue");
       v[0].remove();
       localStorage.removeItem(TDtype);
+      FirstTodo();
       TDitems = {};
     }
   }
 }
 
-function getValues() {
+function setValues(TDkey) {
   if (!TDitemHTML) {
     var TDitemHTML = "";
     for (TDkey in TDitems) {

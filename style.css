@@ -423,6 +423,35 @@ hr {
   -webkit-appearance: none;
 }
 
+#TD_New_Box {
+  text-align: center;
+}
+
+.TD_New_title {
+  font-size: 1rem;
+}
+#TD_New_btn {
+  background-color: #768d87;
+  -moz-border-radius: 1.8rem;
+  -webkit-border-radius: 1.8rem;
+  border-radius: 1.8rem;
+  border: 1px solid #566963;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  font-family: Arial;
+  font-size: 1rem;
+  padding: 0.4rem 1.7rem;
+  text-decoration: none;
+}
+#TD_New_btn:hover {
+  background-color: #6c7c7c;
+}
+#TD_New_btn:active {
+  position: relative;
+  top: 1px;
+}
+
 #conf-i {
   border-radius: 50%;
   padding: 0.6rem;
