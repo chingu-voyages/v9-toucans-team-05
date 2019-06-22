@@ -10,7 +10,7 @@ var list = document.querySelector("#TDlist-box"),
   i = 0,
   d = new Date(),
   dd = ("0" + d.getDate()).slice(-2),
-  mm = ("0" + d.getMonth()).slice(-2),
+  mm = ("0" + (d.getMonth() + 1)).slice(-2),
   TDBase = TDtype + mm + dd + "_",
   TDkey = TDBase + i;
 if (!localStorage.getItem(TDtype)) {
@@ -49,7 +49,7 @@ form.addEventListener(
       TDkey +
       ">" +
       item.value +
-      "</label></div>";
+      '</label><i class="fa fa-ellipsis-h itemDel" style="display:none"></i></div>';
 
     item.value = "";
     store();
@@ -166,9 +166,12 @@ function rmTD() {
   }
   //Make Associative Array named "Done"
   done = {};
+  var DoneList = JSON.parse(localStorage.getItem("TD_Done"));
   del.map(function(i) {
-    return (done[i] = TDitems[i]);
+    done[i] = TDitems[i];
   });
+  Object.assign(DoneList, done);
+  localStorage.setItem("TD_Done", JSON.stringify(DoneList));
 
   //If AllLists checked, delete all
   if (del.length == document.TDListbox.length) {
@@ -197,7 +200,7 @@ function setValues(TDkey) {
     var TDitemHTML = "";
     for (TDkey in TDitems) {
       TDitemHTML +=
-        '<div class="custom-control custom-checkbox TDValue"><input type="checkbox" name =' +
+        '<div class="custom-control custom-checkbox d-flex TDValue"><input type="checkbox" name =' +
         TDtype +
         ' class="custom-control-input ' +
         TDtype +
@@ -207,7 +210,7 @@ function setValues(TDkey) {
         TDkey +
         ">" +
         TDitems[TDkey] +
-        "</label></div>";
+        '</label><i class="fa fa-ellipsis-h itemDel" style="display:none"></i></div>';
     }
   }
 

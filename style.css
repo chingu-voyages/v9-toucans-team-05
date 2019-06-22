@@ -414,6 +414,10 @@ hr {
   margin-bottom: 0;
 }
 
+.TDtypeChoice:hover {
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
 #TDlist-box {
   overflow-y: auto;
   max-height: 65vh;
@@ -422,6 +426,16 @@ hr {
 #TDlist-box::-webkit-scrollbar {
   display: none;
   -webkit-appearance: none;
+}
+
+input[type="checkbox"]:checked ~ label.TDcontent {
+  text-decoration: line-through;
+  color: #828893;
+}
+
+.itemDel {
+  border-radius: 25%;
+  margin-left: auto;
 }
 
 #TD_New_Box {
@@ -456,6 +470,8 @@ hr {
 #conf-i {
   border-radius: 50%;
   padding: 0.6rem;
+}
+#conf-i:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
