@@ -179,8 +179,7 @@ function showPosition(position) {
     });
     }
 
-
-// Days of the week
+  // Days of the week
     $(".weekday-one").html(moment().format('ddd').toUpperCase());
 
     function getWeekDay(date){
@@ -211,14 +210,15 @@ function showPosition(position) {
     var weekDayFive = getWeekDay(tomorrow);
     $(".weekday-five").html(weekDayFive.slice(0, 3).toUpperCase());
 
- // Show forecast on click
-  $('.Weather-and-location').click(function(){
-    $('.forecast-container').toggle();
-    $('.forecast-container').click(function(e) {
-        e.stopPropagation();
+   // Show forecast on click
+   $('.Weather-and-location').click(function(){
+     $('.forecast-container').fadeToggle();
+     $('.forecast-container').click(function(e) {
+       e.stopPropagation();
+     });
     });
-  });
 
+  // Forecast
   $('#day-two').click(function(){
     $(".weather-description").html(weatherDescriptionTwo);
     $('#current-temperature').remove();

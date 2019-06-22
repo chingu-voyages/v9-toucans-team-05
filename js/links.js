@@ -1,26 +1,29 @@
 
 // Show/hide custom links
 $('.links').click(function(){
-  $('.custom-links-container').toggle();
+  $('.custom-links-container').fadeToggle();
 });
 
 // Close on click outside the container
-/*$(document).mouseup(function (e) {
-   if (!$('.custom-links-container').is(e.target) && $('.custom-links-container').has(e.target).length === 0) {
-     $('.custom-links-container').hide();
-  }
-});*/
+$(document).on('click', function(event) {
+    var trigger = $('.links')[0];
+    var dropdown = $('.custom-links-container');
+    if (dropdown !== event.target && !dropdown.has(event.target).length && trigger !== event.target) {
+      $('.custom-links-container').fadeOut();
+    }});
 
 // Add input fields
-$(document).on('click', '.add-new-link', function() {
+$(document).on('click', '.add-new-link', function(e) {
   $('.add-new-link').remove();
   $('.link-list').append('<li><form class="link-form"><input class="input-name" type="text" id="idea" placeholder="Name" onsubmit="return false"><span class="remove"><i class="icon ion-md-close"></i></span><br><input class="input-link" type="text" id="idea" placeholder="URL"></form></li>');
+  e.stopPropagation();
 });
 
 // Remove input field
-$(document).on('click', '.remove', function() {
+$(document).on('click', '.remove', function(e) {
   $('.link-form').remove();
   $('.link-list').append($('<li class="add-new-link">New Link</li>'));
+  e.stopPropagation();
 });
 
 // Save changes with ENTER
@@ -48,10 +51,12 @@ $(document).ready(function() {
 });
 
 // Delete link
-$(document).on('click', '.remove-link', function() {
+
+$(document).on('click', '.remove-link', function(e) {
   this.parentElement.remove();
   localStorage.removeItem('links');
   window.localStorage.links = $('.link-list').html();
+  e.stopPropagation();
 });
 
 // Hover over list item

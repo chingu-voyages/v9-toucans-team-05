@@ -15,7 +15,7 @@ html {
 :root {
   --darkOverlay: rgba(15, 15, 15, 0.925);
   --grey: #4f4f51;
-  --lightGrey: #828893;
+  --lightGrey: #bfc4cc;
 }
 
 *:focus {
@@ -54,15 +54,129 @@ input {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "Links Search-bar Search-bar . . . . . . Weather-and-location Weather-and-location" ". . . . Clock Clock Clock Clock . . ." ". . . . Welcome-message Welcome-message Welcome-message Welcome-message . . ." ". . . . Focus-for-the-day Focus-for-the-day Focus-for-the-day Focus-for-the-day . . ." "Settings Photo-location-and-author . . Daily-Quote Daily-Quote Daily-Quote Daily-Quote . . To-do-list";
+  grid-template-areas: "Links Search-bar Search-bar . . . . . . Weather-and-location Weather-and-location" ". . . Clock Clock Clock Clock . . . ." ". . . Welcome-message Welcome-message Welcome-message Welcome-message . . . ." ". . . Focus-for-the-day Focus-for-the-day Focus-for-the-day Focus-for-the-day . . . ." "Settings Photo-location-and-author .  Daily-Quote Daily-Quote Daily-Quote Daily-Quote . . . To-do-list";
   justify-items: stretch;
   height: 100vh;
 }
 
 /*-----LinksSection----*/
-.Links {
+.links-section {
   grid-area: Links;
 }
+
+.links {
+  font-size: 1.2rem;
+  padding: 20px 20px 0px 20px;
+}
+
+.links:hover {
+  cursor: pointer;
+}
+
+.custom-links-container {
+  background-color: var(--darkOverlay);
+  position: absolute;
+  border-radius: 4px;
+  text-align: left;
+  padding: 10px 15px;
+  margin: 10px 10px;
+  color: var(--lightGrey);
+  width: 200px;
+  display: none;
+  z-index: 1;
+  }
+
+.custom-links-container:before {
+  position: relative;
+  top: -35px;
+  border: 10px solid transparent;
+  border-bottom-color: var(--darkOverlay);
+  pointer-events: none;
+  content: " ";
+}
+
+.link-list {
+  padding: 0;
+  line-height: 1.7;
+  position: relative;
+  top: -15px;
+}
+
+li > a {
+  color:inherit;
+  font-size: 1rem;
+}
+
+li > a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.add-new-link {
+  color: #828893;
+  display: inline-block;
+}
+
+.add-new-link:hover {
+  cursor: pointer;
+  color: var(--lightGrey);
+}
+
+li > form > input {
+  color: var(--lightGrey);
+}
+
+*:focus {
+  outline: none;
+}
+
+:focus::-webkit-input-placeholder {
+  color: var(--lightGrey);
+}
+
+:focus:-moz-placeholder {
+  color: var(--lightGrey);
+}​
+
+.input-name {
+  display: inline-block;
+}
+
+.ion-md-close {
+  width: 100%;
+  height: 100%;
+}
+
+.ion-md-close::before {
+  font-size: 0.8rem;
+  position: relative;
+  top: -5px;
+}
+
+.remove, .remove-link {
+background-color: transparent;
+color: var(--lightGrey);
+display: inline-block;
+width: 15px;
+height: 15px;
+border-radius: 50%;
+vertical-align: middle;
+text-align: center;
+position: absolute;
+left: 150px;
+margin-top: 5px;
+}
+
+.remove-link {
+  display: none;
+}
+
+.remove:hover, .remove-link:hover {
+  background-color: rgba(79, 79, 81, 0.5);
+  color: white;
+  cursor: pointer;
+}
+
 
 /*-----SearchSection----*/
 
@@ -74,6 +188,7 @@ input {
   height: 2rem;
   width: 16rem;
   cursor: pointer;
+  padding-top: 15px;
 }
 
 .search-hover {
@@ -83,7 +198,7 @@ input {
 
 .search-i {
   background: none;
-  color: #fff;
+  color: white;
 }
 
 .Search-engine-box {
@@ -392,7 +507,7 @@ input {
   border-radius: 4px;
   text-align: left;
   padding: 0px 15px;
-  margin: 10px 0px 10px auto;
+  margin: 10px 0px;
   display: none;
 }
 
@@ -467,7 +582,7 @@ hr {
 }
 
 .min-temperature {
-  color: var(--lightGrey);
+  color: #828893;
   position: relative;
   left: -22px;
 }
