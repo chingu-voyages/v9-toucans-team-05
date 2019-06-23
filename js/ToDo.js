@@ -54,6 +54,7 @@ form.addEventListener(
       '</label><i class="fa fa-ellipsis-h itemOpt" style="display:none"></i></div>';
 
     item.value = "";
+
     store();
   },
   false
@@ -219,27 +220,31 @@ function setValues(TDkey) {
     }
   }
   list.innerHTML = TDitemHTML;
-}
 
-/*
-var TDValue = document.querySelectorAll(".TDValue"),
-  itemOpt = document.querySelectorAll(".itemOpt");
-Del_i = [];
-for (var i = 0; i < TDValue.length; i++) {
-  Del_i[
-    i
-  ] = `TDValue[${i}].addEventListener("mouseover",function() {itemOpt[${i}].style.display="inline"},false);TDValue[${i}].addEventListener("mouseleave",function() {itemOpt[${i}].style.display="none"},false);`;
+  var TDValue = document.querySelectorAll(".TDValue"),
+    itemOpt = document.querySelectorAll(".itemOpt");
+  function itemOptShow(i) {
+    itemOpt[i].style.display = "inline";
+  }
+  function itemOptHide(i) {
+    itemOpt[i].style.display = "none";
+  }
+  for (var i = 0; i < TDValue.length; i++) {
+    (function(i) {
+      TDValue[i].addEventListener(
+        "mouseover",
+        function() {
+          itemOptShow(i);
+        },
+        false
+      );
+      TDValue[i].addEventListener(
+        "mouseleave",
+        function() {
+          itemOptHide(i);
+        },
+        false
+      );
+    })(i);
+  }
 }
-for (var i = 0; i < Del_i.length; i++) {
-  eval(Del_i[i]);
-}
-
-itemOpt[1].addEventListener("click", function() {
-  TDValue[1].innerHTML +=
-    '<div id="itemOptModal"><p class="DelModalItem">Edit</p><p class="DelModalItem">Move to Today</p><p class="DelModalItem">Move to...</p><p class="DelModalItem">Delete</p></div>';
-});
-itemOpt[0].addEventListener("click", function() {
-  TDValue[0].innerHTML +=
-    '<div id="itemOptModal"><p class="DelModalItem">Edit</p><p class="DelModalItem">Move to Today</p><p class="DelModalItem">Move to...</p><p class="DelModalItem">Delete</p></div>';
-});
-*/
