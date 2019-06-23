@@ -7,12 +7,7 @@ var list = document.querySelector("#TDlist-box"),
   TDtypeChoice = document.querySelectorAll(".TDtypeChoice"),
   TDBox = document.querySelector("#ToDo-box"),
   TDtype = `TD_${document.querySelector("#TDtype").innerText}`,
-  i = 0,
-  d = new Date(),
-  dd = ("0" + d.getDate()).slice(-2),
-  mm = ("0" + (d.getMonth() + 1)).slice(-2),
-  TDBase = TDtype + mm + dd + "_",
-  TDkey = TDBase + i;
+  i = 0;
 if (!localStorage.getItem(TDtype)) {
   var TDitems = {};
 } else {
@@ -25,11 +20,18 @@ form.addEventListener(
   function(e) {
     e.stopPropagation();
     e.preventDefault();
-    //Setting up Storage name(Skip if exists)
-    if (i == 0 || document.querySelector("#TD_New_Box")) {
+    //Check if TDitems is not 0
+    var i = Object.keys(TDitems).length;
+    if (i == 0 || document.querySelector("#TD_New_Box") !== null) {
       list.innerHTML = "";
     }
+    //Setting up Storage name(Skip if exists)
     i++;
+    var d = new Date(),
+      dd = ("0" + d.getDate()).slice(-2),
+      mm = ("0" + (d.getMonth() + 1)).slice(-2),
+      TDBase = TDtype + mm + dd + "_",
+      TDkey = TDBase + i;
     while (TDitems[TDkey]) {
       TDkey = TDBase + i;
       if (Object.keys(TDitems).indexOf(TDkey) >= 0) {
@@ -49,7 +51,7 @@ form.addEventListener(
       TDkey +
       ">" +
       item.value +
-      '</label><i class="fa fa-ellipsis-h itemDel" style="display:none"></i></div>';
+      '</label><i class="fa fa-ellipsis-h itemOpt" style="display:none"></i></div>';
 
     item.value = "";
     store();
@@ -100,6 +102,7 @@ function LoadTDtype(type) {
   }
 }
 
+//Show ToDo lists
 click.addEventListener(
   "click",
   function() {
@@ -166,12 +169,14 @@ function rmTD() {
   }
   //Make Associative Array named "Done"
   done = {};
-  var DoneList = JSON.parse(localStorage.getItem("TD_Done"));
   del.map(function(i) {
     done[i] = TDitems[i];
   });
-  Object.assign(DoneList, done);
-  localStorage.setItem("TD_Done", JSON.stringify(DoneList));
+  if (localStorage.getItem("TD_Done")) {
+    var DoneList = JSON.parse(localStorage.getItem("TD_Done"));
+    Object.assign(done, DoneList);
+  }
+  localStorage.setItem("TD_Done", JSON.stringify(done));
 
   //If AllLists checked, delete all
   if (del.length == document.TDListbox.length) {
@@ -210,9 +215,31 @@ function setValues(TDkey) {
         TDkey +
         ">" +
         TDitems[TDkey] +
-        '</label><i class="fa fa-ellipsis-h itemDel" style="display:none"></i></div>';
+        '</label><i class="fa fa-ellipsis-h itemOpt" style="display:none"></i></div>';
     }
   }
-
   list.innerHTML = TDitemHTML;
 }
+
+/*
+var TDValue = document.querySelectorAll(".TDValue"),
+  itemOpt = document.querySelectorAll(".itemOpt");
+Del_i = [];
+for (var i = 0; i < TDValue.length; i++) {
+  Del_i[
+    i
+  ] = `TDValue[${i}].addEventListener("mouseover",function() {itemOpt[${i}].style.display="inline"},false);TDValue[${i}].addEventListener("mouseleave",function() {itemOpt[${i}].style.display="none"},false);`;
+}
+for (var i = 0; i < Del_i.length; i++) {
+  eval(Del_i[i]);
+}
+
+itemOpt[1].addEventListener("click", function() {
+  TDValue[1].innerHTML +=
+    '<div id="itemOptModal"><p class="DelModalItem">Edit</p><p class="DelModalItem">Move to Today</p><p class="DelModalItem">Move to...</p><p class="DelModalItem">Delete</p></div>';
+});
+itemOpt[0].addEventListener("click", function() {
+  TDValue[0].innerHTML +=
+    '<div id="itemOptModal"><p class="DelModalItem">Edit</p><p class="DelModalItem">Move to Today</p><p class="DelModalItem">Move to...</p><p class="DelModalItem">Delete</p></div>';
+});
+*/

@@ -433,9 +433,27 @@ input[type="checkbox"]:checked ~ label.TDcontent {
   color: #828893;
 }
 
-.itemDel {
+.itemOpt {
+  position: relative;
   border-radius: 25%;
   margin-left: auto;
+}
+
+#itemOptModal {
+  position: absolute;
+  right: 2rem;
+  border-radius: 0.4rem;
+  background-color: rgba(80, 80, 80, 0.9);
+  z-index: 20;
+  padding: 0.5rem;
+}
+
+.DelModalItem:hover {
+  background-color: rgba(200, 200, 200, 0.8);
+}
+
+.DelModalItem {
+  margin: 0;
 }
 
 #TD_New_Box {
