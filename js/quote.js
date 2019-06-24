@@ -30,8 +30,9 @@ $(document).ready(function() {
 $(document).ready(function() {
   if ("likedQuotes" in localStorage) {
     $('.liked-quotes-container').html(savedQuotes);
+    $('.not-saved').remove();
   } else {
-    $('.liked-quotes-container').append("<p style='color: rgba(237, 237, 237, 0.6)'>You haven't liked any quotes yet</p>");
+    $('.liked-quotes-container').append("<p class='not-saved' style='color: rgba(237, 237, 237, 0.6)'>You haven't liked any quotes yet</p>");
   }
 });
 
@@ -50,11 +51,32 @@ deleteQuote();
 
 // Like quote
 $(document).on('click', '.like', function() {
-  $('.fa-heart').removeClass('far like').addClass('fas liked');
+  $('.like').removeClass('far like').addClass('fas liked');
   window.localStorage.setItem('heart', $('.heart').html());
-  $('.liked-quotes-container').append($('.quote').text() + ' ' + $('.author').text() + ' <i class="fas fa-heart"></i><hr>');
+  $('.liked-quotes-container').append('<p class="liked-quote">' + $('.quote').text() + ' <span>' + $('.author').text() + ' '+ ' </span><i class="fas fa-heart liked"></i></p><hr>');
   window.localStorage.setItem('likedQuotes', $('.liked-quotes-container').html());
+  $('.not-saved').remove();
 });
+
+// Remove like
+$(document).on('click', '.liked', function() {
+  $('.liked').removeClass('fas liked').addClass('far like');
+  window.localStorage.removeItem('heart');
+  $('.liked-quote:first').remove();
+  $('hr:eq(1)').remove();
+  window.localStorage.setItem('likedQuotes', $('.liked-quotes-container').html());
+  $('.liked-quotes-container').append("<p class='not-saved' style='color: rgba(237, 237, 237, 0.6)'>You haven't liked any quotes yet.</p>");
+});
+
+// Hover over quote
+$(document).on('mouseover', '.Daily-Quote', function() {
+    $('.quote-additional').css('visibility', 'visible');
+  });
+
+$(document).on('mouseout', '.Daily-Quote', function() {
+    $('.quote-additional').css('visibility', 'hidden');
+  });
+
 
 // Tweet quote
 $(document).ready(function() {
@@ -63,5 +85,5 @@ $(document).ready(function() {
 
 // View liked quotes
 $('.liked-quotes').click(function(){
-  $('.liked-quotes-container').slideToggle();
+  $('.liked-quotes-container').fadeToggle();
 })
