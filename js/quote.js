@@ -44,7 +44,7 @@ function deleteQuote() {
   if (savedQuoteDay != now) {
     localStorage.removeItem('quote');
     localStorage.removeItem('author');
-    localStorage.removeItem('heart')
+    localStorage.removeItem('heart');
   }
 }
 deleteQuote();
