@@ -51,10 +51,10 @@ form.addEventListener(
       TDkey +
       ">" +
       item.value +
-      '</label><i class="fa fa-ellipsis-h itemOpt" style="display:none"></i></div>';
+      '</label><i class="fa fa-ellipsis-h pull-right itemOpt" style="display:none"></i></div>';
 
     item.value = "";
-
+    setitemOpt();
     store();
   },
   false
@@ -201,34 +201,23 @@ function rmTD() {
   }
 }
 
-function setValues(TDkey) {
-  if (!TDitemHTML) {
-    var TDitemHTML = "";
-    for (TDkey in TDitems) {
-      TDitemHTML +=
-        '<div class="custom-control custom-checkbox d-flex TDValue"><input type="checkbox" name =' +
-        TDtype +
-        ' class="custom-control-input ' +
-        TDtype +
-        '" id=' +
-        TDkey +
-        '><label class="custom-control-label TDcontent" for=' +
-        TDkey +
-        ">" +
-        TDitems[TDkey] +
-        '</label><i class="fa fa-ellipsis-h itemOpt" style="display:none"></i></div>';
-    }
-  }
-  list.innerHTML = TDitemHTML;
+function itemOptModalToggle(v) {
+  v.style.display == "none"
+    ? (v.style.display = "table")
+    : (v.style.display = "none");
+}
 
+function setitemOpt() {
   var TDValue = document.querySelectorAll(".TDValue"),
     itemOpt = document.querySelectorAll(".itemOpt");
   function itemOptShow(i) {
     itemOpt[i].style.display = "inline";
   }
+
   function itemOptHide(i) {
     itemOpt[i].style.display = "none";
   }
+
   for (var i = 0; i < TDValue.length; i++) {
     (function(i) {
       TDValue[i].addEventListener(
@@ -247,4 +236,29 @@ function setValues(TDkey) {
       );
     })(i);
   }
+}
+
+function setValues(TDkey) {
+  if (!TDitemHTML) {
+    var TDitemHTML = "";
+    for (TDkey in TDitems) {
+      TDitemHTML +=
+        '<div class="custom-control custom-checkbox d-flex TDValue"><input type="checkbox" name =' +
+        TDtype +
+        ' class="custom-control-input ' +
+        TDtype +
+        '" id=' +
+        TDkey +
+        '><label class="custom-control-label TDcontent" for=' +
+        TDkey +
+        ">" +
+        TDitems[TDkey] +
+        '</label><div class="itemOptModal" style="display:none"><p class="DelModalItem">Edit</p>' +
+        '<p class="DelModalItem">Move to Today</p>' +
+        '<p class="DelModalItem">Move to...</p>' +
+        '<p class="DelModalItem">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
+    }
+  }
+  list.innerHTML = TDitemHTML;
+  setitemOpt();
 }

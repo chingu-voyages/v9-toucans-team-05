@@ -419,6 +419,7 @@ hr {
 }
 
 #TDlist-box {
+  position: relative;
   overflow-y: auto;
   max-height: 65vh;
 }
@@ -435,11 +436,16 @@ input[type="checkbox"]:checked ~ label.TDcontent {
 
 .itemOpt {
   position: relative;
-  border-radius: 25%;
+  border-radius: 50%;
+  padding: 0.3rem;
   margin-left: auto;
 }
 
-#itemOptModal {
+.itemOpt:hover {
+  background-color: rgba(80, 80, 80, 0.7);
+}
+
+.itemOptModal {
   position: absolute;
   right: 2rem;
   border-radius: 0.4rem;
