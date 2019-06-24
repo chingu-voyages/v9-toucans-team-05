@@ -1,7 +1,7 @@
 var savedQuote = window.localStorage.getItem('quote');
 var savedAuthor = window.localStorage.getItem('author');
 var savedHeart = window.localStorage.getItem('heart');
-var savedQuotes = window.localStorage.getItem('likedQuotes')
+var savedQuotes = window.localStorage.getItem('likedQuotes');
 
 var day = new Date();
 var quoteDay = day.getDate() + "/" + (day.getMonth() + 1 );
@@ -86,4 +86,4 @@ $(document).ready(function() {
 // View liked quotes
 $('.liked-quotes').click(function(){
   $('.liked-quotes-container').fadeToggle();
-})
+});
