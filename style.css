@@ -475,9 +475,31 @@ margin-top: 5px;
   font-size: 1.2rem;
 }
 
+.quote-additional, .fa-twitter {
+  color:  rgba(237, 237, 237, 0.9);
+}
+
 .author {
   font-size: 0.9rem;
-  color:  rgba(237, 237, 237, 0.9)
+}
+
+.like:hover, .fa-twitter:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.liked {
+  color: white;
+}
+
+.liked-quotes-container {
+  background-color: var(--darkOverlay);
+  display: none;
+  padding: 20px;
+}
+
+.liked-quotes-container > p:first-of-type {
+  text-transform: uppercase;
 }
 
 .Weather-and-location {
