@@ -471,6 +471,15 @@ margin-top: 5px;
   text-align: center;
 }
 
+.quote {
+  font-size: 1.2rem;
+}
+
+.author {
+  font-size: 0.9rem;
+  color:  rgba(237, 237, 237, 0.9)
+}
+
 .Weather-and-location {
   grid-area: Weather-and-location;
   width: auto;
