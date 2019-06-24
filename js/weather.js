@@ -9,7 +9,7 @@ setInterval(update, 1000);
 var hour = moment().format('HH');
 if (hour >= 4 && hour < 12) {
  $('#message').html("Good morning,");
-} else if (hour>12 && hour < 17) {
+} else if (hour>=12 && hour < 17) {
   $('#message').html("Good afternoon,");
 } else {
   $('#message').html("Good evening,");
