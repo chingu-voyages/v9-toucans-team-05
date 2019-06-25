@@ -506,6 +506,7 @@ margin-top: 5px;
 .liked-quotes:hover {
   cursor: pointer;
   background-color: rgba(79, 79, 81, 0.5);
+  color: white;
 }
 
 .liked-quotes > i::before {
