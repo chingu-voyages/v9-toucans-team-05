@@ -51,8 +51,10 @@ form.addEventListener(
       TDkey +
       ">" +
       item.value +
-      '</label><i class="fa fa-ellipsis-h pull-right itemOpt" style="display:none"></i></div>';
-
+      '</label><div class="itemOptModal" style="display:none"><p class="DelModalItem">Edit</p>' +
+      '<p class="DelModalItem" onclick="mvToday(this.parentNode)">Move to Today</p>' +
+      '<p class="DelModalItem" onclick="rmTD()">Delete Selected</p>' +
+      '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h pull-right itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
     item.value = "";
     setitemOpt();
     store();
@@ -124,12 +126,10 @@ click.addEventListener(
   false
 );
 
+//Show Type Select
 typeSelect.addEventListener(
   "click",
   function() {
-    if (localStorage.getItem(TDtype)) {
-      rmTD();
-    }
     if (!typeSelect.classList.contains("active")) {
       TDtypeChoices.style.display = "table";
       typeSelect.classList.add("active");
@@ -169,16 +169,17 @@ function rmTD() {
     }
   }
   //Make Associative Array named "Done"
-  done = {};
-  del.map(function(i) {
-    done[i] = TDitems[i];
-  });
-  if (localStorage.getItem("TD_Done")) {
-    var DoneList = JSON.parse(localStorage.getItem("TD_Done"));
-    Object.assign(done, DoneList);
+  if (TDtype !== "TD_Done") {
+    done = {};
+    del.map(function(i) {
+      done[i] = TDitems[i];
+    });
+    if (localStorage.getItem("TD_Done")) {
+      var DoneList = JSON.parse(localStorage.getItem("TD_Done"));
+      Object.assign(done, DoneList);
+    }
+    localStorage.setItem("TD_Done", JSON.stringify(done));
   }
-  localStorage.setItem("TD_Done", JSON.stringify(done));
-
   //If AllLists checked, delete all
   if (del.length == document.TDListbox.length) {
     localStorage.removeItem(TDtype);
@@ -238,6 +239,24 @@ function setitemOpt() {
   }
 }
 
+function rmItem(v) {
+  var RDkey = v.previousElementSibling.htmlFor;
+  delete TDitems[RDkey];
+  v.parentNode.remove();
+  store();
+}
+
+function mvToday(v) {
+  var TodayContent = v.previousElementSibling.innerText,
+    TDkey = v.previousElementSibling.htmlFor,
+    TDToday = JSON.parse(localStorage.getItem("TD_Today"));
+  v.parentNode.remove();
+  TDToday[TDkey] = TodayContent;
+  delete TDitems[TDkey];
+  localStorage.setItem("TD_Today", JSON.stringify(TDToday));
+  store();
+}
+
 function setValues(TDkey) {
   if (!TDitemHTML) {
     var TDitemHTML = "";
@@ -254,9 +273,9 @@ function setValues(TDkey) {
         ">" +
         TDitems[TDkey] +
         '</label><div class="itemOptModal" style="display:none"><p class="DelModalItem">Edit</p>' +
-        '<p class="DelModalItem">Move to Today</p>' +
-        '<p class="DelModalItem">Move to...</p>' +
-        '<p class="DelModalItem">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
+        '<p class="DelModalItem" onclick="mvToday(this.parentNode)">Move to Today</p>' +
+        '<p class="DelModalItem" onclick="rmTD()">Delete Selected</p>' +
+        '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
     }
   }
   list.innerHTML = TDitemHTML;
