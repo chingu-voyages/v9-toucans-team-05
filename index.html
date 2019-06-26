@@ -2,46 +2,32 @@
 <html>
   <head>
     <title>Momentum-Clone-V9ToucansT05</title>
-
+    <meta charset="utf-8">
     <!-- Element below makes the page responsible to mobile devices  -->
-    <meta name="viewport" contents="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <meta name="viewport" contents="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.5/css/weather-icons.min.css"
-    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.5/css/weather-icons.min.css">
+    <link href="https://unpkg.com/ionicons@4.5.9-1/dist/css/ionicons.min.css" rel="stylesheet">
   </head>
-
   <body>
-    <div id="bg-img">
+     <div id="bg-img">
       <div class="bg-color grid-container">
         <!-- Links bar -->
-        <div class="Links" id="link">Links</div>
+        <div class="links-section">
+        <div class="links">Links</div>
+        <div class="custom-links-container">
+          <ul class="link-list">
+            <li><a href="chrome-search://local-ntp/local-ntp.html"><i class="fab fa-chrome"></i> Chrome Tab</a></li>
+            <li><a href="chrome://apps/"><i class="fas fa-th"></i> Apps</a></li>
+            <li class="add-new-link">New Link</li>
+          </ul>
+        </div>
+      </div>
         <!-- Search bar goes here -->
         <div class="Search-bar">
           <form id="cse-search-box" action="https://www.bing.com/">
@@ -116,12 +102,16 @@
         <!-- Welcome message -->
         <div class="Welcome-message">
           <div class="message" id="message"><!-- JS Content --></div>
-          <span class="temp-Name" contenteditable="true"
-            >[type your name here]</span
-          >
+          <input type="text" onsubmit="return false" class="user-name" placeholder="[your name]">
+          <div class="settings">
+              <div class="edit-name">Edit your name</div>
+          </div>
         </div>
         <!-- Focus for the day; user enters single to do -->
-        <div class="Focus-for-the-day">User enters todo</div>
+        <div class="Focus-for-the-day">
+          <div class="what">What is your main focus for today?</div>
+          <input type="text" onsubmit="return false" class="focus">
+        </div>
         <!-- Daily quote/mantra -->
         <div class="Daily-Quote">
           <script type="text/javascript">
@@ -154,26 +144,17 @@
         <!--  Weather and location-->
         <div class="Weather-and-location">
           <div class="temp-icon">
-            <span class="weather-icon-one weather-icon" id="weather-icon"
-              ><!--JS content--></span
-            >
+            <span class="weather-icon-one weather-icon" id="weather-icon"><!--JS content--></span>
             <span class="temperature" id="temperature"><!--JS content--></span>
           </div>
           <div class="location right" id="location"><!--JS content--></div>
           <div class="forecast-container">
             <div class="current-weather">
               <div class="location" id="forecast-location"></div>
-              <div
-                class="weather-description description"
-                id="weather-description"
-              ></div>
+              <div class="weather-description description" id="weather-description"></div>
               <div class="current-temp-icon" id="current-temp-icon">
-                <span class="weather-icon-one" id="current-weather-icon"
-                  ><!--JS content--></span
-                >
-                <span class="temperature" id="current-temperature"
-                  ><!--JS content--></span
-                >
+                <span class="weather-icon-one" id="current-weather-icon"><!--JS content--></span>
+                <span class="temperature" id="current-temperature"><!--JS content--></span>
               </div>
             </div>
             <hr />
@@ -181,97 +162,41 @@
               <div class="day" id="day-one">
                 <div class="weekday-one weekday"></div>
                 <div class="current-temp-icon">
-                  <span
-                    class="weather-icon-one weather-icon"
-                    id="forecast-weather-icon"
-                    ><!--JS content--></span
-                  >
-                  <span class="max-temperature" id="max-temperature"
-                    ><!--JS content--></span
-                  >
-                  <span class="min-temperature" id="min-temperature"
-                    ><!--JS content--></span
-                  >
+                  <span class="weather-icon-one weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                  <span class="max-temperature" id="max-temperature"><!--JS content--></span>
+                  <span class="min-temperature" id="min-temperature"><!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-two">
                 <div class="weekday-two weekday"></div>
                 <div class="current-temp-icon">
-                  <span
-                    class="weather-icon-two weather-icon"
-                    id="forecast-weather-icon"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="max-temperature-two max-temperature"
-                    id="max-temperature"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="min-temperature-two min-temperature"
-                    id="min-temperature"
-                    ><!--JS content--></span
-                  >
+                  <span class="weather-icon-two weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                  <span class="max-temperature-two max-temperature" id="max-temperature"><!--JS content--></span>
+                  <span class="min-temperature-two min-temperature" id="min-temperature"><!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-three">
                 <div class="weekday-three weekday"></div>
                 <div class="current-temp-icon">
-                  <span
-                    class="weather-icon-three weather-icon"
-                    id="forecast-weather-icon"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="max-temperature-three max-temperature"
-                    id="max-temperature"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="min-temperature-three min-temperature"
-                    id="min-temperature"
-                    ><!--JS content--></span
-                  >
+                  <span class="weather-icon-three weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                  <span class="max-temperature-three max-temperature" id="max-temperature"><!--JS content--></span>
+                  <span class="min-temperature-three min-temperature" id="min-temperature"><!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-four">
                 <div class="weekday-four weekday"></div>
                 <div class="current-temp-icon">
-                  <span
-                    class="weather-icon-four weather-icon"
-                    id="forecast-weather-icon"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="max-temperature-four max-temperature"
-                    id="max-temperature"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="min-temperature-four min-temperature"
-                    id="min-temperature"
-                    ><!--JS content--></span
-                  >
+                  <span class="weather-icon-four weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                  <span class="max-temperature-four max-temperature" id="max-temperature"><!--JS content--></span>
+                  <span class="min-temperature-four min-temperature" id="min-temperature"><!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-five">
                 <div class="weekday-five weekday"></div>
                 <div class="current-temp-icon">
-                  <span
-                    class="weather-icon-five weather-icon"
-                    id="forecast-weather-icon"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="max-temperature-five max-temperature"
-                    id="max-temperature"
-                    ><!--JS content--></span
-                  >
-                  <span
-                    class="min-temperature-five min-temperature"
-                    id="min-temperature"
-                    ><!--JS content--></span
-                  >
+                  <span class="weather-icon-five weather-icon" id="forecast-weather-icon"><!--JS content--></span>
+                  <span class="max-temperature-five max-temperature" id="max-temperature"><!--JS content--></span>
+                  <span class="min-temperature-five min-temperature" id="min-temperature"><!--JS content--></span>
                 </div>
               </div>
             </div>
@@ -337,5 +262,9 @@
       charset="utf-8"
     ></script>
     <script type="text/javascript" src="./js/ToDo.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/links.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/focus.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/ChooseEngine.js"></script>
+    <script type="text/javascript" src="./js/Background.js"></script>
   </body>
 </html>
