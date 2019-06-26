@@ -39,7 +39,7 @@ form.addEventListener(
       }
     }
     //Store Key&Item
-    TDitems[TDkey] = item.value;
+    TDitems[TDkey] = [item.value, false];
     list.innerHTML +=
       '<div class="custom-control custom-checkbox d-flex TDValue"><input type="checkbox" name =' +
       TDtype +
@@ -110,6 +110,7 @@ click.addEventListener(
   "click",
   function() {
     if (!click.classList.contains("active")) {
+      setCheckedLists();
       setValues();
       TDBox.style.display = "table";
       click.classList.add("active");
@@ -131,6 +132,7 @@ typeSelect.addEventListener(
   "click",
   function() {
     if (!typeSelect.classList.contains("active")) {
+      setCheckedLists();
       TDtypeChoices.style.display = "table";
       typeSelect.classList.add("active");
     } else {
@@ -172,6 +174,7 @@ function rmTD() {
   if (TDtype !== "TD_Done") {
     done = {};
     del.map(function(i) {
+      TDitems[i][1] = true;
       done[i] = TDitems[i];
     });
     if (localStorage.getItem("TD_Done")) {
@@ -207,6 +210,7 @@ function rmTD() {
 function itemOptModalToggle(v) {
   var TDlistBox = document.getElementById("TDlist-box");
   if (v.style.display == "none") {
+    setCheckedLists();
     v.style.display = "table";
     TDlistBox.style.height = TDlistBox.scrollHeight + "px";
   } else {
@@ -245,6 +249,16 @@ function setitemOpt() {
   }
 }
 
+function setCheckedLists() {
+  var TDLists = document.getElementsByName(TDtype);
+  for (var i = 0; i < TDLists.length; i++) {
+    TDLists[i].checked
+      ? (TDitems[TDLists[i].id][1] = true)
+      : (TDitems[TDLists[i].id][1] = false);
+  }
+  store();
+}
+
 // functions in itemOptModal
 function editItem(v) {
   v.previousElementSibling.contentEditable = true;
@@ -261,7 +275,7 @@ function editItem(v) {
     "keydown",
     function(e) {
       if (e.keyCode == 13) {
-        TDitems[TDkey] = v.previousElementSibling.innerText;
+        TDitems[TDkey][0] = v.previousElementSibling.innerText;
         store();
         v.previousElementSibling.contentEditable = false;
         v.previousElementSibling.style = "";
@@ -272,6 +286,7 @@ function editItem(v) {
   );
 }
 
+// move to Today
 function mvToday(v) {
   var TodayContent = v.previousElementSibling.innerText,
     TDkey = v.previousElementSibling.htmlFor,
@@ -280,7 +295,7 @@ function mvToday(v) {
   if (!TDToday) {
     var TDToday = {};
   }
-  TDToday[TDkey] = TodayContent;
+  TDToday[TDkey] = [TodayContent, false];
   delete TDitems[TDkey];
   localStorage.setItem("TD_Today", JSON.stringify(TDToday));
   store();
@@ -294,6 +309,7 @@ function rmItem(v) {
   if (TDtype !== "TD_Done") {
     if (localStorage.getItem("TD_Done")) {
       var TDdone = JSON.parse(localStorage.getItem("TD_Done"));
+      TDitems[RDkey][1] = true;
       TDdone[RDkey] = TDitems[RDkey];
     }
     localStorage.setItem("TD_Done", JSON.stringify(TDdone));
@@ -310,19 +326,30 @@ function setValues(TDkey) {
   if (!TDitemHTML) {
     var TDitemHTML = "";
     for (TDkey in TDitems) {
+      var checked = "",
+        MoveToToday = "";
+      if (TDitems[TDkey][1] == true) {
+        checked = "checked";
+      }
+      if (TDtype !== "TD_Today") {
+        var MoveToToday =
+          '<p class="DelModalItem" onclick="mvToday(this.parentNode)">Move to Today</p>';
+      }
       TDitemHTML +=
         '<div class="custom-control custom-checkbox d-flex TDValue"><input type="checkbox" name =' +
         TDtype +
         ' class="custom-control-input ' +
         TDtype +
-        '" id=' +
+        '" ' +
+        checked +
+        " id=" +
         TDkey +
         '><label class="custom-control-label TDcontent" for=' +
         TDkey +
         ">" +
-        TDitems[TDkey] +
+        TDitems[TDkey][0] +
         '</label><div class="itemOptModal" style="display:none" ><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
-        '<p class="DelModalItem" onclick="mvToday(this.parentNode)">Move to Today</p>' +
+        MoveToToday +
         '<p class="DelModalItem" onclick="rmTD()">Delete Selected</p>' +
         '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
     }
