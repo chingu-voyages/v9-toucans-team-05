@@ -41,7 +41,7 @@ form.addEventListener(
     //Store Key&Item
     TDitems[TDkey] = item.value;
     list.innerHTML +=
-      '<div class="custom-control custom-checkbox TDValue"><input type="checkbox" name =' +
+      '<div class="custom-control custom-checkbox d-flex TDValue"><input type="checkbox" name =' +
       TDtype +
       ' class="custom-control-input ' +
       TDtype +
@@ -51,10 +51,10 @@ form.addEventListener(
       TDkey +
       ">" +
       item.value +
-      '</label><div class="itemOptModal" style="display:none"><p class="DelModalItem">Edit</p>' +
+      '</label><div class="itemOptModal" style="display:none"><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
       '<p class="DelModalItem" onclick="mvToday(this.parentNode)">Move to Today</p>' +
       '<p class="DelModalItem" onclick="rmTD()">Delete Selected</p>' +
-      '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h pull-right itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
+      '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
     item.value = "";
     setitemOpt();
     store();
@@ -157,6 +157,7 @@ function store() {
   localStorage.setItem(TDtype, JSON.stringify(TDitems));
 }
 
+//Remove ToDo lists(multiple)
 function rmTD() {
   var del = [];
   // Set up variable to load TDlist names dynamically
@@ -164,7 +165,6 @@ function rmTD() {
   //Get Keys&Number of the item to delete
   for (var i = 0; i < TDLists.length; i++) {
     if (TDLists[i].checked) {
-      console.log(i);
       del.push(Object.keys(TDitems)[i]);
     }
   }
@@ -200,12 +200,19 @@ function rmTD() {
     });
     store();
   }
+  //remove style(height) which is set on itemOptModalToggle
+  document.getElementById("TDlist-box").style.height = "";
 }
 
 function itemOptModalToggle(v) {
-  v.style.display == "none"
-    ? (v.style.display = "table")
-    : (v.style.display = "none");
+  var TDlistBox = document.getElementById("TDlist-box");
+  if (v.style.display == "none") {
+    v.style.display = "table";
+    TDlistBox.style.height = TDlistBox.scrollHeight + "px";
+  } else {
+    v.style.display = "none";
+    TDlistBox.style.height = "";
+  }
 }
 
 function setitemOpt() {
@@ -214,7 +221,6 @@ function setitemOpt() {
   function itemOptShow(i) {
     itemOpt[i].style.display = "inline";
   }
-
   function itemOptHide(i) {
     itemOpt[i].style.display = "none";
   }
@@ -239,11 +245,31 @@ function setitemOpt() {
   }
 }
 
-function rmItem(v) {
-  var RDkey = v.previousElementSibling.htmlFor;
-  delete TDitems[RDkey];
-  v.parentNode.remove();
-  store();
+// functions in itemOptModal
+function editItem(v) {
+  v.previousElementSibling.contentEditable = true;
+  v.style.display = "none";
+  document.getElementById("TDlist-box").style.height = "";
+  var TDkey = v.previousElementSibling.htmlFor;
+  //remove htmlFor value to disable label value clickable
+  v.previousElementSibling.htmlFor = "";
+  v.previousElementSibling.style =
+    "background-color: rgba(90, 90, 90, 0.8); width:90%";
+  v.previousElementSibling.focus();
+  //check keyCode 13(=Enter key) to end this contentEdit
+  v.previousElementSibling.addEventListener(
+    "keydown",
+    function(e) {
+      if (e.keyCode == 13) {
+        TDitems[TDkey] = v.previousElementSibling.innerText;
+        store();
+        v.previousElementSibling.contentEditable = false;
+        v.previousElementSibling.style = "";
+        v.previousElementSibling.htmlFor = TDkey;
+      }
+    },
+    false
+  );
 }
 
 function mvToday(v) {
@@ -251,12 +277,35 @@ function mvToday(v) {
     TDkey = v.previousElementSibling.htmlFor,
     TDToday = JSON.parse(localStorage.getItem("TD_Today"));
   v.parentNode.remove();
+  if (!TDToday) {
+    var TDToday = {};
+  }
   TDToday[TDkey] = TodayContent;
   delete TDitems[TDkey];
   localStorage.setItem("TD_Today", JSON.stringify(TDToday));
   store();
+  //remove style which is set on itemOptModalToggle
+  document.getElementById("TDlist-box").style.height = "";
 }
 
+// remove 1 item
+function rmItem(v) {
+  var RDkey = v.previousElementSibling.htmlFor;
+  if (TDtype !== "TD_Done") {
+    if (localStorage.getItem("TD_Done")) {
+      var TDdone = JSON.parse(localStorage.getItem("TD_Done"));
+      TDdone[RDkey] = TDitems[RDkey];
+    }
+    localStorage.setItem("TD_Done", JSON.stringify(TDdone));
+  }
+  delete TDitems[RDkey];
+  v.parentNode.remove();
+  store();
+  //remove style(height) which is set on itemOptModalToggle
+  document.getElementById("TDlist-box").style.height = "";
+}
+
+//set TDitems Values with HTML / JS
 function setValues(TDkey) {
   if (!TDitemHTML) {
     var TDitemHTML = "";
@@ -272,7 +321,7 @@ function setValues(TDkey) {
         TDkey +
         ">" +
         TDitems[TDkey] +
-        '</label><div class="itemOptModal" style="display:none"><p class="DelModalItem">Edit</p>' +
+        '</label><div class="itemOptModal" style="display:none" ><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
         '<p class="DelModalItem" onclick="mvToday(this.parentNode)">Move to Today</p>' +
         '<p class="DelModalItem" onclick="rmTD()">Delete Selected</p>' +
         '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';

@@ -340,7 +340,6 @@ li > form > input {
 }
 
 .fa-ellipsis-h {
-  font-size: 1.1rem;
   width: 20px;
   vertical-align: top;
   position: relative;
@@ -715,6 +714,7 @@ input[type="checkbox"]:checked ~ label.TDcontent {
 
 .itemOpt {
   position: relative;
+  font-size: 1.1rem;
   border-radius: 50%;
   padding: 0.3rem;
   margin-left: auto;
