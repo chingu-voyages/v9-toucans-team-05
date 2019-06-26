@@ -416,7 +416,6 @@ margin-top: 5px;
 .unchecked, .fa-check-square {
   color: white;
   font-size: 1.5rem;
-  width: 100%;
   visibility: hidden;
   margin-right: 15px;
   display: inline;
@@ -469,6 +468,115 @@ margin-top: 5px;
 .Daily-Quote {
   grid-area: Daily-Quote;
   text-align: center;
+}
+
+.quote {
+  font-size: 1.2rem;
+}
+
+.quote-additional, .fa-twitter {
+  color:  rgba(237, 237, 237, 0.9);
+}
+
+.author {
+  font-size: 0.9rem;
+}
+
+.like:hover, .fa-twitter:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.liked {
+  color: white;
+}
+
+.liked:hover {
+  cursor: pointer;
+}
+
+.liked-quotes {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.liked-quotes:hover {
+  cursor: pointer;
+  background-color: rgba(79, 79, 81, 0.5);
+  color: white;
+}
+
+.liked-quotes > i::before {
+  position: relative;
+  bottom: 7px;
+  right: 2px;
+}
+
+.quote-additional {
+  visibility: hidden;
+}
+
+.quote-additional * {
+  padding: 2px;
+}
+
+.liked-quotes-container {
+  background-color: var(--darkOverlay);
+  display: none;
+  padding: 20px;
+  border-radius: 4px;
+  width: 350px;
+  position: absolute;
+  right: 330px;
+  bottom: 80px;
+}
+
+.liked-quotes-container:after {
+  top: 100%;
+	left: 10%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.liked-quotes-container:after {
+	border-color: rgba(0,0,0,0);
+	border-top-color: var(--darkOverlay);
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+.liked-quotes-container > p:first-of-type {
+  text-transform: uppercase;
+}
+
+.liked-quote > span {
+  color: rgba(237, 237, 237, 0.9);
+  font-size: 0.8rem;
+}
+
+.liked-quotes-container > hr {
+  margin-top: 15px;
+  color: var(--grey);
+  border: 0.5px solid var(--grey);
+}
+
+.liked-quote {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.liked-quote > i {
+  font-size: 0.7rem;
+}
+
+.liked-quotes-container p:first-of-type {
+  margin-top: auto;
 }
 
 .Weather-and-location {
@@ -528,7 +636,7 @@ margin-top: 5px;
   white-space: nowrap;
 }
 
-hr {
+.forecast-container > hr {
   color: var(--grey);
   border: 0.5px solid var(--grey);
   position: relative;
