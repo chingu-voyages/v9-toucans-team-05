@@ -416,7 +416,6 @@ margin-top: 5px;
 .unchecked, .fa-check-square {
   color: white;
   font-size: 1.5rem;
-  width: 100%;
   visibility: hidden;
   margin-right: 15px;
   display: inline;
