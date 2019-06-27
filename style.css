@@ -37,7 +37,8 @@ html {
 }
 ul {
   list-style-type: none;
-  margin-bottom: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .active {
@@ -45,6 +46,7 @@ ul {
 }
 
 input {
+  color: #fff;
   border: none;
   background: none;
   -webkit-appearance: none;
@@ -84,7 +86,7 @@ input {
   width: 200px;
   display: none;
   z-index: 1;
-  }
+}
 
 .custom-links-container:before {
   position: relative;
@@ -103,7 +105,7 @@ input {
 }
 
 li > a {
-  color:inherit;
+  color: inherit;
   font-size: 1rem;
 }
 
@@ -136,9 +138,8 @@ li > form > input {
 
 :focus:-moz-placeholder {
   color: var(--lightGrey);
-}​
-
-.input-name {
+}
+​ .input-name {
   display: inline-block;
 }
 
@@ -153,30 +154,31 @@ li > form > input {
   top: -5px;
 }
 
-.remove, .remove-link {
-background-color: transparent;
-color: var(--lightGrey);
-display: inline-block;
-width: 15px;
-height: 15px;
-border-radius: 50%;
-vertical-align: middle;
-text-align: center;
-position: absolute;
-left: 150px;
-margin-top: 5px;
+.remove,
+.remove-link {
+  background-color: transparent;
+  color: var(--lightGrey);
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  vertical-align: middle;
+  text-align: center;
+  position: absolute;
+  left: 150px;
+  margin-top: 5px;
 }
 
 .remove-link {
   display: none;
 }
 
-.remove:hover, .remove-link:hover {
+.remove:hover,
+.remove-link:hover {
   background-color: rgba(79, 79, 81, 0.5);
   color: white;
   cursor: pointer;
 }
-
 
 /*-----SearchSection----*/
 
@@ -242,7 +244,6 @@ margin-top: 5px;
   border-radius: 0.5rem;
   border-top: none;
   background: rgba(20, 20, 20, 0.9);
-  color: #fff;
   font-weight: bold;
 }
 #Search-engine-modal:before {
@@ -342,7 +343,7 @@ margin-top: 5px;
   font-size: 1.1rem;
   width: 20px;
   vertical-align: top;
-  position:relative;
+  position: relative;
   top: 5px;
 }
 
@@ -356,7 +357,7 @@ margin-top: 5px;
   margin: -5px 0px 10px auto;
   right: 395px;
   width: 120px;
-  }
+}
 
 .settings:before {
   position: relative;
@@ -413,16 +414,17 @@ margin-top: 5px;
   white-space: nowrap;
 }
 
-.unchecked, .fa-check-square {
+.unchecked,
+.fa-check-square {
   color: white;
   font-size: 1.5rem;
   visibility: hidden;
   margin-right: 15px;
   display: inline;
-  width: 20px;
 }
 
-.unchecked:hover, .fa-check-square {
+.unchecked:hover,
+.fa-check-square {
   cursor: pointer;
 }
 
@@ -446,7 +448,8 @@ margin-top: 5px;
   visibility: hidden;
 }
 
-.remove-focus, .add-focus {
+.remove-focus,
+.add-focus {
   background-color: transparent;
   color: white;
   width: 25px;
@@ -459,11 +462,11 @@ margin-top: 5px;
   top: -5px;
 }
 
-.remove-focus:hover, .add-focus:hover {
+.remove-focus:hover,
+.add-focus:hover {
   cursor: pointer;
   background-color: rgba(79, 79, 81, 0.5);
 }
-
 
 .Daily-Quote {
   grid-area: Daily-Quote;
@@ -474,15 +477,17 @@ margin-top: 5px;
   font-size: 1.2rem;
 }
 
-.quote-additional, .fa-twitter {
-  color:  rgba(237, 237, 237, 0.9);
+.quote-additional,
+.fa-twitter {
+  color: rgba(237, 237, 237, 0.9);
 }
 
 .author {
   font-size: 0.9rem;
 }
 
-.like:hover, .fa-twitter:hover {
+.like:hover,
+.fa-twitter:hover {
   color: white;
   cursor: pointer;
 }
@@ -535,20 +540,20 @@ margin-top: 5px;
 
 .liked-quotes-container:after {
   top: 100%;
-	left: 10%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
+  left: 10%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
 }
 
 .liked-quotes-container:after {
-	border-color: rgba(0,0,0,0);
-	border-top-color: var(--darkOverlay);
-	border-width: 10px;
-	margin-left: -10px;
+  border-color: rgba(0, 0, 0, 0);
+  border-top-color: var(--darkOverlay);
+  border-width: 10px;
+  margin-left: -10px;
 }
 
 .liked-quotes-container > p:first-of-type {
@@ -717,8 +722,172 @@ margin-top: 5px;
   content: " ";
 }
 
+/*---------ToDoSection----------*/
 .To-do-list {
   grid-area: To-do-list;
+}
+
+#ToDo-List-Section {
+  position: relative;
+  cursor: pointer;
+}
+
+#ToDo-box {
+  position: absolute;
+  bottom: 2.5rem;
+  left: -8rem;
+  background: rgba(20, 20, 20, 0.9);
+  max-width: 60rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: table;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+#ToDo-box:before {
+  position: absolute;
+  content: " ";
+  height: 0;
+  width: 0;
+  margin-left: -4rem;
+  right: 3rem;
+  bottom: -1.6rem;
+  border: 0.8rem solid transparent;
+  border-top: 0.8rem solid rgba(20, 20, 20, 0.9);
+}
+
+#TDitem {
+  margin: 0.5rem;
+}
+
+.TDitems {
+  color: #899098;
+  padding: 0.5rem 0;
+}
+
+.TDValue {
+  cursor: pointer;
+}
+
+#TDtype-Box {
+  position: relative;
+}
+
+#TDtype-choice-Box {
+  position: absolute;
+  z-index: 10;
+  border-radius: 0.4rem;
+  background-color: #828893;
+  top: 3.3rem;
+  left: 3.5rem;
+}
+
+#TDtype-choice-Box:after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(96, 129, 150, 0);
+  border-bottom-color: #828893;
+  border-width: 0.7rem;
+  margin-left: -0.7rem;
+}
+
+.TDtypeChoice {
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 0;
+}
+
+.TDtypeChoice:hover {
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+#TDlist-box {
+  position: relative;
+  overflow-y: auto;
+  max-height: 65vh;
+}
+
+#TDlist-box::-webkit-scrollbar {
+  display: none;
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"]:checked ~ label.TDcontent {
+  text-decoration: line-through;
+  color: #828893;
+}
+
+.itemOpt {
+  position: relative;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  padding: 0.3rem;
+  margin-left: auto;
+}
+
+.itemOpt:hover {
+  background-color: rgba(80, 80, 80, 0.7);
+}
+
+.itemOptModal {
+  position: absolute;
+  right: 2rem;
+  border-radius: 0.4rem;
+  background-color: rgba(80, 80, 80, 0.9);
+  z-index: 20;
+  padding: 0.5rem;
+}
+
+.DelModalItem:hover {
+  background-color: rgba(200, 200, 200, 0.8);
+}
+
+.DelModalItem {
+  margin: 0;
+}
+
+#TD_New_Box {
+  text-align: center;
+}
+
+.TD_New_title {
+  font-size: 1rem;
+}
+#TD_New_btn {
+  background-color: #768d87;
+  -moz-border-radius: 1.8rem;
+  -webkit-border-radius: 1.8rem;
+  border-radius: 1.8rem;
+  border: 1px solid #566963;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  font-family: Arial;
+  font-size: 1rem;
+  padding: 0.4rem 1.7rem;
+  text-decoration: none;
+}
+#TD_New_btn:hover {
+  background-color: #6c7c7c;
+}
+#TD_New_btn:active {
+  position: relative;
+  top: 1px;
+}
+
+#conf-i {
+  border-radius: 50%;
+  padding: 0.6rem;
+}
+#conf-i:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .Settings {
