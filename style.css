@@ -12,6 +12,8 @@ html {
   color: white;
 }
 
+
+
 :root {
   --darkOverlay: rgba(15, 15, 15, 0.925);
   --grey: #4f4f51;
@@ -299,6 +301,15 @@ margin-top: 5px;
   white-space: nowrap;
 }
 
+.top-row{
+  justify-content: space-between;
+}
+
+.bottom-row{
+  justify-content: space-between;
+}
+
+
 .message {
   display: inline;
 }
@@ -584,9 +595,9 @@ margin-top: 5px;
   width: auto;
   text-align: right;
   font-size: 1.5rem;
-  padding-right: 10px;
-  padding-top: 10px;
-  margin: 10px;
+  padding-right: 15px;
+  padding-top: 15px;
+
 }
 
 .location {
@@ -719,6 +730,8 @@ margin-top: 5px;
 
 .To-do-list {
   grid-area: To-do-list;
+    text-align: right;
+
 }
 
 .Settings {

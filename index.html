@@ -1,93 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Momentum-Clone-V9ToucansT05</title>
-    <meta charset="utf-8">
-    <!-- Element below makes the page responsible to mobile devices  -->
-    <meta name="viewport" contents="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.5/css/weather-icons.min.css">
-    <link href="https://unpkg.com/ionicons@4.5.9-1/dist/css/ionicons.min.css" rel="stylesheet">
-  </head>
-  <body>
-     <div id="bg-img">
-      <div class="bg-color grid-container">
+
+<head>
+  <title>Momentum-Clone-V9ToucansT05</title>
+
+  <!-- Element below makes the page responsible to mobile devices  -->
+  <meta name="viewport" contents="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.5/css/weather-icons.min.css">
+  <link href="https://unpkg.com/ionicons@4.5.9-1/dist/css/ionicons.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div id="bg-img">
+    <div class="bg-color container-fluid d-flex flex-column">
+
+      <div class="row h-100 top-row ">
+
         <!-- Links bar -->
-        <div class="links-section">
-        <div class="links">Links</div>
-        <div class="custom-links-container">
-          <ul class="link-list">
-            <li><a href="chrome-search://local-ntp/local-ntp.html"><i class="fab fa-chrome"></i> Chrome Tab</a></li>
-            <li><a href="chrome://apps/"><i class="fas fa-th"></i> Apps</a></li>
-            <li class="add-new-link">New Link</li>
-          </ul>
+        <div class="col-sm-1 col-xs-12 justify-content-xs-center ">
+          <div class="links-section">
+            <div class="links">Links</div>
+            <div class="custom-links-container">
+              <ul class="link-list">
+                <li><a href="chrome-search://local-ntp/local-ntp.html"><i class="fab fa-chrome"></i> Chrome Tab</a></li>
+                <li><a href="chrome://apps/"><i class="fas fa-th"></i> Apps</a></li>
+                <li class="add-new-link">New Link</li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-        <!-- Search bar goes here -->
-        <div class="Search-bar">
+          <!-- Search bar goes here -->
+          <div class="col-sm-5 col-xs-12">
           <form id="cse-search-box" action="https://www.bing.com/">
             <div class="d-flex search-hover">
-              <button
-                type="submit"
-                name="sa"
-                value="Search"
-                class="search-i border border-0"
-              >
+              <button type="submit" name="sa" value="Search" class="search-i border border-0">
                 <i class="fa fa-search"></i>
               </button>
-              <input
-                type="hidden"
-                name="cx"
-                value="013692888217153185597:p03wtssr4lq"
-              />
-              <input
-                type="hidden"
-                name="ie"
-                value="UTF-8"
-                class="border border-0"
-              />
-              <input
-                type="text"
-                id="search-input"
-                style="color: #fff"
-                name="q"
-                class="border border-0"
-              />
+              <input type="hidden" name="cx" value="013692888217153185597:p03wtssr4lq" />
+              <input type="hidden" name="ie" value="UTF-8" class="border border-0" />
+              <input type="text" id="search-input" style="color: #fff" name="q" class="border border-0" />
               <div class="Search-engine-box d-flex">
-                <img
-                  id="ChooseSearch"
-                  class="p-2 search-logo text-right"
-                  src="./img/logo/bing_icon-icons.com_62711.svg"
-                />
-                <i
-                  id="SearchAngle"
-                  class="search-angle-i fa fa-angle-down align-self-center"
-                ></i>
+                <img id="ChooseSearch" class="p-2 search-logo text-right" src="./img/logo/bing_icon-icons.com_62711.svg" />
+                <i id="SearchAngle" class="search-angle-i fa fa-angle-down align-self-center"></i>
                 <div id="Search-engine-modal">
                   <p class="SE-title">SEARCH WITH</p>
                   <ul class="searchtypes">
                     <li id="bing" class="searchtype">
-                      <img
-                        class="searchtype-i"
-                        src="./img/logo/bing_icon-icons.com_62711.svg"
-                      />Bing
+                      <img class="searchtype-i" src="./img/logo/bing_icon-icons.com_62711.svg" />Bing
                     </li>
                     <li id="google" class="searchtype">
-                      <img
-                        class="searchtype-i"
-                        src="./img/logo/1492616990-1-google-search-logo-engine-service-suits_83412.svg"
-                      />Google
+                      <img class="searchtype-i" src="./img/logo/1492616990-1-google-search-logo-engine-service-suits_83412.svg" />Google
                     </li>
                     <li id="DuckDuckGo" class="searchtype">
-                      <img
-                        class="searchtype-i"
-                        src="./img/logo/DuckDuckGo_icon-icons.com_67089.svg"
-                      />DuckDuckGo
+                      <img class="searchtype-i" src="./img/logo/DuckDuckGo_icon-icons.com_67089.svg" />DuckDuckGo
                     </li>
                   </ul>
                 </div>
@@ -95,53 +67,27 @@
             </div>
           </form>
         </div>
-        <!-- Clock -->
-        <div class="Clock">
-          <div class="current-time" id="current-time"><!-- JS Content --></div>
-        </div>
-        <!-- Welcome message -->
-        <div class="Welcome-message">
-          <div class="message" id="message"><!-- JS Content --></div>
-          <input type="text" onsubmit="return false" class="user-name" placeholder="[your name]">
-          <div class="settings">
-              <div class="edit-name">Edit your name</div>
-          </div>
-        </div>
-        <!-- Focus for the day; user enters single to do -->
-        <div class="Focus-for-the-day">
-          <div class="what">What is your main focus for today?</div>
-          <input type="text" onsubmit="return false" class="focus">
-        </div>
-        <!-- Daily quote/mantra -->
-        <div class="Daily-Quote">
-          <div class="quote"><!--JS content--></div>
-          <div class="quote-additional">
-            <span class="author"><!--JS content--></span>
-            <span class="heart"><i class="far fa-heart like"></i></span>
-            <span class="twitter">
-              <a href="https://twitter.com/intent/tweet?text=" target="_blank"><i class="fab fa-twitter"></i></a>
-            </span>
-            <span class="liked-quotes"><i class="fas fa-ellipsis-h ellipsis"></i></span>
-          </div>
-          <div class="liked-quotes-container">
-            <p>Favorite Quotes</p>
-            <hr>
-          </div>
-        </div>
+
         <!--  Weather and location-->
-        <div class="Weather-and-location">
+        <div class="col-sm-6 col-xs-12 Weather-and-location">
           <div class="temp-icon">
-            <span class="weather-icon-one weather-icon" id="weather-icon"><!--JS content--></span>
-            <span class="temperature" id="temperature"><!--JS content--></span>
+            <span class="weather-icon-one weather-icon" id="weather-icon">
+              <!--JS content--></span>
+            <span class="temperature" id="temperature">
+              <!--JS content--></span>
           </div>
-          <div class="location right" id="location"><!--JS content--></div>
+          <div class="location right" id="location">
+            <!--JS content-->
+          </div>
           <div class="forecast-container">
             <div class="current-weather">
               <div class="location" id="forecast-location"></div>
               <div class="weather-description description" id="weather-description"></div>
               <div class="current-temp-icon" id="current-temp-icon">
-                <span class="weather-icon-one" id="current-weather-icon"><!--JS content--></span>
-                <span class="temperature" id="current-temperature"><!--JS content--></span>
+                <span class="weather-icon-one" id="current-weather-icon">
+                  <!--JS content--></span>
+                <span class="temperature" id="current-temperature">
+                  <!--JS content--></span>
               </div>
             </div>
             <hr />
@@ -149,60 +95,124 @@
               <div class="day" id="day-one">
                 <div class="weekday-one weekday"></div>
                 <div class="current-temp-icon">
-                  <span class="weather-icon-one weather-icon" id="forecast-weather-icon"><!--JS content--></span>
-                  <span class="max-temperature" id="max-temperature"><!--JS content--></span>
-                  <span class="min-temperature" id="min-temperature"><!--JS content--></span>
+                  <span class="weather-icon-one weather-icon" id="forecast-weather-icon">
+                    <!--JS content--></span>
+                  <span class="max-temperature" id="max-temperature">
+                    <!--JS content--></span>
+                  <span class="min-temperature" id="min-temperature">
+                    <!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-two">
                 <div class="weekday-two weekday"></div>
                 <div class="current-temp-icon">
-                  <span class="weather-icon-two weather-icon" id="forecast-weather-icon"><!--JS content--></span>
-                  <span class="max-temperature-two max-temperature" id="max-temperature"><!--JS content--></span>
-                  <span class="min-temperature-two min-temperature" id="min-temperature"><!--JS content--></span>
+                  <span class="weather-icon-two weather-icon" id="forecast-weather-icon">
+                    <!--JS content--></span>
+                  <span class="max-temperature-two max-temperature" id="max-temperature">
+                    <!--JS content--></span>
+                  <span class="min-temperature-two min-temperature" id="min-temperature">
+                    <!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-three">
                 <div class="weekday-three weekday"></div>
                 <div class="current-temp-icon">
-                  <span class="weather-icon-three weather-icon" id="forecast-weather-icon"><!--JS content--></span>
-                  <span class="max-temperature-three max-temperature" id="max-temperature"><!--JS content--></span>
-                  <span class="min-temperature-three min-temperature" id="min-temperature"><!--JS content--></span>
+                  <span class="weather-icon-three weather-icon" id="forecast-weather-icon">
+                    <!--JS content--></span>
+                  <span class="max-temperature-three max-temperature" id="max-temperature">
+                    <!--JS content--></span>
+                  <span class="min-temperature-three min-temperature" id="min-temperature">
+                    <!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-four">
                 <div class="weekday-four weekday"></div>
                 <div class="current-temp-icon">
-                  <span class="weather-icon-four weather-icon" id="forecast-weather-icon"><!--JS content--></span>
-                  <span class="max-temperature-four max-temperature" id="max-temperature"><!--JS content--></span>
-                  <span class="min-temperature-four min-temperature" id="min-temperature"><!--JS content--></span>
+                  <span class="weather-icon-four weather-icon" id="forecast-weather-icon">
+                    <!--JS content--></span>
+                  <span class="max-temperature-four max-temperature" id="max-temperature">
+                    <!--JS content--></span>
+                  <span class="min-temperature-four min-temperature" id="min-temperature">
+                    <!--JS content--></span>
                 </div>
               </div>
               <div class="day" id="day-five">
                 <div class="weekday-five weekday"></div>
                 <div class="current-temp-icon">
-                  <span class="weather-icon-five weather-icon" id="forecast-weather-icon"><!--JS content--></span>
-                  <span class="max-temperature-five max-temperature" id="max-temperature"><!--JS content--></span>
-                  <span class="min-temperature-five min-temperature" id="min-temperature"><!--JS content--></span>
+                  <span class="weather-icon-five weather-icon" id="forecast-weather-icon">
+                    <!--JS content--></span>
+                  <span class="max-temperature-five max-temperature" id="max-temperature">
+                    <!--JS content--></span>
+                  <span class="min-temperature-five min-temperature" id="min-temperature">
+                    <!--JS content--></span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- To do list -->
-        <div class="To-do-list">To-do List</div>
-        <!-- Settings -->
-        <div class="Settings">Settings for page</div>
-        <!-- Photo credits/location -->
-        <div class="Photo-location-and-author">Photo Location and author</div>
+
       </div>
-    </div>
-    <script src="js\moments.js" charset="utf-8"></script>
-    <script src="js\weather.js" charset="utf-8"></script>
-    <script src="js\links.js" charset="utf-8"></script>
-    <script src="js\focus.js" charset="utf-8"></script>
-    <script src="js\quote.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./js/ChooseEngine.js"></script>
-    <script type="text/javascript" src="./js/Background.js"></script>
-  </body>
+
+      <!-- Clock -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="current-time Clock" id="current-time">
+            <!-- JS Content -->
+          </div>
+          <!-- Welcome message -->
+          <div class="Welcome-message">
+            <div class="message" id="message">
+              <!-- JS Content -->
+            </div>
+            <div class="edit-name">Edit your name</div>
+          </div>
+          <!-- Focus for the day; user enters single to do -->
+          <div class="Focus-for-the-day">
+          <div class="what">What is your main focus for today?</div>
+          <input type="text" onsubmit="return false" class="focus">
+        </div>
+        </div>
+      </div>
+
+
+
+      <div class="row bottom-row">
+        <!-- Photo credits/location -->
+        <div class="col-xs-12 col-sm-4 Photo-location-and-author justify-content-xs-center">Photo Location and author</div>
+        <!-- Daily quote/mantra -->
+        <div class="col-sm-4">
+
+          <div class="Daily-Quote">
+            <div class="quote">
+              <!--JS content-->
+            </div>
+            <div class="quote-additional">
+              <span class="author">
+                <!--JS content--></span>
+              <span class="heart"><i class="far fa-heart like"></i></span>
+              <span class="twitter">
+                <a href="https://twitter.com/intent/tweet?text=" target="_blank"><i class="fab fa-twitter"></i></a>
+              </span>
+              <span class="liked-quotes"><i class="fas fa-ellipsis-h ellipsis"></i></span>
+            </div>
+            <div class="liked-quotes-container">
+              <p>Favorite Quotes</p>
+              <hr>
+            </div>
+          </div>
+        </div>
+          <!-- To do list -->
+          <div class="col-sm-4 To-do-list">To-do List</div>
+        </div>
+
+      </div>
+      <script src="js\moments.js" charset="utf-8"></script>
+      <script src="js\weather.js" charset="utf-8"></script>
+      <script src="js\links.js" charset="utf-8"></script>
+      <script src="js\focus.js" charset="utf-8"></script>
+      <script src="js\quote.js" charset="utf-8"></script>
+      <script type="text/javascript" src="./js/ChooseEngine.js"></script>
+      <script type="text/javascript" src="./js/Background.js"></script>
+</body>
+
 </html>
