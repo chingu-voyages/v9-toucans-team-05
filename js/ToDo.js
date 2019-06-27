@@ -110,7 +110,6 @@ click.addEventListener(
   "click",
   function() {
     if (!click.classList.contains("active")) {
-      setCheckedLists();
       setValues();
       TDBox.style.display = "table";
       click.classList.add("active");
@@ -118,6 +117,7 @@ click.addEventListener(
         FirstTodo();
       } else {
         TDitems = JSON.parse(localStorage.getItem(TDtype));
+        setCheckedLists();
       }
     } else {
       TDBox.style.display = "none";
@@ -256,7 +256,11 @@ function setCheckedLists() {
       ? (TDitems[TDLists[i].id][1] = true)
       : (TDitems[TDLists[i].id][1] = false);
   }
-  store();
+  if (TDtype == "TD_Inbox" && Object.keys(TDitems).length == 0) {
+    FirstTodo();
+  } else {
+    store();
+  }
 }
 
 // functions in itemOptModal
@@ -298,7 +302,12 @@ function mvToday(v) {
   TDToday[TDkey] = [TodayContent, false];
   delete TDitems[TDkey];
   localStorage.setItem("TD_Today", JSON.stringify(TDToday));
-  store();
+  if (TDtype == "TD_Inbox" && Object.keys(TDitems).length == 0) {
+    localStorage.removeItem(TDtype);
+    FirstTodo();
+  } else {
+    store();
+  }
   //remove style which is set on itemOptModalToggle
   document.getElementById("TDlist-box").style.height = "";
 }
@@ -316,7 +325,14 @@ function rmItem(v) {
   }
   delete TDitems[RDkey];
   v.parentNode.remove();
-  store();
+  if (Object.keys(TDitems).length == 0) {
+    localStorage.removeItem(TDtype);
+    if (TDtype == "TD_Inbox") {
+      FirstTodo();
+    }
+  } else {
+    store();
+  }
   //remove style(height) which is set on itemOptModalToggle
   document.getElementById("TDlist-box").style.height = "";
 }
@@ -325,15 +341,32 @@ function rmItem(v) {
 function setValues(TDkey) {
   if (!TDitemHTML) {
     var TDitemHTML = "";
+    if (TDtype == "TD_Today") {
+      if (!TDmvToInbox) {
+        var TDmvToInbox = {};
+      }
+    }
     for (TDkey in TDitems) {
       var checked = "",
-        MoveToToday = "";
+        MoveToToday =
+          '<p class="DelModalItem" onclick="mvToday(this.parentNode)">Move to Today</p>';
       if (TDitems[TDkey][1] == true) {
         checked = "checked";
       }
-      if (TDtype !== "TD_Today") {
-        var MoveToToday =
-          '<p class="DelModalItem" onclick="mvToday(this.parentNode)">Move to Today</p>';
+      if (TDtype == "TD_Today") {
+        MoveToToday = "";
+        //Check if the item is today
+        var d = new Date(),
+          dd = ("0" + d.getDate()).slice(-2),
+          mm = ("0" + (d.getMonth() + 1)).slice(-2);
+        if (TDkey.slice(8, -2) !== mm + dd) {
+          if (TDitems[TDkey][1] == true) {
+            TDitems[TDkey][1] = false;
+          }
+          TDmvToInbox[TDkey] = TDitems[TDkey];
+          delete TDitems[TDkey];
+          continue;
+        }
       }
       TDitemHTML +=
         '<div class="custom-control custom-checkbox d-flex TDValue"><input type="checkbox" name =' +
@@ -352,6 +385,18 @@ function setValues(TDkey) {
         MoveToToday +
         '<p class="DelModalItem" onclick="rmTD()">Delete Selected</p>' +
         '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
+    }
+    if (TDtype == "TD_Today") {
+      if (Object.keys(TDmvToInbox).length !== 0) {
+        if (localStorage.getItem("TD_Inbox") !== null) {
+          var LSInbox = JSON.parse(localStorage.getItem("TD_Inbox"));
+          Object.assign(LSInbox, TDmvToInbox);
+        }
+        localStorage.setItem("TD_Inbox", JSON.stringify(TDmvToInbox));
+        store();
+      } else {
+        delete TDmvToInbox;
+      }
     }
   }
   list.innerHTML = TDitemHTML;
