@@ -47,7 +47,7 @@ form.addEventListener(
       TDtype +
       '" id=' +
       TDkey +
-      '> <label class="custom-control-label TDcontent" for=' +
+      ' onclick="chItem(this.id)"> <label class="custom-control-label TDcontent" for=' +
       TDkey +
       ">" +
       item.value +
@@ -117,7 +117,6 @@ click.addEventListener(
         FirstTodo();
       } else {
         TDitems = JSON.parse(localStorage.getItem(TDtype));
-        setCheckedLists();
       }
     } else {
       TDBox.style.display = "none";
@@ -132,7 +131,6 @@ typeSelect.addEventListener(
   "click",
   function() {
     if (!typeSelect.classList.contains("active")) {
-      setCheckedLists();
       TDtypeChoices.style.display = "table";
       typeSelect.classList.add("active");
     } else {
@@ -210,7 +208,6 @@ function rmTD() {
 function itemOptModalToggle(v) {
   var TDlistBox = document.getElementById("TDlist-box");
   if (v.style.display == "none") {
-    setCheckedLists();
     v.style.display = "table";
     TDlistBox.style.height = TDlistBox.scrollHeight + "px";
   } else {
@@ -249,18 +246,9 @@ function setitemOpt() {
   }
 }
 
-function setCheckedLists() {
-  var TDLists = document.getElementsByName(TDtype);
-  for (var i = 0; i < TDLists.length; i++) {
-    TDLists[i].checked
-      ? (TDitems[TDLists[i].id][1] = true)
-      : (TDitems[TDLists[i].id][1] = false);
-  }
-  if (TDtype == "TD_Inbox" && Object.keys(TDitems).length == 0) {
-    FirstTodo();
-  } else {
-    store();
-  }
+function chItem(v) {
+  TDitems[v][1] = !TDitems[v][1];
+  store();
 }
 
 // functions in itemOptModal
@@ -377,7 +365,7 @@ function setValues(TDkey) {
         checked +
         " id=" +
         TDkey +
-        '><label class="custom-control-label TDcontent" for=' +
+        ' onclick="chItem(this.id)"><label class="custom-control-label TDcontent" for=' +
         TDkey +
         ">" +
         TDitems[TDkey][0] +
