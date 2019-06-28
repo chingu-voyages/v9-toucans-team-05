@@ -387,6 +387,7 @@ margin-top: 5px;
 .edit-name:hover {
   cursor: pointer;
   background-color: rgba(79, 79, 81, 0.5);
+  text-align: center;
 }
 
 .Focus-for-the-day {
