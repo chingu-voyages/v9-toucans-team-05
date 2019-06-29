@@ -38,6 +38,12 @@ form.addEventListener(
         i++;
       }
     }
+    var MoveToToday =
+      '<p class="DelModalItem" onclick="mvToday(this.parentNode)">Move to Today</p>';
+    if (TDtype == "TD_Today") {
+      MoveToToday = "";
+    }
+
     //Store Key&Item
     TDitems[TDkey] = [item.value, false];
     list.innerHTML +=
@@ -52,7 +58,7 @@ form.addEventListener(
       ">" +
       item.value +
       '</label><div class="itemOptModal" style="display:none"><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
-      '<p class="DelModalItem" onclick="mvToday(this.parentNode)">Move to Today</p>' +
+      MoveToToday +
       '<p class="DelModalItem" onclick="rmTD()">Delete Selected</p>' +
       '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
     item.value = "";
