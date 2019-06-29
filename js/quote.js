@@ -11,6 +11,7 @@ $(document).ready(function() {
   if ("quote" in localStorage) {
     $('.quote').text(savedQuote);
     $('.author').text(savedAuthor);
+    $('.twitter a').attr('href', ($('.twitter a').attr('href') + savedQuote + '  —  ' + savedAuthor));
     if("heart" in localStorage) {
       $('.heart').html(savedHeart);
     } else {
@@ -20,6 +21,7 @@ $(document).ready(function() {
     $.getJSON('https://api.quotable.io/random', function(quote) {
       $('.quote').text('"' + quote.content + '"');
       $('.author').text(quote.author);
+      $('.twitter a').attr('href', ($('.twitter a').attr('href') + quote.content + '  —  ' + quote.author));
       window.localStorage.setItem('quote', $('.quote').text());
       window.localStorage.setItem('author', $('.author').text());
       window.localStorage.setItem('quote-day', quoteDay);
@@ -76,12 +78,6 @@ $(document).on('mouseover', '.Daily-Quote', function() {
 $(document).on('mouseout', '.Daily-Quote', function() {
     $('.quote-additional').css('visibility', 'hidden');
   });
-
-
-// Tweet quote
-$(document).ready(function() {
-  $('.twitter a').attr('href', ($('.twitter a').attr('href') + savedQuote + '  —  ' + savedAuthor));
-});
 
 // View liked quotes
 $('.liked-quotes').click(function(){
