@@ -369,7 +369,6 @@ margin-top: 5px;
   border-radius: 4px;
   text-align: left;
   margin: -5px 0px 10px auto;
-  right: 395px;
   width: 120px;
   }
 
@@ -545,8 +544,7 @@ margin-top: 5px;
   border-radius: 4px;
   width: 350px;
   position: absolute;
-  right: 330px;
-  bottom: 80px;
+  bottom: 50px;
 }
 
 .liked-quotes-container:after {

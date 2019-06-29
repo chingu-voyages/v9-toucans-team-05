@@ -86,4 +86,7 @@ $(document).ready(function() {
 // View liked quotes
 $('.liked-quotes').click(function(){
   $('.liked-quotes-container').fadeToggle();
+  var offset = $(this).position();
+  var leftTotal = parseInt(offset.left, 10) - 23 + "px";
+  $('.liked-quotes-container').css('left', leftTotal);
 });
