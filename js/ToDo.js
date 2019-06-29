@@ -97,7 +97,7 @@ function FirstTodo() {
 
 function LoadTDtype(type) {
   document.querySelector("#TDtype").innerText = type;
-  TDtype = `TD_${document.querySelector("#TDtype").innerText}`;
+  TDtype = `TD_${type}`;
   if (!localStorage.getItem(TDtype)) {
     TDitems = {};
     if (TDtype == "TD_Inbox") {
@@ -204,7 +204,7 @@ function rmTD(v) {
       }
     } else {
       // Delete from HTML
-      del.map(function(j) {
+      del.map(function(i) {
         var j = document.getElementById(i);
         j.parentNode.remove();
       });
@@ -320,11 +320,14 @@ function mvToday(v) {
 
 // remove 1 item
 function rmItem(v) {
-  var RDkey = v.previousElementSibling.htmlFor;
+  var RDkey = v.previousElementSibling.htmlFor,
+    TDdone = {};
   if (TDtype !== "TD_Done") {
-    if (localStorage.getItem("TD_Done")) {
+    if (localStorage.getItem("TD_Done") !== null) {
       var TDdone = JSON.parse(localStorage.getItem("TD_Done"));
       TDitems[RDkey][1] = true;
+      TDdone[RDkey] = TDitems[RDkey];
+    } else {
       TDdone[RDkey] = TDitems[RDkey];
     }
     localStorage.setItem("TD_Done", JSON.stringify(TDdone));
