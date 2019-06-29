@@ -304,8 +304,17 @@ function mvToday(v) {
   if (!TDToday) {
     var TDToday = {};
   }
-  TDToday[TDkey] = [TodayContent, false];
   delete TDitems[TDkey];
+  var i = 0;
+  while (Object.keys(TDToday).indexOf(TDkey) >= 0) {
+    if (TDkey.indexOf("_e", 12) >= 0) {
+      k_in = TDkey.indexOf("_e", 12);
+      TDkey = TDkey.slice(0, k_in);
+    }
+    TDkey += "_e" + i;
+    i++;
+  }
+  TDToday[TDkey] = [TodayContent, false];
   localStorage.setItem("TD_Today", JSON.stringify(TDToday));
   if (TDtype == "TD_Inbox" && Object.keys(TDitems).length == 0) {
     localStorage.removeItem(TDtype);
@@ -367,7 +376,7 @@ function setValues(TDkey) {
         var d = new Date(),
           dd = ("0" + d.getDate()).slice(-2),
           mm = ("0" + (d.getMonth() + 1)).slice(-2);
-        if (TDkey.slice(8, -2) !== mm + dd) {
+        if (TDkey.slice(8, 12) !== mm + dd) {
           if (TDitems[TDkey][1] == true) {
             TDitems[TDkey][1] = false;
           }
@@ -400,7 +409,11 @@ function setValues(TDkey) {
           var LSInbox = JSON.parse(localStorage.getItem("TD_Inbox"));
           Object.assign(LSInbox, TDmvToInbox);
         }
-        localStorage.setItem("TD_Inbox", JSON.stringify(TDmvToInbox));
+        localStorage.setItem("TD_Inbox", JSON.stringify(LSInbox));
+        alert(
+          Object.keys(TDmvToInbox).length +
+            " items are not made today. Moved them to Inbox."
+        );
         store();
       } else {
         delete TDmvToInbox;
