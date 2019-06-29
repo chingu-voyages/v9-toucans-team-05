@@ -214,13 +214,12 @@ function rmTD(v) {
       });
       store();
     }
-    //remove style(height) which is set on itemOptModalToggle
-    document.getElementById("TDlist-box").style.height = "";
   } else {
     alert("Nothing is Checked! Can you work on tasks?");
     v.style.display = "none";
-    document.getElementById("TDlist-box").style.height = "";
   }
+  //remove style(height) which is set on itemOptModalToggle
+  document.getElementById("TDlist-box").style.height = "";
 }
 
 function itemOptModalToggle(v) {
