@@ -164,51 +164,63 @@ function store() {
 }
 
 //Remove ToDo lists(multiple)
-function rmTD() {
+function rmTD(v) {
   var del = [];
   // Set up variable to load TDlist names dynamically
-  var TDLists = document.getElementsByName(TDtype);
-  //Get Keys&Number of the item to delete
-  for (var i = 0; i < TDLists.length; i++) {
-    if (TDLists[i].checked) {
-      del.push(Object.keys(TDitems)[i]);
+  var TDLists = document.getElementsByName(TDtype),
+    TDchecked = {};
+  for (TDkey in TDitems) {
+    if (TDitems[TDkey][1] == true) {
+      TDchecked[TDkey] = TDitems[TDkey][0];
     }
   }
-  //Make Associative Array named "Done"
-  if (TDtype !== "TD_Done") {
-    done = {};
-    del.map(function(i) {
-      TDitems[i][1] = true;
-      done[i] = TDitems[i];
-    });
-    if (localStorage.getItem("TD_Done")) {
-      var DoneList = JSON.parse(localStorage.getItem("TD_Done"));
-      Object.assign(done, DoneList);
+  if (Object.keys(TDchecked).length !== 0) {
+    //Get Keys&Number of the item to delete
+    for (var i = 0; i < TDLists.length; i++) {
+      if (TDLists[i].checked) {
+        del.push(Object.keys(TDitems)[i]);
+      }
     }
-    localStorage.setItem("TD_Done", JSON.stringify(done));
-  }
-  //If AllLists checked, delete all
-  if (del.length == document.TDListbox.length) {
-    localStorage.removeItem(TDtype);
-    list.innerHTML = "";
-    TDitems = {};
-    if (TDtype == "TD_Inbox") {
-      FirstTodo();
+    //Make Associative Array named "Done"
+    if (TDtype !== "TD_Done") {
+      done = {};
+      del.map(function(i) {
+        TDitems[i][1] = true;
+        done[i] = TDitems[i];
+      });
+      if (localStorage.getItem("TD_Done") !== null) {
+        var DoneList = JSON.parse(localStorage.getItem("TD_Done"));
+        Object.assign(done, DoneList);
+      }
+      localStorage.setItem("TD_Done", JSON.stringify(done));
     }
+    //If AllLists checked, delete all
+    if (del.length == document.TDListbox.length) {
+      localStorage.removeItem(TDtype);
+      list.innerHTML = "";
+      TDitems = {};
+      if (TDtype == "TD_Inbox") {
+        FirstTodo();
+      }
+    } else {
+      // Delete from HTML
+      del.map(function(j) {
+        var j = document.getElementById(i);
+        j.parentNode.remove();
+      });
+      //Delete from TDitems
+      del.map(function(i) {
+        return delete TDitems[i];
+      });
+      store();
+    }
+    //remove style(height) which is set on itemOptModalToggle
+    document.getElementById("TDlist-box").style.height = "";
   } else {
-    // Delete from HTML
-    del.map(function(i) {
-      var v = document.getElementById(i);
-      v.parentNode.remove();
-    });
-    //Delete from TDitems
-    del.map(function(i) {
-      return delete TDitems[i];
-    });
-    store();
+    alert("Nothing is Checked! Can you work on tasks?");
+    v.style.display = "none";
+    document.getElementById("TDlist-box").style.height = "";
   }
-  //remove style(height) which is set on itemOptModalToggle
-  document.getElementById("TDlist-box").style.height = "";
 }
 
 function itemOptModalToggle(v) {
@@ -377,7 +389,7 @@ function setValues(TDkey) {
         TDitems[TDkey][0] +
         '</label><div class="itemOptModal" style="display:none" ><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
         MoveToToday +
-        '<p class="DelModalItem" onclick="rmTD()">Delete Selected</p>' +
+        '<p class="DelModalItem" onclick="rmTD(this.parentNode)">Delete Selected</p>' +
         '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
     }
     if (TDtype == "TD_Today") {
