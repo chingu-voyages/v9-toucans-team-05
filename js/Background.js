@@ -130,11 +130,11 @@ function rmBG_Old() {
   }
 }
 
-function sleep(msec) {
+function sleep(ms) {
   return new Promise(function(resolve) {
     setTimeout(function() {
       resolve();
-    }, msec);
+    }, ms);
   });
 }
 
@@ -165,9 +165,11 @@ function rmLSimgB64() {
       }
     }
   }
-  rmTFskeys.forEach(function(v) {
-    localStorage.removeItem(v);
-  });
+  if (rmTFskeys.length !== 0) {
+    rmTFskeys.forEach(function(v) {
+      localStorage.removeItem(v);
+    });
+  }
 }
 
 async function setBGimgB64() {
