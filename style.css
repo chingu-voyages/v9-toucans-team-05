@@ -332,6 +332,7 @@ li > form > input {
   border-radius: 50%;
   vertical-align: middle;
   margin-left: 15px;
+  z-index: 2;
 }
 
 .more:hover {
@@ -345,6 +346,7 @@ li > form > input {
   vertical-align: top;
   position: relative;
   top: 5px;
+  z-index: 1;
 }
 
 .settings {

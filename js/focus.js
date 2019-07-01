@@ -86,7 +86,7 @@ $(document).on('keypress', '.user-name', function(e){
     if(e.which == 13){
       var username = $('.user-name').val();
       $('.user-name').remove();
-      $('.message').append('<span class="name"> ' + username + '.</span><span class="more"><i class="fas fa-ellipsis-h ellipsis"></i></span>');
+      $('.message').append('<span class="name"> ' + username + '.</span><span class="more"><i class="fas fa-ellipsis-h ellipsis focus-ellipsis"></i></span>');
       window.localStorage.setItem('username', username);
     }
 });
@@ -97,7 +97,7 @@ var savedName = window.localStorage.getItem('username');
 $(document).ready(function() {
   if ("username" in localStorage) {
     $('.user-name').remove();
-    $('.message').append('<span class="name"> ' + savedName + '.</span><span class="more"><i class="fas fa-ellipsis-h ellipsis"></i></span>');
+    $('.message').append('<span class="name"> ' + savedName + '.</span><span class="more"><i class="fas fa-ellipsis-h ellipsis focus-ellipsis"></i></span>');
   }
 });
 
@@ -107,7 +107,7 @@ $(document).on('mouseover', '.message', function() {
   });
 
 $(document).on('mouseout', '.message', function() {
-  if( $('.settings').css('display') == 'block') {
+  if($('.settings').css('display') == 'block') {
     $('.more').css('visibility', 'visible');
     $('.more').css('background-color', 'rgba(79, 79, 81, 0.5)');
   } else {
@@ -118,6 +118,13 @@ $(document).on('mouseout', '.message', function() {
 // Click on more
 $(document).on('click', '.more', function() {
   $('.settings').fadeToggle();
+});
+
+// Hide when clicked outside
+$(document).mouseup(function (e){
+	if (!$('.settings').is(e.target) && !$('.more').is(e.target)  && !$('.focus-ellipsis').is(e.target)){
+		$('.settings').fadeOut();
+  }
 });
 
 // Click on edit

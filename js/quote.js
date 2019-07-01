@@ -83,3 +83,10 @@ $(document).on('mouseout', '.Daily-Quote', function() {
 $('.liked-quotes').click(function(){
   $('.liked-quotes-container').fadeToggle();
 });
+
+// Hide when clicked outside
+$(document).mouseup(function (e){
+	if (!$('.liked-quotes-container').is(e.target) && !$('.liked-quotes').is(e.target)  && !$('.quote-ellipsis').is(e.target) && !$('.like').is(e.target) && !$('.liked').is(e.target)){
+		$('.liked-quotes-container').fadeOut();
+  }
+});
