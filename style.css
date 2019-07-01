@@ -313,14 +313,22 @@ margin-top: 5px;
   justify-content: space-between;
 }
 
-
 .message {
   display: inline;
+}
+
+.center {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  position: relative;
+  left: -20px;
 }
 
 .user-name {
   display: inline;
   color: white;
+  width: 220px;
 }
 
 .user-name::placeholder {

@@ -86,6 +86,7 @@ $(document).on('keypress', '.user-name', function(e){
     if(e.which == 13){
       var username = $('.user-name').val();
       $('.user-name').remove();
+      $('.Welcome-message').removeClass('center');
       $('.message').append('<span class="name"> ' + username + '.</span><span class="more"><i class="fas fa-ellipsis-h ellipsis"></i></span>');
       window.localStorage.setItem('username', username);
     }
@@ -97,6 +98,7 @@ var savedName = window.localStorage.getItem('username');
 $(document).ready(function() {
   if ("username" in localStorage) {
     $('.user-name').remove();
+    $('.Welcome-message').removeClass('center');
     $('.message').append('<span class="name"> ' + savedName + '.</span><span class="more"><i class="fas fa-ellipsis-h ellipsis"></i></span>');
   }
 });
