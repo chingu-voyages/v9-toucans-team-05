@@ -64,8 +64,7 @@ input {
 /*-----LinksSection----*/
 .link-element{
   padding: 0;
-  }
-
+}
 
 .links-section {
   grid-area: Links;
@@ -304,7 +303,6 @@ margin-top: 5px;
   font-size: 3rem;
   text-align: center;
   white-space: nowrap;
-  position: relative;
 }
 
 .top-row{
@@ -318,31 +316,26 @@ margin-top: 5px;
 
 .message {
   display: inline;
-
 }
 
 .user-name {
   display: inline;
   color: white;
-  text-align:left;
 }
 
 .user-name::placeholder {
   color: white;
   opacity: 0.7;
-
 }
 
 .user-name:-ms-input-placeholder {
   color: white;
   opacity: 0.7;
-
 }
 
 .user-name::-ms-input-placeholder {
   color: white;
   opacity: 0.7;
-  position: relative;
 }
 
 .more {
@@ -376,7 +369,6 @@ margin-top: 5px;
   border-radius: 4px;
   text-align: left;
   margin: -5px 0px 10px auto;
-  right: 395px;
   width: 120px;
   }
 
@@ -398,7 +390,6 @@ margin-top: 5px;
 .edit-name:hover {
   cursor: pointer;
   background-color: rgba(79, 79, 81, 0.5);
-  text-align: center;
 }
 
 .Focus-for-the-day {
@@ -491,7 +482,7 @@ margin-top: 5px;
 .Daily-Quote {
   grid-area: Daily-Quote;
   text-align: center;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
 .quote {
@@ -553,8 +544,7 @@ margin-top: 5px;
   border-radius: 4px;
   width: 350px;
   position: absolute;
-  right: 330px;
-  bottom: 80px;
+  bottom: 50px;
 }
 
 .liked-quotes-container:after {
