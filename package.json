@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Voyage 9 Toucan Team 05 - Momentum clone project",
   "scripts": {
-    "start": "serve",
+    "start": "serve"
   },
   "dependencies": {
     "serve": "^10.0.1"
