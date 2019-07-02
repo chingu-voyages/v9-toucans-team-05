@@ -6,12 +6,21 @@ function FetchItems() {
   ("use strict");
   var value = "World Heritage";
   function createURL(value) {
+<<<<<<< HEAD
     var API_key = "12743134-37f71928426932ad3d292fa38",
       BaseUrl = "https://pixabay.com/api/?key=" + API_key,
       keyword = "&q=" + encodeURIComponent(value),
       option =
         "&editorschoice=true&safesearch=true&image_type=photo&orientation=horizontal&per_page=200",
       url = BaseUrl + keyword + option;
+=======
+    var API_key = process.env.BG_APIKEY;
+    var BaseUrl = "https://pixabay.com/api/?key=" + API_key;
+    var keyword = "&q=" + encodeURIComponent(value);
+    var option =
+      "&editorschoice=true&safesearch=true&image_type=photo&orientation=horizontal&per_page=200";
+    var url = BaseUrl + keyword + option;
+>>>>>>> hide API key in heroku env variable
     return url;
   }
 
