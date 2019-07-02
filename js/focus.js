@@ -118,6 +118,9 @@ $(document).on('mouseout', '.message', function() {
 // Click on more
 $(document).on('click', '.more', function() {
   $('.settings').fadeToggle();
+  var offset = $(this).position();
+  var leftTotal = parseInt(offset.left, 10) + 12 + 'px';
+  $('.settings').css('left', leftTotal);
 });
 
 // Click on edit
