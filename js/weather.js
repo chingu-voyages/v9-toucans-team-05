@@ -218,6 +218,13 @@ function showPosition(position) {
      });
     });
 
+    // Hide forecast when clicked outside
+    $(document).mouseup(function (e){
+    	if (!$('.forecast-container').is(e.target) && !$('.Weather-and-location').is(e.target) && !$('.temperature').is(e.target) && !$('.location').is(e.target) && !$('.wi').is(e.target) && !$('.current-temp-icon').is(e.target)){
+    		$('.forecast-container').fadeOut();
+      }
+    });
+
   // Forecast
   $('#day-two').click(function(){
     $(".weather-description").html(weatherDescriptionTwo);

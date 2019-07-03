@@ -79,16 +79,17 @@ $(document).on('mouseout', '.Daily-Quote', function() {
     $('.quote-additional').css('visibility', 'hidden');
   });
 
-
-// Tweet quote
-$(document).ready(function() {
-  $('.twitter a').attr('href', ($('.twitter a').attr('href') + savedQuote + '  —  ' + savedAuthor));
-});
-
 // View liked quotes
 $('.liked-quotes').click(function(){
   $('.liked-quotes-container').fadeToggle();
   var offset = $(this).position();
   var leftTotal = parseInt(offset.left, 10) - 23 +'px';
   $('.liked-quotes-container').css('left', leftTotal);
+});
+
+// Hide when clicked outside
+$(document).mouseup(function (e){
+	if (!$('.liked-quotes-container').is(e.target) && !$('.liked-quotes').is(e.target)  && !$('.quote-ellipsis').is(e.target) && !$('.like').is(e.target) && !$('.liked').is(e.target)){
+		$('.liked-quotes-container').fadeOut();
+  }
 });
