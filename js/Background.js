@@ -1,17 +1,17 @@
 function intRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-console.log(process.env.BG_APIKEY);
+console.log(JSON.stringify(process.env));
 function FetchItems() {
   ("use strict");
   var value = "World Heritage";
   function createURL(value) {
-    var API_key = process.env.BG_APIKEY;
-    (BaseUrl = "https://pixabay.com/api/?key=" + API_key),
-      (keyword = "&q=" + encodeURIComponent(value)),
-      (option =
-        "&editorschoice=true&safesearch=true&image_type=photo&orientation=horizontal&per_page=200"),
-      (url = BaseUrl + keyword + option);
+    var API_key = "12743134-37f71928426932ad3d292fa38",
+      BaseUrl = "https://pixabay.com/api/?key=" + API_key,
+      keyword = "&q=" + encodeURIComponent(value),
+      option =
+        "&editorschoice=true&safesearch=true&image_type=photo&orientation=horizontal&per_page=200",
+      url = BaseUrl + keyword + option;
     return url;
   }
 
