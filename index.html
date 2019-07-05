@@ -5,8 +5,9 @@
   <title>Momentum-Clone-V9ToucansT05</title>
 
   <!-- Element below makes the page responsible to mobile devices  -->
+  <meta charset="utf-8">
   <meta name="viewport" contents="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -36,8 +37,8 @@
             </div>
           </div>
         </div>
-          <!-- Search bar goes here -->
-          <div class="col-sm-5 col-xs-12">
+        <!-- Search bar goes here -->
+        <div class="col-sm-5 col-xs-12">
           <form id="cse-search-box" action="https://www.bing.com/">
             <div class="d-flex search-hover">
               <button type="submit" name="sa" value="Search" class="search-i border border-0">
@@ -161,17 +162,20 @@
           </div>
           <!-- Welcome message -->
           <div class="Welcome-message">
-          <div class="message" id="message"><!-- JS Content --></div>
-          <input type="text" onsubmit="return false" class="user-name" placeholder="[your name]">
-          <div class="settings">
+            <div class="message" id="message">
+              <!-- JS Content -->
+            </div>
+            <div class="settings">
               <div class="edit-name">Edit your name</div>
+            </div>
+            <input type="text" onsubmit="return false" class="user-name" placeholder="[your name]">
+
           </div>
-        </div>
           <!-- Focus for the day; user enters single to do -->
           <div class="Focus-for-the-day">
-          <div class="what">What is your main focus for today?</div>
-          <input type="text" onsubmit="return false" class="focus">
-        </div>
+            <div class="what">What is your main focus for today?</div>
+            <input type="text" onsubmit="return false" class="focus">
+          </div>
         </div>
       </div>
 
@@ -202,18 +206,47 @@
             </div>
           </div>
         </div>
-          <!-- To do list -->
-          <div class="col-sm-4 To-do-list">To-do List</div>
+        <!-- To do list -->
+        <div class="col-sm-4 d-flex justify-content-end">
+          <div id="ToDo-List-Section">
+            <div id="ToDo-box" style="display:none">
+              <div id="TDtype-Box" class="d-flex align-items-center m-2">
+                <h4 id="TDtype" class=" mb-0 mx-2">Inbox</h4>
+                <i class="fa fa-angle-down" id="conf-i"></i>
+                <form id="TDtype-choice-Box" style="display:none" name="TDtypeChoiceBox">
+                  <div id="TDtypeChoices">
+                    <p class="TDtypeChoice" name="TDtypeName">Inbox</p>
+                    <p class="TDtypeChoice" name="TDtypeName">Today</p>
+                    <p class="TDtypeChoice" name="TDtypeName">Done</p>
+                  </div>
+                </form>
+              </div>
+
+              <form name="TDListbox" id="TDlist-box" class="d-flex flex-column"></form>
+              <form id="ToDoForm" action="#">
+                <input type="text" id="TDitem" placeholder="Add New" />
+              </form>
+            </div>
+            <div id="TDClick">To Do</div>
+          </div>
+
+
+
         </div>
 
-      </div>
-      <script src="js\moments.js" charset="utf-8"></script>
-      <script src="js\weather.js" charset="utf-8"></script>
-      <script src="js\links.js" charset="utf-8"></script>
-      <script src="js\focus.js" charset="utf-8"></script>
-      <script src="js\quote.js" charset="utf-8"></script>
-      <script type="text/javascript" src="./js/ChooseEngine.js"></script>
-      <script type="text/javascript" src="./js/Background.js"></script>
+
+
+    </div>
+  </div>
+
+  <script src="./js/ChooseEngine.js" charset="utf-8"></script>
+  <script src="./js/Background.js" charset="utf-8"></script>
+  <script src="./js/moments.js" charset="utf-8"></script>
+  <script src="./js/weather.js" charset="utf-8"></script>
+  <script src="./js/ToDo.js" charset="utf-8"></script>
+  <script src="./js/links.js" charset="utf-8"></script>
+  <script src="./js/focus.js" charset="utf-8"></script>
+  <script src="./js/quote.js" charset="utf-8"></script>
 </body>
 
 </html>
