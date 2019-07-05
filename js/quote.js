@@ -72,11 +72,15 @@ $(document).on('click', '.liked', function() {
 
 // Hover over quote
 $(document).on('mouseover', '.Daily-Quote', function() {
-    $('.quote-additional').css('visibility', 'visible');
+    $('.quote-additional').css('display', 'block');
+    $('.quote').css('transform', 'translateY(-20px)');
+    $('.quote-additional').css('transform', 'translateY(32px)');
   });
 
 $(document).on('mouseout', '.Daily-Quote', function() {
-    $('.quote-additional').css('visibility', 'hidden');
+    $('.quote-additional').css('display', 'none');
+    $('.quote').css('transform', 'translateY(0px)');
+    $('.quote-additional').css('transform', 'translateY(0px)');
   });
 
 // View liked quotes
