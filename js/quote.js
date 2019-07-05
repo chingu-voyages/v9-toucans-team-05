@@ -89,14 +89,7 @@ $('.liked-quotes').click(function(){
 
 // Hide when clicked outside
 $(document).mouseup(function (e){
-	if (!$('.liked-quotes-container').is(e.target) && !$('.liked-quotes').is(e.target)  && !$('.quote-ellipsis').is(e.target) && !$('.like').is(e.target) && !$('.liked').is(e.target)){
-		$('.liked-quotes-container').fadeOut();
-  }
-});
-
-// Hide when clicked outside
-$(document).mouseup(function (e){
-	if (!$('.liked-quotes-container').is(e.target) && !$('.liked-quotes').is(e.target)  && !$('.quote-ellipsis').is(e.target) && !$('.like').is(e.target) && !$('.liked').is(e.target)){
+	if (!$('.liked-quotes-container').is(e.target) && !$('.liked-quotes').is(e.target)  && !$('.liked-quote').is(e.target) && !$('.quote-ellipsis').is(e.target) && !$('.like').is(e.target) && !$('.liked').is(e.target)){
 		$('.liked-quotes-container').fadeOut();
   }
 });

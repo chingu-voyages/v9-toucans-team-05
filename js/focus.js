@@ -130,13 +130,6 @@ $(document).mouseup(function (e){
   }
 });
 
-// Hide when clicked outside
-$(document).mouseup(function (e){
-	if (!$('.settings').is(e.target) && !$('.more').is(e.target)  && !$('.focus-ellipsis').is(e.target)){
-		$('.settings').fadeOut();
-  }
-});
-
 // Click on edit
 $(document).on('click', '.edit-name', function() {
   $('.settings').fadeToggle();

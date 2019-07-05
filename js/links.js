@@ -51,7 +51,6 @@ $(document).ready(function() {
 });
 
 // Delete link
-
 $(document).on('click', '.remove-link', function(e) {
   this.parentElement.remove();
   localStorage.removeItem('links');

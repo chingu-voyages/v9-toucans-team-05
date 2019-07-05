@@ -4,9 +4,9 @@ body,
 html {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 14px;
-  height: 100%;
+  height: 100vh;
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   padding: 0;
   width: 100%;
   color: white;
@@ -315,6 +315,8 @@ margin-top: 5px;
 
 .bottom-row{
   justify-content: space-between;
+  padding-bottom: 20px;
+  align-items: flex-end;
 }
 
 
@@ -373,6 +375,7 @@ margin-top: 5px;
   vertical-align: top;
   position:relative;
   top: 5px;
+  z-index: 1;
 }
 
 .settings {
@@ -383,7 +386,6 @@ margin-top: 5px;
   border-radius: 4px;
   text-align: left;
   margin: -5px 0px 10px auto;
-  right: 395px;
   width: 120px;
   }
 
@@ -430,6 +432,12 @@ margin-top: 5px;
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 2.2;
+}
+
+.todays-focus {
+  padding-bottom: 40px;
+  position: relative;
+  left: -22px;
 }
 
 .user-focus {
@@ -558,8 +566,7 @@ margin-top: 5px;
   border-radius: 4px;
   width: 350px;
   position: absolute;
-  right: 330px;
-  bottom: 50px;
+  bottom: 40px;
 }
 
 .liked-quotes-container:after {
@@ -613,9 +620,8 @@ margin-top: 5px;
   width: auto;
   text-align: right;
   font-size: 1.5rem;
-  padding-right: 15px;
+  padding-right: 20px;
   padding-top: 15px;
-
 }
 
 .location {
@@ -754,6 +760,7 @@ margin-top: 5px;
 #ToDo-List-Section {
   position: relative;
   cursor: pointer;
+  padding-right: 5px;
 }
 
 #ToDo-box {
@@ -781,6 +788,10 @@ margin-top: 5px;
   bottom: -1.6rem;
   border: 0.8rem solid transparent;
   border-top: 0.8rem solid rgba(20, 20, 20, 0.9);
+}
+
+#TDClick {
+  font-size: 1.2rem;
 }
 
 #TDitem {
