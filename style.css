@@ -242,6 +242,7 @@ margin-top: 5px;
 
 #Search-engine-modal {
   display: none;
+  text-align:left;
   width: 13rem;
   position: absolute;
   top: 3rem;
@@ -948,3 +949,4 @@ input[type="checkbox"]:checked ~ label.TDcontent {
 
 .Photo-location-and-author {
   grid-area: Photo-location-and-author;
+}
