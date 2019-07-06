@@ -14,7 +14,7 @@ html {
 
 
 .flex-fill {
-    flex:1;
+    flex: auto;
 }
 
 
