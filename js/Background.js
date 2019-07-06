@@ -1,7 +1,7 @@
 function intRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-console.log(test_key);
+
 function FetchItems() {
   ("use strict");
   var value = "World Heritage";
