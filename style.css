@@ -71,14 +71,9 @@ input {
   grid-area: Links;
 }
 
-.link-element {
-  padding: 0;
-}
-
-
 .links {
   font-size: 1.2rem;
-  padding: 20px 20px 0px 20px;
+  padding: 20px 20px 0px 0px;
 }
 
 .links:hover {
