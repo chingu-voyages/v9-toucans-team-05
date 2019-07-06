@@ -84,7 +84,7 @@ input {
   background-color: var(--darkOverlay);
   position: absolute;
   left: 1px;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   text-align: left;
   padding: 10px 15px;
   margin: 10px 10px;
@@ -662,7 +662,7 @@ margin-top: 5px;
   width: 430px;
   background-color: var(--darkOverlay);
   color: white;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   text-align: left;
   padding: 0px 15px;
   margin: 10px 0px;
