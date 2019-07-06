@@ -667,6 +667,7 @@ margin-top: 5px;
   padding: 0px 15px;
   margin: 10px 0px;
   display: none;
+  z-index: 2;
 }
 
 .current-weather {
@@ -779,8 +780,8 @@ margin-top: 5px;
 
 #ToDo-box {
   position: absolute;
-  bottom: 5rem;
-  left: -10.4rem;
+  bottom: 3rem;
+  left: -10.2rem;
   background: rgba(20, 20, 20, 0.9);
   max-width: 60rem;
   width: 100%;
@@ -798,7 +799,7 @@ margin-top: 5px;
   height: 0;
   width: 0;
   margin-left: -4rem;
-  right: 3rem;
+  right: 1rem;
   bottom: -1.6rem;
   border: 0.8rem solid transparent;
   border-top: 0.8rem solid rgba(20, 20, 20, 0.9);
@@ -810,6 +811,7 @@ margin-top: 5px;
 
 #TDitem {
   margin: 0.5rem;
+  color: #fff;
 }
 
 .TDitems {
