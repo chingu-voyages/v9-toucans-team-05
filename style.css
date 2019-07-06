@@ -4,12 +4,17 @@ body,
 html {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 14px;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   overflow: hidden;
   padding: 0;
   width: 100%;
   color: white;
+}
+
+
+.flex-fill {
+    flex:1;
 }
 
 
