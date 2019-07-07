@@ -14,6 +14,16 @@ if (!localStorage.getItem(TDtype)) {
   TDitems = JSON.parse(localStorage.getItem(TDtype));
 }
 
+//replace strings to escape XSS
+function escXSS(s) {
+  s = s.replace(/&/g, '&amp;'),
+  s = s.replace(/</g, '&lt;'),
+  s = s.replace(/>/g, '&gt;'),
+  s = s.replace(/"/g, '&quot;'),
+  s = s.replace(/'/g, '&#39;');
+  return s;
+}
+
 //Add new Task to the list
 form.addEventListener(
   "submit",
@@ -25,6 +35,12 @@ form.addEventListener(
     if (i == 0 || document.querySelector("#TD_New_Box") !== null) {
       list.innerHTML = "";
     }
+    //set Validation
+    if(!item.value){
+      alert("oh, you did not input task...awesome!! \n if you don't have any, afk and enjoy the rest of your day!")
+      return false;
+    }
+    item.value = escXSS(item.value);
     //Setting up Storage name(Skip if exists)
     i++;
     var d = new Date(),
@@ -336,6 +352,7 @@ function rmItem(v) {
       TDitems[RDkey][1] = true;
       TDdone[RDkey] = TDitems[RDkey];
     } else {
+      TDitems[RDkey][1] = true;
       TDdone[RDkey] = TDitems[RDkey];
     }
     localStorage.setItem("TD_Done", JSON.stringify(TDdone));

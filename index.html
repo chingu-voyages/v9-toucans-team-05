@@ -38,7 +38,11 @@
           </div>
         </div>
         <!-- Search bar goes here -->
+<<<<<<< HEAD
         <div class="col-md-5 col-sm-5 col-xs-12">
+=======
+        <div class="Search-bar">
+>>>>>>> set alert blank and escape xss / autocomplete =off
           <form id="cse-search-box" action="https://www.bing.com/" autocomplete="off">
             <div class="d-flex search-hover">
               <button type="submit" name="sa" value="Search" class="search-i border border-0">
@@ -225,9 +229,13 @@
                 </form>
               </div>
 
-              <form name="TDListbox" id="TDlist-box" class="d-flex flex-column"></form>
+              <form
+                name="TDListbox"
+                id="TDlist-box"
+                class="d-flex flex-column"
+              ></form>
               <form id="ToDoForm" action="#" autocomplete="off">
-                <input type="text" id="TDitem" placeholder="Add New" />
+                <input type="text" id="TDitem" placeholder="Add New" maxlength="20" />
               </form>
             </div>
             <div id="TDClick">Todo</div>
