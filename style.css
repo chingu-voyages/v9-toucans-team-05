@@ -576,7 +576,7 @@ margin-top: 5px;
   background-color: var(--darkOverlay);
   display: none;
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   width: 350px;
   position: absolute;
   bottom: 40px;
