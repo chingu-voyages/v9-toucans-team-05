@@ -1,15 +1,21 @@
 $(function() {
-  $("#ChooseSearch,#SearchAngle").on("click", function() {
-    if ($(this).hasClass("active")) {
+  $("#ChooseSearch,#SearchAngle").on("click touchend", function() {
+    if ($("#ChooseSearch,#SearchAngle").hasClass("active")) {
       $(".active").removeClass("active");
       $("#Search-engine-modal").hide();
     } else {
-      $(this).addClass("active");
+      $("#ChooseSearch,#SearchAngle").addClass("active");
       $("#Search-engine-modal").show();
+      $("#search-input").focus();
     }
   });
-
-  $(".searchtype").on("click", function() {
+  $(document).on('click touchend', function(e) {
+    if (!$(e.target).closest('#ChooseSearch,#SearchAngle').length) {
+      $(".active").removeClass("active");
+      $("#Search-engine-modal").hide();
+    }
+  });
+  $(".searchtype").on("click touchend", function() {
     var id = $(this).attr("id");
     switch (id) {
       case "bing":

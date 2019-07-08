@@ -199,27 +199,27 @@ margin-top: 5px;
   padding-top: 15px;
 }
 
-.search-hover:hover{
+#cse-search-box:hover .search-hover{
   border-bottom:0.1rem solid #dee2e6;
 } 
 
-.search-hover:hover #ChooseSearch{
+#cse-search-box:hover #ChooseSearch{
   display:block;
 } 
 
-.search-hover:hover #SearchAngle{
+#cse-search-box:hover #SearchAngle{
   display:block;
 } 
 
-.search-hover:focus-within {
+#cse-search-box:focus-within .search-hover{
   border-bottom:0.1rem solid #eeeeee;
 }
 
-.search-hover:focus-within #ChooseSearch{
+#cse-search-box:focus-within #ChooseSearch{
   display:block;
 } 
 
-.search-hover:focus-within #SearchAngle{
+#cse-search-box:focus-within #SearchAngle{
   display:block;
 } 
 
