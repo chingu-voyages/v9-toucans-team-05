@@ -1,16 +1,4 @@
 $(function() {
-  $("#cse-search-box")
-    .on("mouseover focusin", function() {
-      $(".search-hover").css("border-bottom", "0.1rem solid #dee2e6");
-      $("#ChooseSearch").show();
-      $(".search-angle-i").show();
-    })
-    .on("mouseout", function() {
-      $(".search-hover").css("border-bottom", "none");
-      $("#ChooseSearch").hide();
-      $(".search-angle-i").hide();
-    });
-
   $("#ChooseSearch,#SearchAngle").on("click", function() {
     if ($(this).hasClass("active")) {
       $(".active").removeClass("active");

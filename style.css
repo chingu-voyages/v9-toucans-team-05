@@ -199,6 +199,30 @@ margin-top: 5px;
   padding-top: 15px;
 }
 
+.search-hover:hover{
+  border-bottom:0.1rem solid #dee2e6;
+} 
+
+.search-hover:hover #ChooseSearch{
+  display:block;
+} 
+
+.search-hover:hover #SearchAngle{
+  display:block;
+} 
+
+.search-hover:focus-within {
+  border-bottom:0.1rem solid #eeeeee;
+}
+
+.search-hover:focus-within #ChooseSearch{
+  display:block;
+} 
+
+.search-hover:focus-within #SearchAngle{
+  display:block;
+} 
+
 .search-hover {
   padding-bottom: 0.5rem;
   height: 3rem;
