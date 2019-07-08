@@ -456,8 +456,6 @@ margin-top: 5px;
   font-size: 1.5rem;
   visibility: hidden;
   margin-right: 15px;
-  display: inline;
-  width: 20px;
 }
 
 .unchecked:hover, .fa-check-square {
