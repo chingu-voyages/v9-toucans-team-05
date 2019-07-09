@@ -37,6 +37,7 @@ html {
 }
 
 #bg-img {
+  background-image:url('https://source.unsplash.com/user/texonalita');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
