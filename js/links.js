@@ -15,7 +15,7 @@ $(document).on('click', function(event) {
 // Add input fields
 $(document).on('click', '.add-new-link', function(e) {
   $('.add-new-link').remove();
-  $('.link-list').append('<li><form class="link-form"><input class="input-name" type="text" id="idea" placeholder="Name" onsubmit="return false"><span class="remove"><i class="icon ion-md-close"></i></span><br><input class="input-link" type="text" id="idea" placeholder="URL"></form></li>');
+  $('.link-list').append('<li><form class="link-form"><input class="input-name" type="text" id="idea" placeholder="Name" onsubmit="return false" autocomplete="off"><span class="remove"><i class="icon ion-md-close"></i></span><br><input class="input-link" type="text" id="idea" placeholder="URL" autocomplete="off"></form></li>');
   e.stopPropagation();
 });
 
@@ -51,7 +51,6 @@ $(document).ready(function() {
 });
 
 // Delete link
-
 $(document).on('click', '.remove-link', function(e) {
   this.parentElement.remove();
   localStorage.removeItem('links');

@@ -232,7 +232,6 @@ async function getBGimgB64() {
     }
     count++;
   }
-  //console.log(!!cmpimgB64);
   B64img = LZString.decompress(
     cmpimgB64[Math.floor(Math.random() * cmpimgB64.length)]
   );
@@ -244,7 +243,6 @@ async function getBGimgB64() {
     }
     count++;
   }
-  //console.log(!!B64img);
 }
 
 window.onload = async function Background() {

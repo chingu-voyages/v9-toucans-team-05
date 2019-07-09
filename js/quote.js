@@ -72,21 +72,28 @@ $(document).on('click', '.liked', function() {
 
 // Hover over quote
 $(document).on('mouseover', '.Daily-Quote', function() {
-    $('.quote-additional').css('visibility', 'visible');
+    $('.quote-additional').css('display', 'block');
+    $('.quote').css('transform', 'translateY(-20px)');
+    $('.quote-additional').css('transform', 'translateY(32px)');
   });
 
 $(document).on('mouseout', '.Daily-Quote', function() {
-    $('.quote-additional').css('visibility', 'hidden');
+    $('.quote-additional').css('display', 'none');
+    $('.quote').css('transform', 'translateY(0px)');
+    $('.quote-additional').css('transform', 'translateY(0px)');
   });
 
 // View liked quotes
 $('.liked-quotes').click(function(){
   $('.liked-quotes-container').fadeToggle();
+  var offset = $(this).position();
+  var leftTotal = parseInt(offset.left, 10) - 23 +'px';
+  $('.liked-quotes-container').css('left', leftTotal);
 });
 
 // Hide when clicked outside
 $(document).mouseup(function (e){
-	if (!$('.liked-quotes-container').is(e.target) && !$('.liked-quotes').is(e.target)  && !$('.quote-ellipsis').is(e.target) && !$('.like').is(e.target) && !$('.liked').is(e.target)){
+	if (!$('.liked-quotes-container').is(e.target) && !$('.liked-quotes').is(e.target)  && !$('.liked-quote').is(e.target) && !$('.quote-ellipsis').is(e.target) && !$('.like').is(e.target) && !$('.liked').is(e.target)){
 		$('.liked-quotes-container').fadeOut();
   }
 });

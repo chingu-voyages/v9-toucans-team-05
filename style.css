@@ -6,11 +6,18 @@ html {
   font-size: 14px;
   height: 100%;
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   padding: 0;
   width: 100%;
   color: white;
 }
+
+
+.flex-fill {
+    flex: auto;
+}
+
+
 
 :root {
   --darkOverlay: rgba(15, 15, 15, 0.925);
@@ -37,8 +44,7 @@ html {
 }
 ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin-bottom: 0;
 }
 
 .active {
@@ -46,7 +52,6 @@ ul {
 }
 
 input {
-  color: #fff;
   border: none;
   background: none;
   -webkit-appearance: none;
@@ -68,7 +73,7 @@ input {
 
 .links {
   font-size: 1.2rem;
-  padding: 20px 20px 0px 20px;
+  padding: 20px 20px 0px 0px;
 }
 
 .links:hover {
@@ -78,7 +83,8 @@ input {
 .custom-links-container {
   background-color: var(--darkOverlay);
   position: absolute;
-  border-radius: 4px;
+  left: 1px;
+  border-radius: 0.5rem;
   text-align: left;
   padding: 10px 15px;
   margin: 10px 10px;
@@ -86,7 +92,7 @@ input {
   width: 200px;
   display: none;
   z-index: 1;
-}
+  }
 
 .custom-links-container:before {
   position: relative;
@@ -105,7 +111,7 @@ input {
 }
 
 li > a {
-  color: inherit;
+  color:inherit;
   font-size: 1rem;
 }
 
@@ -138,8 +144,9 @@ li > form > input {
 
 :focus:-moz-placeholder {
   color: var(--lightGrey);
-}
-​ .input-name {
+}​
+
+.input-name {
   display: inline-block;
 }
 
@@ -154,31 +161,30 @@ li > form > input {
   top: -5px;
 }
 
-.remove,
-.remove-link {
-  background-color: transparent;
-  color: var(--lightGrey);
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  vertical-align: middle;
-  text-align: center;
-  position: absolute;
-  left: 150px;
-  margin-top: 5px;
+.remove, .remove-link {
+background-color: transparent;
+color: var(--lightGrey);
+display: inline-block;
+width: 15px;
+height: 15px;
+border-radius: 50%;
+vertical-align: middle;
+text-align: center;
+position: absolute;
+left: 150px;
+margin-top: 5px;
 }
 
 .remove-link {
   display: none;
 }
 
-.remove:hover,
-.remove-link:hover {
+.remove:hover, .remove-link:hover {
   background-color: rgba(79, 79, 81, 0.5);
   color: white;
   cursor: pointer;
 }
+
 
 /*-----SearchSection----*/
 
@@ -236,6 +242,7 @@ li > form > input {
 
 #Search-engine-modal {
   display: none;
+  text-align:left;
   width: 13rem;
   position: absolute;
   top: 3rem;
@@ -244,6 +251,7 @@ li > form > input {
   border-radius: 0.5rem;
   border-top: none;
   background: rgba(20, 20, 20, 0.9);
+  color: #fff;
   font-weight: bold;
 }
 #Search-engine-modal:before {
@@ -290,6 +298,7 @@ li > form > input {
   font-size: 9rem;
   font-weight: 500;
   text-align: center;
+  height: 150px;
 }
 
 /*-----WelcomeSection----*/
@@ -298,15 +307,37 @@ li > form > input {
   font-size: 3rem;
   text-align: center;
   white-space: nowrap;
+  padding-bottom: 20px;
 }
+
+.top-row{
+  justify-content: space-between;
+}
+
+.bottom-row{
+  justify-content: space-between;
+  padding-bottom: 20px;
+  align-items: flex-end;
+}
+
 
 .message {
   display: inline;
 }
 
+
+.center {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  position: relative;
+  left: -20px;
+}
+
 .user-name {
   display: inline;
   color: white;
+  width: 220px;
 }
 
 .user-name::placeholder {
@@ -332,7 +363,6 @@ li > form > input {
   border-radius: 50%;
   vertical-align: middle;
   margin-left: 15px;
-  z-index: 2;
 }
 
 .more:hover {
@@ -344,7 +374,7 @@ li > form > input {
   font-size: 1.1rem;
   width: 20px;
   vertical-align: top;
-  position: relative;
+  position:relative;
   top: 5px;
   z-index: 1;
 }
@@ -357,9 +387,8 @@ li > form > input {
   border-radius: 4px;
   text-align: left;
   margin: -5px 0px 10px auto;
-  right: 395px;
   width: 120px;
-}
+  }
 
 .settings:before {
   position: relative;
@@ -406,6 +435,12 @@ li > form > input {
   line-height: 2.2;
 }
 
+.todays-focus {
+  padding-bottom: 40px;
+  position: relative;
+  left: -22px;
+}
+
 .user-focus {
   font-size: 2.2rem;
   display: inline;
@@ -416,17 +451,14 @@ li > form > input {
   white-space: nowrap;
 }
 
-.unchecked,
-.fa-check-square {
+.unchecked, .fa-check-square {
   color: white;
   font-size: 1.5rem;
   visibility: hidden;
   margin-right: 15px;
-  display: inline;
 }
 
-.unchecked:hover,
-.fa-check-square {
+.unchecked:hover, .fa-check-square {
   cursor: pointer;
 }
 
@@ -450,8 +482,7 @@ li > form > input {
   visibility: hidden;
 }
 
-.remove-focus,
-.add-focus {
+.remove-focus, .add-focus {
   background-color: transparent;
   color: white;
   width: 25px;
@@ -464,11 +495,11 @@ li > form > input {
   top: -5px;
 }
 
-.remove-focus:hover,
-.add-focus:hover {
+.remove-focus:hover, .add-focus:hover {
   cursor: pointer;
   background-color: rgba(79, 79, 81, 0.5);
 }
+
 
 .Daily-Quote {
   grid-area: Daily-Quote;
@@ -477,19 +508,22 @@ li > form > input {
 
 .quote {
   font-size: 1.2rem;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
-.quote-additional,
-.fa-twitter {
-  color: rgba(237, 237, 237, 0.9);
+.quote-additional, .fa-twitter {
+  color:  rgba(237, 237, 237, 0.9);
 }
 
 .author {
   font-size: 0.9rem;
 }
 
-.like:hover,
-.fa-twitter:hover {
+.like:hover, .fa-twitter:hover {
   color: white;
   cursor: pointer;
 }
@@ -522,7 +556,16 @@ li > form > input {
 }
 
 .quote-additional {
-  visibility: hidden;
+  display: none;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 30px;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 .quote-additional * {
@@ -533,29 +576,28 @@ li > form > input {
   background-color: var(--darkOverlay);
   display: none;
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   width: 350px;
   position: absolute;
-  right: 330px;
-  bottom: 80px;
+  bottom: 40px;
 }
 
 .liked-quotes-container:after {
   top: 100%;
-  left: 10%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
+	left: 10%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
 }
 
 .liked-quotes-container:after {
-  border-color: rgba(0, 0, 0, 0);
-  border-top-color: var(--darkOverlay);
-  border-width: 10px;
-  margin-left: -10px;
+	border-color: rgba(0,0,0,0);
+	border-top-color: var(--darkOverlay);
+	border-width: 10px;
+	margin-left: -10px;
 }
 
 .liked-quotes-container > p:first-of-type {
@@ -591,9 +633,8 @@ li > form > input {
   width: auto;
   text-align: right;
   font-size: 1.5rem;
-  padding-right: 10px;
-  padding-top: 10px;
-  margin: 10px;
+  padding-right: 20px;
+  padding-top: 15px;
 }
 
 .location {
@@ -620,11 +661,12 @@ li > form > input {
   width: 430px;
   background-color: var(--darkOverlay);
   color: white;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   text-align: left;
   padding: 0px 15px;
   margin: 10px 0px;
   display: none;
+  z-index: 2;
 }
 
 .current-weather {
@@ -732,12 +774,13 @@ li > form > input {
 #ToDo-List-Section {
   position: relative;
   cursor: pointer;
+  padding-right: 5px;
 }
 
 #ToDo-box {
   position: absolute;
-  bottom: 2.5rem;
-  left: -8rem;
+  bottom: 3rem;
+  left: -10rem;
   background: rgba(20, 20, 20, 0.9);
   max-width: 60rem;
   width: 100%;
@@ -746,6 +789,7 @@ li > form > input {
   display: table;
   margin: 0 auto;
   cursor: pointer;
+  z-index: 2;
 }
 
 #ToDo-box:before {
@@ -754,14 +798,19 @@ li > form > input {
   height: 0;
   width: 0;
   margin-left: -4rem;
-  right: 3rem;
+  right: 1rem;
   bottom: -1.6rem;
   border: 0.8rem solid transparent;
   border-top: 0.8rem solid rgba(20, 20, 20, 0.9);
 }
 
+#TDClick {
+  font-size: 1.2rem;
+}
+
 #TDitem {
   margin: 0.5rem;
+  color: #fff;
 }
 
 .TDitems {
