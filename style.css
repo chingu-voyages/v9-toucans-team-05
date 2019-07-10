@@ -927,7 +927,9 @@ input[type="checkbox"]:checked ~ label.TDcontent {
   z-index: 20;
   padding: 0.5rem;
 }
-
+.itemOptActive{
+  display:table;
+}
 .DelModalItem:hover {
   background-color: rgba(200, 200, 200, 0.8);
 }
