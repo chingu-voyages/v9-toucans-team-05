@@ -206,19 +206,18 @@ async function setBGimgB64() {
       }
       count++;
     }
-      cmpimgB64 = [];
-      for (var i = 0; i < bgImages.length; i++) {
-        cmpimgB64[i] = LZString.compress(imgBase64[i]);
-      }
-      while (cmpimgB64.length !== imgBase64.length) {
-        await sleep(200);
-        if (count > 24) {
-          break;
-        }
-        count++;
-      }
-      localStorage.setItem(BG_imgB64, JSON.stringify(cmpimgB64));
+    cmpimgB64 = [];
+    for (var i = 0; i < bgImages.length; i++) {
+      cmpimgB64[i] = LZString.compress(imgBase64[i]);
     }
+    while (cmpimgB64.length !== imgBase64.length) {
+      await sleep(200);
+      if (count > 24) {
+        break;
+      }
+      count++;
+    }
+    localStorage.setItem(BG_imgB64, JSON.stringify(cmpimgB64));
   }
 }
 
