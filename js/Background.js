@@ -206,7 +206,6 @@ async function setBGimgB64() {
       }
       count++;
     }
-    if(LZString!==null){
       cmpimgB64 = [];
       for (var i = 0; i < bgImages.length; i++) {
         cmpimgB64[i] = LZString.compress(imgBase64[i]);
@@ -280,7 +279,9 @@ window.onload = async function Background() {
       document.getElementById("bg-img").style.backgroundImage =
         bgImages[Math.floor(Math.random() * bgImages.length)];
       rmLSimgB64();
-      setBGimgB64();
+      if(typeof(LZString)!==undefined){
+        setBGimgB64();
+      }
     }
   } else {
     rmBG_Old();
@@ -305,6 +306,8 @@ window.onload = async function Background() {
     }
     document.getElementById("bg-img").style.backgroundImage =
       bgImages[Math.floor(Math.random() * bgImages.length)];
-    setBGimgB64();
+      if(typeof(LZString)!==undefined){
+        setBGimgB64();
+      };
   }
 };
