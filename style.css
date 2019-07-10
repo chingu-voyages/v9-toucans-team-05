@@ -199,6 +199,30 @@ margin-top: 5px;
   padding-top: 15px;
 }
 
+#cse-search-box:hover .search-hover{
+  border-bottom:0.1rem solid #dee2e6;
+} 
+
+#cse-search-box:hover #ChooseSearch{
+  display:block;
+} 
+
+#cse-search-box:hover #SearchAngle{
+  display:block;
+} 
+
+#cse-search-box:focus-within .search-hover{
+  border-bottom:0.1rem solid #eeeeee;
+}
+
+#cse-search-box:focus-within #ChooseSearch{
+  display:block;
+} 
+
+#cse-search-box:focus-within #SearchAngle{
+  display:block;
+} 
+
 .search-hover {
   padding-bottom: 0.5rem;
   height: 3rem;
@@ -324,7 +348,6 @@ margin-top: 5px;
 .message {
   display: inline;
 }
-
 
 .center {
   display: flex;
