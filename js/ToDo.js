@@ -7,6 +7,7 @@ var list = document.querySelector("#TDlist-box"),
   TDtypeChoice = document.querySelectorAll(".TDtypeChoice"),
   TDBox = document.querySelector("#ToDo-box"),
   TDtype = `TD_${document.querySelector("#TDtype").innerText}`,
+  TDlistBox = document.getElementById("TDlist-box"),
   i = 0;
 if (!localStorage.getItem(TDtype)) {
   var TDitems = {};
@@ -73,7 +74,7 @@ form.addEventListener(
       TDkey +
       ">" +
       item.value +
-      '</label><div class="itemOptModal" style="display:none"><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
+      '</label><div class="itemOptModal"><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
       MoveToToday +
       '<p class="DelModalItem" onclick="rmTD(this.parentNode)">Delete Selected</p>' +
       '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
@@ -144,6 +145,7 @@ click.addEventListener(
       TDBox.style.display = "none";
       click.classList.remove("active");
     }
+    TDlistBox.style.height = "";
   },
   false
 );
@@ -238,13 +240,31 @@ function rmTD(v) {
   document.getElementById("TDlist-box").style.height = "";
 }
 
+//implement "closest" function
+function closest(node, selector) {
+  return (node.closest || function(_selector) {
+    do {
+      if ((node.matches || node.msMatchesSelector).call(node, _selector)) {
+        return node;
+      }
+      node = node.parentElement || node.parentNode;
+    } while (node !== null && node.nodeType === 1);
+
+    return null;
+  }).call(node, selector);
+}
+
 function itemOptModalToggle(v) {
-  var TDlistBox = document.getElementById("TDlist-box");
-  if (v.style.display == "none") {
-    v.style.display = "table";
+  var iOptActive =document.getElementsByClassName("itemOptActive");
+  if(closest(v, '.itemOptActive')==null) {
+    if(iOptActive.length!==0){
+      iOptActive[0].classList.remove('itemOptActive');
+      TDlistBox.style.height = "";
+    }
+    v.classList.add('itemOptActive');
     TDlistBox.style.height = TDlistBox.scrollHeight + "px";
-  } else {
-    v.style.display = "none";
+  }else{
+    iOptActive[0].classList.remove('itemOptActive');
     TDlistBox.style.height = "";
   }
 }
@@ -415,7 +435,7 @@ function setValues(TDkey) {
         TDkey +
         ">" +
         TDitems[TDkey][0] +
-        '</label><div class="itemOptModal" style="display:none" ><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
+        '</label><div class="itemOptModal" ><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
         MoveToToday +
         '<p class="DelModalItem" onclick="rmTD(this.parentNode)">Delete Selected</p>' +
         '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';

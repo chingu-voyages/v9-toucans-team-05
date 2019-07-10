@@ -774,16 +774,15 @@ margin-top: 5px;
 #ToDo-List-Section {
   position: relative;
   cursor: pointer;
-  padding-right: 5px;
+  padding-right: 1rem;
 }
 
 #ToDo-box {
   position: absolute;
   bottom: 3rem;
-  left: -10rem;
+  right: 1rem;
   background: rgba(20, 20, 20, 0.9);
-  max-width: 60rem;
-  width: 100%;
+  width:20rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
   display: table;
@@ -810,6 +809,7 @@ margin-top: 5px;
 
 #TDitem {
   margin: 0.5rem;
+  width:100%;
   color: #fff;
 }
 
@@ -820,6 +820,7 @@ margin-top: 5px;
 
 .TDValue {
   cursor: pointer;
+  white-space:nowrap;
 }
 
 #TDtype-Box {
@@ -831,8 +832,8 @@ margin-top: 5px;
   z-index: 10;
   border-radius: 0.4rem;
   background-color: #828893;
-  top: 3.3rem;
-  left: 3.5rem;
+  top: 3.5rem;
+  left: 4.1rem;
 }
 
 #TDtype-choice-Box:after {
@@ -862,6 +863,7 @@ margin-top: 5px;
 #TDlist-box {
   position: relative;
   overflow-y: auto;
+  width:100%;
   max-height: 65vh;
 }
 
@@ -888,6 +890,7 @@ input[type="checkbox"]:checked ~ label.TDcontent {
 }
 
 .itemOptModal {
+  display:none;
   position: absolute;
   right: 2rem;
   border-radius: 0.4rem;
@@ -895,7 +898,9 @@ input[type="checkbox"]:checked ~ label.TDcontent {
   z-index: 20;
   padding: 0.5rem;
 }
-
+.itemOptActive{
+  display:table;
+}
 .DelModalItem:hover {
   background-color: rgba(200, 200, 200, 0.8);
 }
@@ -934,9 +939,15 @@ input[type="checkbox"]:checked ~ label.TDcontent {
 }
 
 #conf-i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
-  padding: 0.6rem;
+  height: 2rem;
+  width: 2rem;
+  margin: 0.6rem;
 }
+
 #conf-i:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
