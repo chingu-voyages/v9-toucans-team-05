@@ -803,15 +803,18 @@ margin-top: 5px;
 #ToDo-box {
   position: absolute;
   bottom: 3rem;
-  right: 1rem;
+  right: .5rem;
   background: rgba(20, 20, 20, 0.9);
   width:20rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  display: table;
   margin: 0 auto;
   cursor: pointer;
   z-index: 2;
+}
+
+.ToDo-box{
+  display:none;
 }
 
 #ToDo-box:before {
@@ -873,6 +876,9 @@ margin-top: 5px;
   border-width: 0.7rem;
   margin-left: -0.7rem;
 }
+.TDtype-choice-Box{
+  display:none;
+}
 
 .TDtypeChoice {
   padding: 0.3rem 0.8rem;
@@ -921,9 +927,7 @@ input[type="checkbox"]:checked ~ label.TDcontent {
   z-index: 20;
   padding: 0.5rem;
 }
-.itemOptActive{
-  display:table;
-}
+
 .DelModalItem:hover {
   background-color: rgba(200, 200, 200, 0.8);
 }
@@ -981,4 +985,11 @@ input[type="checkbox"]:checked ~ label.TDcontent {
 
 .Photo-location-and-author {
   grid-area: Photo-location-and-author;
+}
+
+
+
+/*--------SetThisToDisplay---------*/
+.itemOptActive,.TDtypeActive,.TDactive{
+  display:table;
 }

@@ -132,18 +132,16 @@ function LoadTDtype(type) {
 click.addEventListener(
   "click",
   function() {
-    if (!click.classList.contains("active")) {
+    if (!TDBox.classList.contains("TDactive")) {
       setValues();
-      TDBox.style.display = "table";
-      click.classList.add("active");
+      TDBox.classList.add("TDactive");
       if (!localStorage.getItem(TDtype)) {
         FirstTodo();
       } else {
         TDitems = JSON.parse(localStorage.getItem(TDtype));
       }
     } else {
-      TDBox.style.display = "none";
-      click.classList.remove("active");
+      TDBox.classList.remove("TDactive");
     }
     TDlistBox.style.height = "";
   },
@@ -154,12 +152,10 @@ click.addEventListener(
 typeSelect.addEventListener(
   "click",
   function() {
-    if (!typeSelect.classList.contains("active")) {
-      TDtypeChoices.style.display = "table";
-      typeSelect.classList.add("active");
+    if (!TDtypeChoices.classList.contains("TDtypeActive")) {
+      TDtypeChoices.classList.add("TDtypeActive");
     } else {
-      TDtypeChoices.style.display = "none";
-      typeSelect.classList.remove("active");
+      TDtypeChoices.classList.remove("TDtypeActive");
     }
     for (var i = 0; i < TDtypeChoice.length; i++) {
       TDtypeChoice[i].addEventListener(
@@ -167,8 +163,7 @@ typeSelect.addEventListener(
         function() {
           document.querySelector("#TDtype").innerText = this.innerText;
           LoadTDtype(this.innerText);
-          TDtypeChoices.style.display = "none";
-          typeSelect.classList.remove("active");
+          TDtypeChoices.classList.remove("TDtypeActive");
         },
         false
       );

@@ -212,11 +212,11 @@
         <!-- To do list -->
         <div class="col-sm-4 d-flex justify-content-end ToDo-List">
           <div id="ToDo-List-Section">
-            <div id="ToDo-box" style="display:none">
+            <div id="ToDo-box" class="ToDo-box">
               <div id="TDtype-Box" class="d-flex align-items-center m-2">
                 <h4 id="TDtype" class=" mb-0 mx-2">Inbox</h4>
                 <i class="fa fa-angle-down" id="conf-i"></i>
-                <form id="TDtype-choice-Box" style="display:none" name="TDtypeChoiceBox">
+                <form id="TDtype-choice-Box" name="TDtypeChoiceBox" class="TDtype-choice-Box">
                   <div id="TDtypeChoices">
                     <p class="TDtypeChoice" name="TDtypeName">Inbox</p>
                     <p class="TDtypeChoice" name="TDtypeName">Today</p>
@@ -224,30 +224,10 @@
                   </div>
                 </form>
               </div>
-
-<<<<<<< HEAD
-<<<<<<< HEAD
               <form name="TDListbox" id="TDlist-box" class="d-flex flex-column" ></form>
               <form id="ToDoForm" action="#" autocomplete="off">
                 <input type="text" id="TDitem" placeholder="Add New" maxlength="28" />
-=======
-              <form
-                name="TDListbox"
-                id="TDlist-box"
-                class="d-flex flex-column"
-              ></form>
-<<<<<<< HEAD
-=======
-              <form name="TDListbox" id="TDlist-box" class="d-flex flex-column" ></form>
->>>>>>> updated format in form
-              <form id="ToDoForm" action="#" autocomplete="off">
-                <input type="text" id="TDitem" placeholder="Add New" maxlength="20" />
->>>>>>> set alert blank and escape xss / autocomplete =off
-=======
-              <form id="ToDoForm" action="#" autocomplete="off">
-                <input type="text" id="TDitem" placeholder="Add New" maxlength="20" />
->>>>>>> set alert blank and escape xss / autocomplete =off
-              </form>
+              <form name="TDListbox" id="TDlist-box" class="d-flex flex-column"></form>
             </div>
             <div id="TDClick">Todo</div>
           </div>
