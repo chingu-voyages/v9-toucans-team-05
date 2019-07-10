@@ -847,6 +847,11 @@ margin-top: 5px;
 .TDValue {
   cursor: pointer;
   white-space:nowrap;
+  margin-left: .5rem;
+}
+
+.TDcontent{
+  padding:0 .5rem;
 }
 
 #TDtype-Box {
@@ -905,6 +910,8 @@ input[type="checkbox"]:checked ~ label.TDcontent {
   text-decoration: line-through;
   color: #828893;
 }
+
+
 
 .itemOpt {
   position: relative;
