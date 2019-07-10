@@ -335,7 +335,7 @@ margin-top: 5px;
 }
 
 .user-name {
-  display: inline;
+  display: inline-block;
   color: white;
   width: 220px;
 }
