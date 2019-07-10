@@ -803,7 +803,7 @@ margin-top: 5px;
 #ToDo-box {
   position: absolute;
   bottom: 3rem;
-  right: .5rem;
+  right: -0.1rem;
   background: rgba(20, 20, 20, 0.9);
   width:20rem;
   border-radius: 0.5rem;
@@ -837,6 +837,10 @@ margin-top: 5px;
   margin: 0.5rem;
   width:100%;
   color: #fff;
+}
+
+.TDcontent {
+  padding-left: 0.2rem;
 }
 
 .TDitems {
