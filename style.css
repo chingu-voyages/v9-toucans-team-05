@@ -201,15 +201,15 @@ margin-top: 5px;
 
 #cse-search-box:hover .search-hover{
   border-bottom:0.1rem solid #dee2e6;
-} 
+}
 
 #cse-search-box:hover #ChooseSearch{
   display:block;
-} 
+}
 
 #cse-search-box:hover #SearchAngle{
   display:block;
-} 
+}
 
 #cse-search-box:focus-within .search-hover{
   border-bottom:0.1rem solid #eeeeee;
@@ -217,11 +217,11 @@ margin-top: 5px;
 
 #cse-search-box:focus-within #ChooseSearch{
   display:block;
-} 
+}
 
 #cse-search-box:focus-within #SearchAngle{
   display:block;
-} 
+}
 
 .search-hover {
   padding-bottom: 0.5rem;
@@ -959,9 +959,11 @@ input[type="checkbox"]:checked ~ label.TDcontent {
 #conf-i {
   border-radius: 50%;
   padding: 0.6rem;
+  color: #828893;
 }
 #conf-i:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .Settings {
