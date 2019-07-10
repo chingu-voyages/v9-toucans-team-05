@@ -136,7 +136,9 @@ click.addEventListener(
       setValues();
       TDBox.classList.add("TDactive");
       if (!localStorage.getItem(TDtype)) {
-        FirstTodo();
+        if(TDtype == "TD_Inbox"){
+          FirstTodo();
+        }
       } else {
         TDitems = JSON.parse(localStorage.getItem(TDtype));
       }
