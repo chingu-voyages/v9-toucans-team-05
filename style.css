@@ -803,7 +803,7 @@ margin-top: 5px;
 #ToDo-box {
   position: absolute;
   bottom: 3rem;
-  right: -0.1rem;
+  right: 0.5rem;
   background: rgba(20, 20, 20, 0.9);
   width:20rem;
   border-radius: 0.5rem;
