@@ -7,11 +7,22 @@ var list = document.querySelector("#TDlist-box"),
   TDtypeChoice = document.querySelectorAll(".TDtypeChoice"),
   TDBox = document.querySelector("#ToDo-box"),
   TDtype = `TD_${document.querySelector("#TDtype").innerText}`,
+  TDlistBox = document.getElementById("TDlist-box"),
   i = 0;
 if (!localStorage.getItem(TDtype)) {
   var TDitems = {};
 } else {
   TDitems = JSON.parse(localStorage.getItem(TDtype));
+}
+
+//replace strings to escape XSS
+function escXSS(s) {
+  s = s.replace(/&/g, '&amp;'),
+  s = s.replace(/</g, '&lt;'),
+  s = s.replace(/>/g, '&gt;'),
+  s = s.replace(/"/g, '&quot;'),
+  s = s.replace(/'/g, '&#39;');
+  return s;
 }
 
 //Add new Task to the list
@@ -25,6 +36,12 @@ form.addEventListener(
     if (i == 0 || document.querySelector("#TD_New_Box") !== null) {
       list.innerHTML = "";
     }
+    //set Validation
+    if(!item.value){
+      alert("oh, you did not input task...awesome!! \n if you don't have any, afk and enjoy the rest of your day!")
+      return false;
+    }
+    item.value = escXSS(item.value);
     //Setting up Storage name(Skip if exists)
     i++;
     var d = new Date(),
@@ -57,7 +74,7 @@ form.addEventListener(
       TDkey +
       ">" +
       item.value +
-      '</label><div class="itemOptModal" style="display:none"><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
+      '</label><div class="itemOptModal"><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
       MoveToToday +
       '<p class="DelModalItem" onclick="rmTD(this.parentNode)">Delete Selected</p>' +
       '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';
@@ -115,19 +132,20 @@ function LoadTDtype(type) {
 click.addEventListener(
   "click",
   function() {
-    if (!click.classList.contains("active")) {
+    if (!TDBox.classList.contains("TDactive")) {
       setValues();
-      TDBox.style.display = "table";
-      click.classList.add("active");
+      TDBox.classList.add("TDactive");
       if (!localStorage.getItem(TDtype)) {
-        FirstTodo();
+        if(TDtype == "TD_Inbox"){
+          FirstTodo();
+        }
       } else {
         TDitems = JSON.parse(localStorage.getItem(TDtype));
       }
     } else {
-      TDBox.style.display = "none";
-      click.classList.remove("active");
+      TDBox.classList.remove("TDactive");
     }
+    TDlistBox.style.height = "";
   },
   false
 );
@@ -136,12 +154,10 @@ click.addEventListener(
 typeSelect.addEventListener(
   "click",
   function() {
-    if (!typeSelect.classList.contains("active")) {
-      TDtypeChoices.style.display = "table";
-      typeSelect.classList.add("active");
+    if (!TDtypeChoices.classList.contains("TDtypeActive")) {
+      TDtypeChoices.classList.add("TDtypeActive");
     } else {
-      TDtypeChoices.style.display = "none";
-      typeSelect.classList.remove("active");
+      TDtypeChoices.classList.remove("TDtypeActive");
     }
     for (var i = 0; i < TDtypeChoice.length; i++) {
       TDtypeChoice[i].addEventListener(
@@ -149,8 +165,7 @@ typeSelect.addEventListener(
         function() {
           document.querySelector("#TDtype").innerText = this.innerText;
           LoadTDtype(this.innerText);
-          TDtypeChoices.style.display = "none";
-          typeSelect.classList.remove("active");
+          TDtypeChoices.classList.remove("TDtypeActive");
         },
         false
       );
@@ -222,13 +237,31 @@ function rmTD(v) {
   document.getElementById("TDlist-box").style.height = "";
 }
 
+//implement "closest" function
+function closest(node, selector) {
+  return (node.closest || function(_selector) {
+    do {
+      if ((node.matches || node.msMatchesSelector).call(node, _selector)) {
+        return node;
+      }
+      node = node.parentElement || node.parentNode;
+    } while (node !== null && node.nodeType === 1);
+
+    return null;
+  }).call(node, selector);
+}
+
 function itemOptModalToggle(v) {
-  var TDlistBox = document.getElementById("TDlist-box");
-  if (v.style.display == "none") {
-    v.style.display = "table";
+  var iOptActive =document.getElementsByClassName("itemOptActive");
+  if(closest(v, '.itemOptActive')==null) {
+    if(iOptActive.length!==0){
+      iOptActive[0].classList.remove('itemOptActive');
+      TDlistBox.style.height = "";
+    }
+    v.classList.add('itemOptActive');
     TDlistBox.style.height = TDlistBox.scrollHeight + "px";
-  } else {
-    v.style.display = "none";
+  }else{
+    iOptActive[0].classList.remove('itemOptActive');
     TDlistBox.style.height = "";
   }
 }
@@ -336,6 +369,7 @@ function rmItem(v) {
       TDitems[RDkey][1] = true;
       TDdone[RDkey] = TDitems[RDkey];
     } else {
+      TDitems[RDkey][1] = true;
       TDdone[RDkey] = TDitems[RDkey];
     }
     localStorage.setItem("TD_Done", JSON.stringify(TDdone));
@@ -398,7 +432,7 @@ function setValues(TDkey) {
         TDkey +
         ">" +
         TDitems[TDkey][0] +
-        '</label><div class="itemOptModal" style="display:none" ><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
+        '</label><div class="itemOptModal" ><p class="DelModalItem" onclick="editItem(this.parentNode)">Edit</p>' +
         MoveToToday +
         '<p class="DelModalItem" onclick="rmTD(this.parentNode)">Delete Selected</p>' +
         '<p class="DelModalItem" onclick="rmItem(this.parentNode)">Delete</p></div><i class="fa fa-ellipsis-h itemOpt" onclick="itemOptModalToggle(this.previousElementSibling)" style="display:none"></i></div>';

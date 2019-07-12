@@ -202,6 +202,30 @@ margin-top: 5px;
   padding-top: 15px;
 }
 
+#cse-search-box:hover .search-hover{
+  border-bottom:0.1rem solid #dee2e6;
+}
+
+#cse-search-box:hover #ChooseSearch{
+  display:block;
+}
+
+#cse-search-box:hover #SearchAngle{
+  display:block;
+}
+
+#cse-search-box:focus-within .search-hover{
+  border-bottom:0.1rem solid #eeeeee;
+}
+
+#cse-search-box:focus-within #ChooseSearch{
+  display:block;
+}
+
+#cse-search-box:focus-within #SearchAngle{
+  display:block;
+}
+
 .search-hover {
   padding-bottom: 0.5rem;
   height: 3rem;
@@ -328,7 +352,6 @@ margin-top: 5px;
   display: inline;
 }
 
-
 .center {
   display: flex;
   width: 100vw;
@@ -338,7 +361,7 @@ margin-top: 5px;
 }
 
 .user-name {
-  display: inline;
+  display: inline-block;
   color: white;
   width: 220px;
 }
@@ -777,22 +800,24 @@ margin-top: 5px;
 #ToDo-List-Section {
   position: relative;
   cursor: pointer;
-  padding-right: 5px;
+  padding-right: 1rem;
 }
 
 #ToDo-box {
   position: absolute;
   bottom: 3rem;
-  left: -10rem;
+  right: 0.5rem;
   background: rgba(20, 20, 20, 0.9);
-  max-width: 60rem;
-  width: 100%;
+  width:20rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  display: table;
   margin: 0 auto;
   cursor: pointer;
   z-index: 2;
+}
+
+.ToDo-box{
+  display:none;
 }
 
 #ToDo-box:before {
@@ -813,7 +838,12 @@ margin-top: 5px;
 
 #TDitem {
   margin: 0.5rem;
+  width:100%;
   color: #fff;
+}
+
+.TDcontent {
+  padding-left: 0.2rem;
 }
 
 .TDitems {
@@ -823,6 +853,12 @@ margin-top: 5px;
 
 .TDValue {
   cursor: pointer;
+  white-space:nowrap;
+  margin-left: .8rem;
+}
+
+.TDcontent{
+  padding:0 .5rem;
 }
 
 #TDtype-Box {
@@ -834,8 +870,8 @@ margin-top: 5px;
   z-index: 10;
   border-radius: 0.4rem;
   background-color: #828893;
-  top: 3.3rem;
-  left: 3.5rem;
+  top: 3.5rem;
+  left: 4.1rem;
 }
 
 #TDtype-choice-Box:after {
@@ -852,6 +888,9 @@ margin-top: 5px;
   border-width: 0.7rem;
   margin-left: -0.7rem;
 }
+.TDtype-choice-Box{
+  display:none;
+}
 
 .TDtypeChoice {
   padding: 0.3rem 0.8rem;
@@ -865,6 +904,7 @@ margin-top: 5px;
 #TDlist-box {
   position: relative;
   overflow-y: auto;
+  width:100%;
   max-height: 65vh;
 }
 
@@ -877,6 +917,8 @@ input[type="checkbox"]:checked ~ label.TDcontent {
   text-decoration: line-through;
   color: #828893;
 }
+
+
 
 .itemOpt {
   position: relative;
@@ -891,6 +933,7 @@ input[type="checkbox"]:checked ~ label.TDcontent {
 }
 
 .itemOptModal {
+  display:none;
   position: absolute;
   right: 2rem;
   border-radius: 0.4rem;
@@ -898,7 +941,9 @@ input[type="checkbox"]:checked ~ label.TDcontent {
   z-index: 20;
   padding: 0.5rem;
 }
-
+.itemOptActive{
+  display:table;
+}
 .DelModalItem:hover {
   background-color: rgba(200, 200, 200, 0.8);
 }
@@ -937,11 +982,18 @@ input[type="checkbox"]:checked ~ label.TDcontent {
 }
 
 #conf-i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
-  padding: 0.6rem;
+  height: 2rem;
+  width: 2rem;
+  margin: 0.6rem;
 }
+
 #conf-i:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .Settings {
@@ -950,4 +1002,11 @@ input[type="checkbox"]:checked ~ label.TDcontent {
 
 .Photo-location-and-author {
   grid-area: Photo-location-and-author;
+}
+
+
+
+/*--------SetThisToDisplay---------*/
+.itemOptActive,.TDtypeActive,.TDactive{
+  display:table;
 }
