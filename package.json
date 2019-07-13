@@ -1,0 +1,19 @@
+{
+  "name": "v9-toucan-team-05",
+  "version": "1.0.0",
+  "description": "v9-toucan-team-05 Momentum-clone",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "T.Arita",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "unsplash-api": "^1.2.0",
+    "unsplash-js": "^5.0.0"
+  }
+}

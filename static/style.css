@@ -18,8 +18,6 @@ html {
     flex: auto;
 }
 
-
-
 :root {
   --darkOverlay: rgba(15, 15, 15, 0.925);
   --grey: #4f4f51;
@@ -39,12 +37,11 @@ html {
 }
 
 #bg-img {
-  background-image:url('https://source.unsplash.com/user/texonalita');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
 }
+
 ul {
   list-style-type: none;
   margin-bottom: 0;
