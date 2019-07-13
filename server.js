@@ -10,12 +10,10 @@ app.set('view engine','ejs');
 app.use('/static',express.static(path.join(__dirname,"static")));
 app.use('/js',express.static(path.join(__dirname,"js")))
 
-
 function createURL(value) {
-    const API_key = process.env.US_AcsKey,
-      BaseUrl = 'https://api.unsplash.com/search/photos?page=1',
+    const BaseUrl = 'https://api.unsplash.com/search/photos?page=1',
       keyword = "&query=" + encodeURIComponent(value),
-      APIkey ='&client_id=' + API_key,
+      APIkey ='&client_id=' + process.env.US_AcsKey,
       url = BaseUrl + keyword + APIkey;
     return url;
   }
@@ -44,11 +42,11 @@ async function fetchURL() {
   .catch(function(err) {
     console.log(err);
   });
+    app.get('/', (req, res) => {
+      let n = Math.floor(Math.random() * 10);
+      res.render('index',{img:result[n]['img'],author:result[n]['author'],location:result[n]['location']});
+    })
 
-  app.get('/', (req, res) => {
-    let n = Math.floor(Math.random() * 10);
-    res.render('index',{img:result[n]['img'],author:result[n]['author'],location:result[n]['location']});
-  })
 
 const server = http.createServer(app);
 // Listen to the App Engine-specified port, or 8080 otherwise
