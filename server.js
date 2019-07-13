@@ -47,7 +47,7 @@ async function fetchURL() {
 
   app.get('/', (req, res) => {
     let n = Math.floor(Math.random() * 10);
-    res.render('index',{img:result[n]['img'],author:result[n]['author'],location:result[n]['Location']});
+    res.render('index',{img:result[n]['img'],author:result[n]['author'],location:result[n]['location']});
   })
 
 const server = http.createServer(app);
