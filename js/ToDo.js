@@ -167,6 +167,8 @@ typeSelect.addEventListener(
           document.querySelector("#TDtype").innerText = this.innerText;
           LoadTDtype(this.innerText);
           TDtypeChoices.classList.remove("TDtypeActive");
+          //remove style(height) which is set on itemOptModalToggle
+          document.getElementById("TDlist-box").style.height = "";
         },
         false
       );
@@ -427,7 +429,8 @@ function setValues(TDkey) {
         }
       }
       if (TDtype == "TD_Today") {
-        MoveTo = '<p class="DelModalItem" onclick="mvToDir(this.parentNode,&quot;TD_Done&quot;)">Move to Done</p>';
+        MoveTo = '<p class="DelModalItem" onclick="mvToDir(this.parentNode ,&quot;TD_Inbox&quot;)">Move to Inbox</p>'+
+                 '<p class="DelModalItem" onclick="mvToDir(this.parentNode,&quot;TD_Done&quot;)">Move to Done</p>';
         //Set items to move if it is not today
         if (TDkey.slice(8, 12) !== mm + dd) {
           if (TDitems[TDkey][1] == true) {
