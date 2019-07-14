@@ -66,6 +66,14 @@ input {
   height: 100vh;
 }
 
+a{
+  color:rgba(200, 200, 200, 0.9);
+}
+
+a:hover{
+  color:#fff;
+}
+
 /*-----LinksSection----*/
 .links-section {
   grid-area: Links;
@@ -999,6 +1007,7 @@ input[type="checkbox"]:checked ~ label.TDcontent {
 
 .Photo-location-and-author {
   grid-area: Photo-location-and-author;
+  font-size:1.2rem;
 }
 
 
