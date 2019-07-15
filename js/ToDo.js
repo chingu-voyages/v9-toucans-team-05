@@ -70,6 +70,7 @@ form.addEventListener(
       MoveTo ='<p class="DelModalItem" onclick="mvToDir(this.parentNode ,&quot;TD_Inbox&quot;)">Move to Inbox</p>'+
               '<p class="DelModalItem" onclick="mvToDir(this.parentNode,&quot;TD_Today&quot;)">Move to Today</p>';
       TDitems[TDkey] = [item.value, true];
+      checked='checked';
     }else{
       TDitems[TDkey] = [item.value, false];
     }
@@ -78,7 +79,9 @@ form.addEventListener(
       TDtype +
       ' class="custom-control-input ' +
       TDtype +
-      '" id=' +
+      '" ' +
+      checked +
+      " id=" +
       TDkey +
       ' onclick="chItem(this.id)"> <label class="custom-control-label TDcontent" for=' +
       TDkey +
