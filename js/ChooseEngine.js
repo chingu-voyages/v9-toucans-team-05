@@ -1,5 +1,7 @@
+var clickEventType = (( window.ontouchstart!==null ) ? 'click':'touchend');
+
 $(function() {
-  $("#ChooseSearch,#SearchAngle").on("click touchend", function() {
+  $("#ChooseSearch,#SearchAngle").on(clickEventType, function() {
     if ($("#ChooseSearch,#SearchAngle").hasClass("active")) {
       $(".active").removeClass("active");
       $("#Search-engine-modal").hide();
@@ -9,13 +11,13 @@ $(function() {
       $("#search-input").focus();
     }
   });
-  $(document).on('click touchend', function(e) {
+  $(document).on(clickEventType, function(e) {
     if (!$(e.target).closest('#ChooseSearch,#SearchAngle').length) {
       $(".active").removeClass("active");
       $("#Search-engine-modal").hide();
     }
   });
-  $(".searchtype").on("click touchend", function() {
+  $(".searchtype").on(clickEventType, function() {
     var id = $(this).attr("id");
     switch (id) {
       case "bing":
