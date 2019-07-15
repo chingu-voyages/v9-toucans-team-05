@@ -309,7 +309,7 @@ function chItem(v) {
 // functions in itemOptModal
 function editItem(v) {
   v.previousElementSibling.contentEditable = true;
-  v.style.display = "none";
+  v.classList.remove('itemOptActive');
   document.getElementById("TDlist-box").style.height = "";
   var TDkey = v.previousElementSibling.htmlFor;
   //remove htmlFor value to disable label value clickable
@@ -326,7 +326,7 @@ function editItem(v) {
         store();
         v.previousElementSibling.contentEditable = false;
         v.previousElementSibling.style = "";
-        v.previousElementSibling.htmlFor = TDkey;        
+        v.previousElementSibling.htmlFor = TDkey;
       }
     },
     false
