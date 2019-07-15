@@ -234,7 +234,7 @@ function rmTD(v) {
     }
   } else {
     alert("Nothing is Checked! Can you work on tasks?");
-    v.style.display = "none";
+    v.classList.remove('itemOptActive');
   }
   //remove style(height) which is set on itemOptModalToggle
   document.getElementById("TDlist-box").style.height = "";
