@@ -199,21 +199,6 @@ function rmTD(v) {
         del.push(Object.keys(TDitems)[i]);
       }
     }
-    //Make Associative Array named "Done"
-    /*
-    if (TDtype !== "TD_Done") {
-      done = {};
-      del.map(function(i) {
-        TDitems[i][1] = true;
-        done[i] = TDitems[i];
-      });
-      if (localStorage.getItem("TD_Done") !== null) {
-        var DoneList = JSON.parse(localStorage.getItem("TD_Done"));
-        Object.assign(done, DoneList);
-      }
-      localStorage.setItem("TD_Done", JSON.stringify(done));
-    }
-    */
     //If AllLists checked, delete all
     if (del.length == document.TDListbox.length) {
       localStorage.removeItem(TDtype);
@@ -368,19 +353,6 @@ function mvToDir(v,DirToMv) {
 // remove 1 item
 function rmItem(v) {
   var RDkey = v.previousElementSibling.htmlFor;
-  /*  TDdone = {};
-  if (TDtype !== "TD_Done") {
-    if (localStorage.getItem("TD_Done") !== null) {
-      var TDdone = JSON.parse(localStorage.getItem("TD_Done"));
-      TDitems[RDkey][1] = true;
-      TDdone[RDkey] = TDitems[RDkey];
-    } else {
-      TDitems[RDkey][1] = true;
-      TDdone[RDkey] = TDitems[RDkey];
-    }
-    localStorage.setItem("TD_Done", JSON.stringify(TDdone));
-  }
-  */
   delete TDitems[RDkey];
   v.parentNode.remove();
   if (Object.keys(TDitems).length == 0) {
