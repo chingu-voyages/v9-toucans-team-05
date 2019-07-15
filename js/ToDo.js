@@ -73,6 +73,7 @@ form.addEventListener(
       checked='checked';
     }else{
       TDitems[TDkey] = [item.value, false];
+      checked='';
     }
     list.innerHTML +=
       '<div class="custom-control custom-checkbox d-flex TDValue"><input type="checkbox" name =' +
