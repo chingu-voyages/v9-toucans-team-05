@@ -43,16 +43,23 @@ app.get('/', (req, res) => {
           ? ''
           : data.location.country;
       res.render('index',
-        { img: data.urls.raw+"&w=1600",
-          author:data.user.name,
+        { img: 'background-image:url('+data.urls.raw+'&w=1600)',
+          author:'Photo by : '+data.user.name+' / Unsplash</a> ',
           city:city,
           country:country,
-          link:data.links.download
+          link:'<a href='+data.links.download+' target="_blank">'
         }
       );
   })
   .catch(function(err) {
     console.log(err);
+    res.render('index',
+        { img: "background-image:url(https://source.unsplash.com/collection/6809020)",
+          author:"",
+          city:"",
+          country:"",
+          link:""
+        });
   });
   
 })

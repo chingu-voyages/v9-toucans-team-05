@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div id="bg-img" style=background-image:url(<%= img %>)>
+  <div id="bg-img" style=<%= img %>>
     <div class="bg-color container-fluid d-flex flex-column">
 
       <div class="row top-row text-center">
@@ -188,7 +188,7 @@
         <!-- Photo credits/location -->
         <div class="col-xs-12 col-sm-4 Photo-location-and-author justify-content-xs-center">
           <p> <%= city %> <%= country %> </p>
-          <p class="PL-author">  <a href=<%= link %> target="_blank">Photo by : <%= author %> / Unsplash</a> </p>
+          <p class="PL-author">  <%= link %><%= author %> </p>
         </div>
         <!-- Daily quote/mantra -->
         <div class="col-sm-4">
