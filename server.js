@@ -32,19 +32,24 @@ app.get('/', (req, res) => {
   
   fetchURL()
   .then(function(data) {
-    if(typeof(data.location)!=="undefined"){
+    var city = (typeof(data.location)=="undefined") 
+        ? '' 
+        : (typeof(data.location.city)=="undefined")
+          ? ''
+          : data.location.city;
+    var country = (typeof(data.location)=="undefined") 
+        ? '' 
+        : (typeof(data.location.country)=="undefined")
+          ? ''
+          : data.location.country;
       res.render('index',
-      { img: data.urls.raw+"&w=1600",
-        author:data.user.name,
-        location:data.location.city,
-        link:data.links.download});
-    }else{
-      res.render('index',
-      { img: data.urls.raw+"&w=1600",
-        author:data.user.name,
-        location:'',
-        link:data.links.download});
-    }
+        { img: data.urls.raw+"&w=1600",
+          author:data.user.name,
+          city:city,
+          country:country,
+          link:data.links.download
+        }
+      );
   })
   .catch(function(err) {
     console.log(err);

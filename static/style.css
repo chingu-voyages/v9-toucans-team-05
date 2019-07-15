@@ -67,11 +67,13 @@ input {
 }
 
 a{
-  color:rgba(200, 200, 200, 0.9);
+  color:rgba(255, 255, 255, 0.7);
 }
 
 a:hover{
   color:#fff;
+  text-decoration: none;
+  transition: .3s;
 }
 
 /*-----LinksSection----*/
