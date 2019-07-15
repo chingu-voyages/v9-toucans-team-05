@@ -56,14 +56,23 @@ form.addEventListener(
         i++;
       }
     }
-     MoveTo =
-      `<p class="DelModalItem" onclick="mvToDir(this.parentNode,&quot;TD_Today&quot;)">Move to Today</p>`;
-    if (TDtype == "TD_Today") {
-      MoveTo = "";
+    if(TDtype == "TD_Inbox"){
+      MoveTo ='<p class="DelModalItem" onclick="mvToDir(this.parentNode ,&quot;TD_Today&quot;)">Move to Today</p>'+
+              '<p class="DelModalItem" onclick="mvToDir(this.parentNode,&quot;TD_Done&quot;)">Move to Done</p>';
     }
+    if(TDtype == "TD_Today"){
+      MoveTo ='<p class="DelModalItem" onclick="mvToDir(this.parentNode ,&quot;TD_Inbox&quot;)">Move to Inbox</p>'+
+              '<p class="DelModalItem" onclick="mvToDir(this.parentNode,&quot;TD_Done&quot;)">Move to Done</p>';
+    }      
 
     //Store Key&Item
-    TDitems[TDkey] = [item.value, false];
+    if (TDtype=="TD_Done"){
+      MoveTo ='<p class="DelModalItem" onclick="mvToDir(this.parentNode ,&quot;TD_Inbox&quot;)">Move to Inbox</p>'+
+              '<p class="DelModalItem" onclick="mvToDir(this.parentNode,&quot;TD_Today&quot;)">Move to Today</p>';
+      TDitems[TDkey] = [item.value, true];
+    }else{
+      TDitems[TDkey] = [item.value, false];
+    }
     list.innerHTML +=
       '<div class="custom-control custom-checkbox d-flex TDValue"><input type="checkbox" name =' +
       TDtype +
@@ -338,7 +347,9 @@ function mvToDir(v,DirToMv) {
     TDkey += "_e" + i;
     i++;
   }
-  DirToMvItems[TDkey] = [mvContent, false];
+  DirToMvItems[TDkey] = (DirToMv == "TD_Done")
+                    ?  [mvContent, true]
+                    :  [mvContent, false];
   localStorage.setItem(DirToMv, JSON.stringify(DirToMvItems));
   if (TDtype == "TD_Inbox" && Object.keys(TDitems).length == 0) {
     localStorage.removeItem(TDtype);
@@ -396,8 +407,7 @@ function setValues(TDkey) {
         }else{
           //used &quot; instead of '"' to move.
           MoveTo ='<p class="DelModalItem" onclick="mvToDir(this.parentNode,&quot;TD_Today&quot;)">Move to Today</p>'+
-                  '<p class="DelModalItem" onclick="mvToDir(this.parentNode,&quot;TD_Done&quot;)">Move to Done</p>'
-
+                  '<p class="DelModalItem" onclick="mvToDir(this.parentNode,&quot;TD_Done&quot;)">Move to Done</p>';
         }
       }
       if (TDtype == "TD_Today") {
