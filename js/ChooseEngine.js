@@ -22,21 +22,21 @@ $(function() {
         $("#cse-search-box").attr("action", "https://www.bing.com/");
         $("#ChooseSearch").attr(
           "src",
-          "./img/logo/bing_icon-icons.com_62711.svg"
+          "./static/logo/bing_icon-icons.com_62711.svg"
         );
         break;
       case "google":
         $("#cse-search-box").attr("action", "http://google.com/cse");
         $("#ChooseSearch").attr(
           "src",
-          "./img/logo/1492616990-1-google-search-logo-engine-service-suits_83412.svg"
+          "./static/logo/1492616990-1-google-search-logo-engine-service-suits_83412.svg"
         );
         break;
       case "DuckDuckGo":
         $("#cse-search-box").attr("action", "http://duckduckgo.com/");
         $("#ChooseSearch").attr(
           "src",
-          "./img/logo/DuckDuckGo_icon-icons.com_67089.svg"
+          "./static/logo/DuckDuckGo_icon-icons.com_67089.svg"
         );
         break;
     }
