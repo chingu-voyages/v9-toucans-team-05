@@ -32,8 +32,8 @@ git clone https://github.com/chingu-voyages/v9-toucans-team-05.git
 ### Project setup
 ```
 npm install
-(npm i node-fetch express ejs dotenv --save)if it does not work  
 ```
+( if it does not work,  [npm i node-fetch express ejs dotenv --save])  
 then create .env file with following key on your project
 ```
 US_AcsKey = YOUR-UNSPLASH-API-ACCESS-KEY-HERE
