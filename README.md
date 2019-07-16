@@ -1,16 +1,16 @@
 # v9-toucans-team-05  
 https://momentumdash.com/ | Voyage-9 | https://chingu.io/  
-
+![v9-toucans-team-05-img](https://user-images.githubusercontent.com/31202339/61266562-40476380-a7cf-11e9-922d-26941ee10961.png)
 Site published at https://v9-toucans-team-05.herokuapp.com/
 ## About
 We cloned famous Chrome-extension called "Momentum".
 
-## Team Members:  
+## Team Members  
  [Tetsuya A](https://github.com/peppertaro)  
  [Josy](https://github.com/JH1408)  
  [Sarah](https://github.com/smellaphant)  
 
-## Technologies:  
+## Technologies  
  - HTML  
  - CSS  
  - Javascript(partially jQuery)  
