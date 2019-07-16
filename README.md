@@ -32,9 +32,7 @@ git clone https://github.com/chingu-voyages/v9-toucans-team-05.git
 ### Project setup
 ```
 npm install
-npm i node-fetch --save
-npm i express --save
-npm i dotenv
+(npm i node-fetch express ejs dotenv --save)if it does not work  
 ```
 then create .env file with following key on your project
 ```
