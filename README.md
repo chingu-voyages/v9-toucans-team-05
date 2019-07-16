@@ -39,7 +39,7 @@ then create .env file with following key on your project
 US_AcsKey = YOUR-UNSPLASH-API-ACCESS-KEY-HERE
 ```
 
-(If you want to hide key, you should set environment variable on heroku.)
+(If you want to publish it on heroku, you should set environment variable on heroku.)
 ```
 heroku config:set US_AcsKey = YOUR-UNSPLASH-API-ACCESS-KEY-HERE
 ```
