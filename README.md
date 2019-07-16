@@ -5,7 +5,6 @@ Site published at https://v9-toucans-team-05.herokuapp.com/
 ## About
 We cloned famous Chrome-extension called "Momentum".
 
-<<<<<<< HEAD
 ## Team Members  
  [Tetsuya A](https://github.com/peppertaro)  
  [Josy](https://github.com/JH1408)  
@@ -48,7 +47,3 @@ heroku config:set US_AcsKey = YOUR-UNSPLASH-API-ACCESS-KEY-HERE
 ```
 npm start
 ```
-=======
-https://momentumdash.com/ | Voyage-9 | https://chingu.io/
-Site published at https://v9-toucans-team-05.herokuapp.com/
->>>>>>> Update link
