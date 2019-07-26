@@ -3,9 +3,7 @@ const http = require('http'),
  path = require('path'),
  express = require('express'),
  app = express(),
- fs = require('fs'),
- fetch = require('node-fetch'),
- request = require('request');
+ fetch = require('node-fetch');
 
 app.set('views',path.join(__dirname,'./'));
 app.set('view engine','ejs');
@@ -42,7 +40,7 @@ app.get('/', (req, res) => {
         { img: 'background-image:url("'+data.urls.raw+'&w=1600")',
           author:`photo by : <a href=${data.links.html} target="_blank">${data.user.first_name} ${data.user.last_name}</a> / <a href=${data.links.download}>Unsplash</a>`,
           city:city,
-          country:country,
+          country:country
         }
       );
   })
@@ -52,8 +50,7 @@ app.get('/', (req, res) => {
         { img: "background-image:url(https://source.unsplash.com/collection/6809020)",
           author:"",
           city:"",
-          country:"",
-          link:""
+          country:""
         });
   });
 })
