@@ -3,7 +3,9 @@ const http = require('http'),
  path = require('path'),
  express = require('express'),
  app = express(),
- fetch = require('node-fetch');
+ fs = require('fs'),
+ fetch = require('node-fetch'),
+ request = require('request');
 
 app.set('views',path.join(__dirname,'./'));
 app.set('view engine','ejs');
@@ -23,14 +25,8 @@ app.get('/', (req, res) => {
       return url;
     }
     let imgBaseURL=createURL();
-  
-  async function fetchURL() {
-      const res = await fetch(imgBaseURL);
-      data = await res.json();
-      return data;
-    }
-  
-  fetchURL()
+
+  fetchURL(imgBaseURL)
   .then(function(data) {
     var city = (typeof(data.location)=="undefined") 
         ? '' 
@@ -44,8 +40,7 @@ app.get('/', (req, res) => {
           : data.location.country;
       res.render('index',
         { img: 'background-image:url("'+data.urls.raw+'&w=1600")',
-          link:'<a href="'+data.links.download+'" target="_blank">',
-          author:'Photo by : '+data.user.name+' / Unsplash</a> ',
+          author:`photo by : <a href=${data.links.html} target="_blank">${data.user.first_name} ${data.user.last_name}</a> / <a href=${data.links.download}>Unsplash</a>`,
           city:city,
           country:country,
         }
@@ -61,8 +56,29 @@ app.get('/', (req, res) => {
           link:""
         });
   });
-  
 })
+
+async function fetchURL(url) {
+  const res = await fetch(url);
+  data = await res.json();
+  return data;
+}
+
+async function dwnldLink(url){
+  const downloadLink = url+APIkey;
+  console.log(downloadLink);
+  request(
+    {method: 'GET', url: downloadLink, encoding: null},
+    function (error, response, body){
+        if(!error && response.statusCode === 200){
+            fs.writeFileSync('unsplash.jpg', body, 'binary');
+            console.log('this is test')
+        }else if(error){
+          console.log(error);
+        }
+      }
+  );
+}
 
 const server = http.createServer(app);
 // Listen to the App Engine-specified port, or 8080 otherwise
