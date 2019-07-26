@@ -51,7 +51,8 @@ app.get('/', (req, res) => {
           author:"",
           city:"",
           country:""
-        });
+        }
+      );
   });
 })
 
@@ -69,7 +70,6 @@ async function dwnldLink(url){
     function (error, response, body){
         if(!error && response.statusCode === 200){
             fs.writeFileSync('unsplash.jpg', body, 'binary');
-            console.log('this is test')
         }else if(error){
           console.log(error);
         }
