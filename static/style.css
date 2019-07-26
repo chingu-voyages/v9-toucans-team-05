@@ -1016,11 +1016,10 @@ input[type="checkbox"]:checked ~ label.TDcontent {
   font-size:1.2rem;
 }
 
-.PL-author{
+.P_LA{
   font-size:1rem;
   margin-bottom:0;
 }
-
 
 /*--------SetThisToDisplay---------*/
 .itemOptActive,.TDtypeActive,.TDactive{
