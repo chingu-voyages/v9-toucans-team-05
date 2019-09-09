@@ -12,10 +12,10 @@ app.use('/js',express.static(path.join(__dirname,"js")))
 app.use('/img',express.static(path.join(__dirname,"img")))
 
 app.get('/', (req, res) => {
-  function createURL() {
+  createURL = ()=> {
     //API base URL to get random photo
     const collectionID='6809020,6091305',
-    BaseUrl ='https://api.unsplash.com//photos/random/?',
+    BaseUrl ='https://api.unsplash.com/photos/random/?',
     collections ='collections='+collectionID
     options = '&featured=true&orientation=landscape',
     APIkey = '&client_id=' + process.env.US_AcsKey,
@@ -25,26 +25,26 @@ app.get('/', (req, res) => {
     let imgBaseURL=createURL();
 
   fetchURL(imgBaseURL)
-  .then(function(data) {
-    var city = (typeof(data.location)=="undefined") 
+  .then((data)=> {
+    const city = (typeof(data.location)=="undefined") 
         ? '' 
         : (typeof(data.location.city)=="undefined")
           ? ''
           : data.location.city;
-    var country = (typeof(data.location)=="undefined") 
+    const country = (typeof(data.location)=="undefined") 
         ? '' 
         : (typeof(data.location.country)=="undefined")
           ? ''
           : data.location.country;
       res.render('index',
         { img: 'background-image:url("'+data.urls.raw+'&w=1600")',
-          author:`photo by : <a href=${data.links.html} target="_blank">${data.user.first_name} ${data.user.last_name}</a> / <a href=${data.links.download}>Unsplash</a>`,
+          author:`photo by : <a href=${data.user.links.html}?utm_source=MomentumClone/&utm_medium=referral target="_blank">${data.user.first_name} ${data.user.last_name}</a> / <a href=${data.links.download}?utm_source=MomentumClone/&utm_medium=referral target="_blank">Unsplash</a>`,
           city:city,
           country:country
         }
       );
   })
-  .catch(function(err) {
+  .catch((err)=> {
     console.log(err);
     res.render('index',
         { img: "background-image:url(https://source.unsplash.com/collection/6809020)",
@@ -60,21 +60,6 @@ async function fetchURL(url) {
   const res = await fetch(url);
   data = await res.json();
   return data;
-}
-
-async function dwnldLink(url){
-  const downloadLink = url+APIkey;
-  console.log(downloadLink);
-  request(
-    {method: 'GET', url: downloadLink, encoding: null},
-    function (error, response, body){
-        if(!error && response.statusCode === 200){
-            fs.writeFileSync('unsplash.jpg', body, 'binary');
-        }else if(error){
-          console.log(error);
-        }
-      }
-  );
 }
 
 const server = http.createServer(app);
