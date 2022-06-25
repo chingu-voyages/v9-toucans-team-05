@@ -12,7 +12,7 @@
     "dotenv": "^8.0.0",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "unsplash-api": "^1.2.0",
     "unsplash-js": "^5.0.0"
   }
